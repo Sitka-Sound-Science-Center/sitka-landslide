@@ -1,0 +1,17 @@
+[
+	{
+		"dayNumber": 0,
+		"dayName": "Monday",
+		"riskLevel": "low"
+	},
+	{
+		"dayNumber": 1,
+		"dayName": "Tuesday",
+		"riskLevel": "medium"
+	},
+	{
+		"dayNumber": 2,
+		"dayName": "Wednesday",
+		"riskLevel": "low"
+	}
+]

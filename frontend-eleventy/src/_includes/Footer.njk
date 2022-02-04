@@ -1,0 +1,15 @@
+<header class="footer">
+	<div class="footer-partners">
+		{% for logo in footer.logos %}
+		<a class="partner" href="{{logo.permalink}}">
+			<div class="partner-image">{% image logo.imageurl, "", "120px" %}</div>
+			<div class="partner-text">{{logo.text}}</div>
+		</a>
+		{% endfor %}
+	</div>
+	<div class="footer-links">
+		{% for link in footer.links %}
+		<a class="footer-link" href="{{link.permalink}}">{{link.text}}</a>
+		{% endfor %}
+	</div>
+</header>

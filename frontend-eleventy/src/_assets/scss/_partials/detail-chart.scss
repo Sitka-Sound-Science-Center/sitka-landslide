@@ -1,0 +1,80 @@
+.chart {
+	position: relative;
+}
+
+.tick-y-html {
+	position: absolute;
+	font-size: 16px;
+	transform: translateY(-50%);
+	font-family: inherit;
+	position: absolute;
+}
+
+.tick-x-html {
+	position: absolute;
+	font-size: 16px;
+	font-family: inherit;
+	position: absolute;
+	transform: translateX(-50%);
+}
+
+svg {
+	max-width: 100%;
+}
+
+.tick-x {
+	text-anchor: middle;
+}
+
+.line-y {
+	stroke: rgb(0 0 0 / 20%);
+	stroke-width: 1;
+}
+
+text {
+	font-size: 14px;
+	fill: #999;
+	font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+		helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+line {
+	shape-rendering: crispEdges;
+}
+
+.annotation {
+	font-size: 16px;
+	fill: rgb(22 22 22);
+	text-anchor: end;
+	font-weight: 600;
+}
+
+.annotation-down {
+	transform: translate(-57px, -43px);
+}
+
+.annotation-up {
+	transform: translate(-57px, 55px);
+}
+
+.annotation,
+.arrow {
+	paint-order: stroke;
+	stroke: #ffffff;
+	stroke-width: 2px;
+	stroke-linecap: butt;
+	stroke-linejoin: miter;
+}
+
+.noevent {
+	fill: #000;
+	fill-opacity: 0.1;
+}
+
+.event {
+	fill: #e6194b;
+	fill-opacity: 0.5;
+	stroke: #e6194b;
+	stroke-width: 1;
+	stroke-opacity: 1;
+}

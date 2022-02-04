@@ -1,0 +1,30 @@
+---
+layout: layouts/base.njk
+css: home.css
+js: home.js
+---
+<section class="section-current">
+  <h2>Current risk</h2>
+  {% include "CurrentRisk.njk" %}
+</section>
+
+<section class="section-tfhour">
+  <h2>24 hour forecast</h2>
+  {% include "TfRiskMessage.njk" %}
+  {% renderFile "src/_includes/TfRiskChart.11ty.js", blocks=tfhour.blocks, colors=colors %}
+</section>
+
+<section class="section-resources">
+  <h2>Resources</h2>
+  {% for link in links %}
+    {% include "Resource.njk" %}
+  {% endfor %}
+</section>
+
+<section class="section-days">
+  <h2>3 day forecast</h2>
+  {% for day in days %}
+    {% include "DayRisk.njk" %} 
+  {% endfor %}
+</section>
+ 
