@@ -13,16 +13,27 @@ export default function Home() {
 
   useEffect(() => {
     setPageIsMounted(true);
-    const map = new mapboxgl.Map({
-      container: "map",
-      style: "mapbox://styles/azavea/ckyygnnq4000516l6sqgqm3fr",
-    });
+    if (!pageIsMounted) {
+      const map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/azavea/ckz3jjuxd001x15nr01wh9fve",
+        center: [-135.32, 57.0531], // starting position [lng, lat]
+        zoom: 10, // starting zoom
+      });
+      var nav = new mapboxgl.NavigationControl({
+        showCompass: true,
+        showZoom: true,
+      });
+
+      map.addControl(nav, "bottom-right");
+    }
   }, []);
+
   return (
     <div className={styles.container}>
       <style>{`
         .map {
-         height: 400px;
+         height: 800px;
          width: 100%;
         }
       `}</style>
