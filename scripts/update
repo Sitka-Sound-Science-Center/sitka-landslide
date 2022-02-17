@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+function usage() {
+    echo -n \
+        "Usage: $(basename "$0")
+Update project dependencies.
+"
+}
+
+if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
+    if [ "${1:-}" = "--help" ]; then
+        usage
+    else
+        source "$(dirname $0)"/activate_yvm
+        pushd frontend
+        echo "Updating dependencies"
+        yarn install
+    fi
+fi
