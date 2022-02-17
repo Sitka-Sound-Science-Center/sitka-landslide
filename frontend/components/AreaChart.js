@@ -70,11 +70,7 @@ const AreaChart = ({ data, height, width }) => {
     <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
       {ticksY.map((tick, i) => {
         return (
-          <g
-            key={i}
-            className="tick"
-            transform={`translate(${margin.left},${0})`}
-          >
+          <g key={i} className="tick" transform={`translate(${margin.left},${0})`}>
             <line
               className="line-y"
               x2={width - margin.right - margin.left}
@@ -86,17 +82,8 @@ const AreaChart = ({ data, height, width }) => {
       })}
       {labelsY.map((label, i) => {
         return (
-          <g
-            key={i}
-            className="tick"
-            transform={`translate(${margin.left},${0})`}
-          >
-            <text
-              dy="0.2em"
-              className="tick-y"
-              x={-30}
-              y={scaleY(label.position)}
-            >
+          <g key={i} className="tick" transform={`translate(${margin.left},${0})`}>
+            <text dy="0.2em" className="tick-y" x={-30} y={scaleY(label.position)}>
               {label.text}
             </text>
           </g>
@@ -127,12 +114,7 @@ const AreaChart = ({ data, height, width }) => {
       {ticksX.map((tick, i) => {
         return (
           <g key={i} className="tick">
-            <text
-              dy="2"
-              className="tick-x"
-              x={scaleX(i)}
-              y={height - margin.bottom + 20}
-            >
+            <text dy="2" className="tick-x" x={scaleX(i)} y={height - margin.bottom + 20}>
               {tick.time}
             </text>
           </g>
