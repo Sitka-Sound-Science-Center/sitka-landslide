@@ -8,7 +8,7 @@ import Link from "next/link";
 import AreaChart from "/components/AreaChart";
 
 export async function getStaticProps() {
-  // const res = await fetch("http://localhost:3000/api/today");
+  // const res = await fetch("http://localhost:3008/api/today");
   const source = path.join(process.cwd(), "/data/today.json");
   const data = JSON.parse(fs.readFileSync(source, "utf8"));
 

@@ -13,7 +13,7 @@ Currently this project consists only of a Next.js front-end. It is meant to be r
 
 1. Make sure you have `nvm` and `yvm` installed (see links in [Requirements](#requirements))
 1. Run `./scripts/setup`
-1. Run `./scripts/server`. The dev server will be at http://localhost:3000.
+1. Run `./scripts/server`. The dev server will be at http://localhost:3008.
 
 Note that it is recommended to configure your editor to auto-format your code via Prettier on save.
 
@@ -25,7 +25,7 @@ Note that it is recommended to configure your editor to auto-format your code vi
 
 | Port                          | Service                                               |
 | ----------------------------- | ----------------------------------------------------- |
-| [3000](http://localhost:3000) | [Next.js](https://nextjs.org/)-based frontend application |
+| [3008](http://localhost:3008) | [Next.js](https://nextjs.org/)-based frontend application |
 
 ## Scripts
 
