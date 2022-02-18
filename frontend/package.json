@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3008",
+    "analyze": "cross-env ANALYZE=true next build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -10,6 +11,8 @@
     "fix-format": "prettier --write '{pages,components}/*.{js,jsx,json,css}'"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^12.1.0",
+    "cross-env": "^7.0.3",
     "d3": "^7.3.0",
     "mapbox-gl": "^2.6.1",
     "next": "12.1",
