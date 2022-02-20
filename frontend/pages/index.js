@@ -44,13 +44,13 @@ export default function Home({ data }) {
             </Link>
           </li>
           <li>
-            <Link href="/map">
+            <Link prefetch={false} href="/map">
               <a>Map view</a>
             </Link>
           </li>
         </ul>
         <div id="chart">
-          <AreaChart data={data.hour24} height={400} width={500} />
+          <AreaChart data={data.hour24} height={400} width={1200} />
         </div>
       </main>
       <footer className={styles.footer}></footer>

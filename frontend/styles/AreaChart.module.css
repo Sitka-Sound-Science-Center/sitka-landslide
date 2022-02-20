@@ -1,0 +1,40 @@
+.chart {
+  position: relative;
+  max-width: 100%;
+}
+
+.labels {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
+
+.svg {
+  max-width: 100%;
+}
+
+.textY {
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+.textX {
+  position: absolute;
+  bottom: 0;
+}
+
+.textX:last-child {
+  display: none;
+}
+
+.area {
+  fill-opacity: 0.5;
+  shape-rendering: crispEdges;
+}
+
+.lineY {
+  stroke: rgb(0 0 0 / 20%);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
