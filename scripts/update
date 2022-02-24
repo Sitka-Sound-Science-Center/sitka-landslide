@@ -16,6 +16,6 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         source "$(dirname $0)"/activate_yvm
         pushd frontend
         echo "Updating dependencies"
-        yarn install
+        yarn install --frozen-lockfile
     fi
 fi
