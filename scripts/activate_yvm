@@ -9,10 +9,11 @@ nvm_script="$HOME/.nvm/nvm.sh"
 if [ -f "$nvm_script" ]; then
     source "$nvm_script"
 fi
-if ! nvm list | grep -q "$(cat .nvmrc)"; then
+if ! nvm use; then
+    # If just running 'nvm use' didn't work, run 'nvm install' then try again
     nvm install "$(cat .nvmrc)"
+    nvm use
 fi
-nvm use
 
 if [ "$(command -v yvm &>/dev/null)" ]; then
     echo "yvm command not found. Is yvm installed?"
