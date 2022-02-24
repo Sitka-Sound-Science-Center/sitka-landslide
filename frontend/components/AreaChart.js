@@ -2,11 +2,13 @@ import PropTypes from "prop-types";
 import { scaleLinear, scaleTime, area, line, curveLinear } from "d3";
 import styles from "/styles/AreaChart.module.css";
 
-const AreaChart = ({ data, height, width }) => {
+const AreaChart = ({ data }) => {
+  const height = 400;
+  const width = 800;
   const margin = { top: 1, right: 0, bottom: 1, left: 0 };
 
-  const blocksForTfHours = data.map((block, i) => {
-    return { ...block, ...{ id: i } };
+  const hours = data.map((hour, i) => {
+    return { ...hour, ...{ id: i } };
   });
 
   const minY = 0;
@@ -24,13 +26,13 @@ const AreaChart = ({ data, height, width }) => {
 
   const ticksY = [0, 0.333, 0.666, 1];
 
-  const numberOfblocksForTfHours = blocksForTfHours.length - 1;
+  const numberOfHours = hours.length - 1;
 
   const scaleX = scaleTime()
-    .domain([0, numberOfblocksForTfHours])
+    .domain([0, numberOfHours])
     .range([margin.left, width - margin.right]);
 
-  const ticksX = blocksForTfHours;
+  const ticksX = hours;
 
   const createArea = area()
     .x((d) => scaleX(d.id))
@@ -45,26 +47,26 @@ const AreaChart = ({ data, height, width }) => {
 
   const lineSegments = [];
 
-  for (let i = 0; i < numberOfblocksForTfHours; i++) {
-    lineSegments.push(createLine(blocksForTfHours.slice(i, i + 2)));
+  for (let i = 0; i < numberOfHours; i++) {
+    lineSegments.push(createLine(hours.slice(i, i + 2)));
   }
 
   const areaSegments = [];
 
-  for (let i = 0; i < numberOfblocksForTfHours; i++) {
-    areaSegments.push(createArea(blocksForTfHours.slice(i, i + 2)));
+  for (let i = 0; i < numberOfHours; i++) {
+    areaSegments.push(createArea(hours.slice(i, i + 2)));
   }
 
   function getRiskColor(riskLevel) {
     switch (riskLevel) {
-      case "low":
-        return "#068677";
+      case 0:
+        return "var(--risk0)";
         break;
-      case "medium":
-        return "#ECCA51";
+      case 1:
+        return "var(--risk1)";
         break;
-      case "high":
-        return "#D3354F";
+      case 2:
+        return "var(--risk2)";
         break;
       default:
         return "#666";
@@ -81,8 +83,8 @@ const AreaChart = ({ data, height, width }) => {
     <div className={styles.chart}>
       <svg
         preserveAspectRatio="none"
-        width={width}
-        height={height}
+        width="100%"
+        height="100%"
         viewBox={`0 0 ${width} ${height}`}
         className={styles.svg}
       >
@@ -160,8 +162,6 @@ const AreaChart = ({ data, height, width }) => {
             ></path>
           ))}
         </g>
-        <style>{`
-        `}</style>
       </svg>
       <div className={styles.labels}>
         {labelsY.map((label, i) => {
@@ -194,8 +194,6 @@ const AreaChart = ({ data, height, width }) => {
 
 AreaChart.propTypes = {
   data: PropTypes.array,
-  height: PropTypes.number,
-  width: PropTypes.number,
 };
 
 export default AreaChart;

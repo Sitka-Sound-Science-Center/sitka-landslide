@@ -1,0 +1,35 @@
+.footer {
+  background-color: var(--darkblue);
+  padding: var(--space-300);
+}
+
+.logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: var(--space-300);
+}
+
+.logo {
+  text-align: center;
+  color: #fff;
+  font-weight: var(--weight-bold);
+}
+
+.logoimage {
+}
+
+.logotext {
+}
+
+.links {
+  text-align: center;
+}
+
+.link {
+  display: inline-block;
+  color: #fff;
+  margin-right: var(--space-100);
+}
+
+.linktext {
+}

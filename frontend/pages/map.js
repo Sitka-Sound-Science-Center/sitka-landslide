@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import mapboxgl from "!mapbox-gl";
 import { useState, useEffect } from "react";
@@ -10,20 +8,74 @@ export default function Home() {
   mapboxgl.accessToken = "pk.eyJ1IjoiYXphdmVhIiwiYSI6IkFmMFBYUUUifQ.eYn6znWt8NzYOa3OrWop8A";
 =======
   mapboxgl.accessToken =
+<<<<<<< HEAD
     "pk.eyJ1IjoiYXphdmVhIiwiYSI6IkFmMFBYUUUifQ.eYn6znWt8NzYOa3OrWop8A";
 >>>>>>> fda3315 (Use nivo for detail chart)
+=======
+    "pk.eyJ1IjoibGtuYXJmIiwiYSI6IjhjbGg4RUkifQ.-lS6mAkmR3SVh-W4XwQElg";
+>>>>>>> e8dfc37 (Continuing frontend development)
 
-  const [pageIsMounted, setPageIsMounted] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setPageIsMounted(true);
-    if (!pageIsMounted) {
+    setMounted(true);
+    if (!mounted) {
       const map = new mapboxgl.Map({
         container: "map",
-        style: "mapbox://styles/azavea/ckz3jjuxd001x15nr01wh9fve",
-        center: [-135.32, 57.0531], // starting position [lng, lat]
-        zoom: 10, // starting zoom
+        style: "mapbox://styles/lknarf/cl0pf3asg000114nt5jepzs6s",
+        center: [-135.32, 57.0531],
+        minZoom: 8,
+        zoom: 10,
+        maxZoom: 15,
+        hash: true,
       });
+
+      map.on("load", function () {
+        map.addSource("raster-risk", {
+          type: "raster",
+          tiles: [
+            window.location.origin +
+              "/images/tiles/risk-purple/{z}/{x}/{y}.png",
+          ],
+          minzoom: 8,
+          maxzoom: 15,
+          tileSize: 512,
+        });
+
+        map.addLayer({
+          id: "sky",
+          type: "sky",
+          paint: {
+            "sky-type": "atmosphere",
+            "sky-atmosphere-sun": [0.0, 0.0],
+            "sky-atmosphere-sun-intensity": 15,
+          },
+        });
+
+        map.setPaintProperty("satellite", "raster-saturation", -0.666);
+
+        map.addLayer({
+          id: "simple-tiles",
+          type: "raster",
+          source: "raster-risk",
+          minzoom: 0,
+          maxzoom: 20,
+          paint: {
+            "raster-resampling": "nearest",
+            "raster-hue-rotate": 50,
+            "raster-opacity": [
+              "interpolate",
+              ["exponential", 0.85],
+              ["zoom"],
+              12,
+              0.75,
+              18,
+              0.65,
+            ],
+          },
+        });
+      });
+
       var nav = new mapboxgl.NavigationControl({
         showCompass: true,
         showZoom: true,
@@ -38,7 +90,7 @@ export default function Home() {
 >>>>>>> fda3315 (Use nivo for detail chart)
 
   return (
-    <div className={styles.container}>
+    <div>
       <style>{`
         .map {
          height: 800px;
@@ -59,14 +111,17 @@ export default function Home() {
 >>>>>>> fda3315 (Use nivo for detail chart)
       </Head>
 
-      <main className={styles.main}>
+      <main className="main">
         <div id="map" className="map"></div>
       </main>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
       {/*<footer className={styles.footer}></footer>*/}
 >>>>>>> fda3315 (Use nivo for detail chart)
+=======
+>>>>>>> e8dfc37 (Continuing frontend development)
     </div>
   );
 }

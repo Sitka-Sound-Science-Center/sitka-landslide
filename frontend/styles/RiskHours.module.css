@@ -1,0 +1,13 @@
+.section {
+	width: 100%;
+	box-shadow: var(--shadow-500);
+	padding: var(--space-200);
+	background-color: var(--white);
+	margin-bottom: var(--space-300);
+}
+
+.title {
+	font-weight: var(--weight-heavy);
+	font-size: var(--size-600);
+	margin-bottom: var(--space-200);
+}

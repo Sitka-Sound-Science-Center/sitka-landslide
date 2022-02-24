@@ -1,0 +1,19 @@
+.section {
+	margin-bottom: var(--space-300);
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.title {
+	font-weight: var(--weight-heavy);
+	font-size: var(--size-600);
+	margin-bottom: var(--space-100);
+}
+
+.risk {
+	font-size: var(--size-900);
+	font-weight: var(--weight-black);
+	color: var(--heading);
+}

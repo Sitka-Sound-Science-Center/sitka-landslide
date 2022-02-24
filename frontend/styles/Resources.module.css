@@ -1,0 +1,25 @@
+.resources {
+  width: 100%;
+}
+
+.section {
+  font-weight: var(--weight-black);
+  font-size: var(--size-800);
+  margin-bottom: var(--space-500);
+}
+
+.resource {
+  display: block;
+  padding: var(--space-500);
+  color: inherit;
+  margin-bottom: var(--space-300);
+}
+
+.title {
+  font-weight: var(--weight-bold);
+  font-size: var(--size-700);
+  margin-bottom: var(--space-200);
+}
+
+.description {
+}

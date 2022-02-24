@@ -1,0 +1,63 @@
+.header {
+  background-color: var(--darkblue);
+  padding: var(--space-300);
+  display: flex;
+  color: var(--white);
+}
+
+.left {
+  flex: 1;
+}
+
+.brand {
+  font-weight: var(--weight-medium);
+  color: var(--white);
+}
+
+.right {
+  text-align: right;
+  flex: 1;
+}
+
+.button {
+  color: white;
+  border: none;
+  height: var(--space-700);
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  margin-top: -10px;
+  background: transparent;
+}
+
+.buttonopen {
+  background: rgb(255 255 255 / 20%);
+}
+
+.menucontainer {
+  position: relative;
+}
+
+.menu {
+  background: var(--white);
+  z-index: 100;
+  position: absolute;
+  right: 0;
+  transform: translateY(100%);
+  bottom: 0;
+  display: none;
+  box-shadow: var(--shadow-500);
+}
+
+.menuopen {
+  display: block;
+}
+
+.menu a {
+  display: block;
+  padding: var(--space-200);
+}
+
+.menu a:not(:last-child) {
+  border-bottom: 1px solid var(--gray-300);
+}

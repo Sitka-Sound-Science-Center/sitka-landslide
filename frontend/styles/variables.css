@@ -1,0 +1,56 @@
+:root {
+  --darkblue: #13151a;
+  --risk0: #068677;
+  --risk1: #ecca51;
+  --risk2: #d3354f;
+  --heading: #222;
+  --text: #444;
+  --white: #fff;
+  --link: #2667d9;
+  --background-accent: #edeff1;
+
+  --gray-900: #ced1d5;
+  --gray-800: #d3d6d9;
+  --gray-700: #d9dbde;
+  --gray-600: #dee0e3;
+  --gray-500: #e4e5e7;
+  --gray-400: #e9ebec;
+  --gray-300: #eff0f1;
+  --gray-200: #f4f5f6;
+  --gray-100: #fafafa;
+
+  --space-900: 36px;
+  --space-800: 32px;
+  --space-700: 28px;
+  --space-600: 24px;
+  --space-500: 20px;
+  --space-400: 16px;
+  --space-300: 12px;
+  --space-200: 8px;
+  --space-100: 4px;
+
+  --size-900: 36px;
+  --size-800: 21px;
+  --size-700: 18px;
+  --size-600: 16px;
+  --size-500: 14px;
+
+  --weight-black: 900;
+  --weight-heavy: 800;
+  --weight-bold: 700;
+  --weight-medium: 500;
+  --weight-normal: 400;
+
+  --shadow-500: 0 0 2px rgb(0 0 0 / 0.25);
+
+  --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  :root {
+    --risk0: color(display-p3 0 0.485 0.4);
+    --risk1: color(display-p3 0.9 0.709 0);
+    --risk2: color(display-p3 0.875 0 0.103);
+  }
+}

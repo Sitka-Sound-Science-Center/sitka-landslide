@@ -1,0 +1,23 @@
+.understanding {
+  width: 100%;
+}
+
+.section {
+  font-weight: var(--weight-black);
+  font-size: var(--size-800);
+  margin-bottom: var(--space-500);
+}
+
+.resource {
+  margin-bottom: var(--space-300);
+  width: 100%;
+}
+
+.title {
+  font-weight: var(--weight-bold);
+  font-size: var(--size-700);
+  margin-bottom: var(--space-200);
+}
+
+.description {
+}
