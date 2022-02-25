@@ -1,0 +1,12 @@
+{
+  "name": "rainfall",
+  "version": "1.0.0",
+  "description": "Sitka rainfall downloader",
+  "main": "rainfall.js",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "axios": "0.26.0",
+    "luxon": "2.3.1"
+  }
+}
