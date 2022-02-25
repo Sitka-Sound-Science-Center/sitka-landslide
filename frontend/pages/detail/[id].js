@@ -9,7 +9,7 @@ import { useState, useRef } from "react";
 import ScatterChart from "/components/ScatterChart";
 
 export async function getStaticPaths() {
-  // const res = await fetch("http://localhost:3000/api/detail/all");
+  // const res = await fetch("http://localhost:3008/api/detail/all");
   // const data = await res.json();
 
   const source = path.join(process.cwd(), "/data/all.json");
@@ -23,13 +23,13 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const id = params.id;
-  // const res1 = await fetch("http://localhost:3000/api/3dayhistory");
+  // const res1 = await fetch("http://localhost:3008/api/3dayhistory");
   // const historicalData = await res1.json();
 
   const historicalSource = path.join(process.cwd(), "/data/historical.json");
   const historicalData = JSON.parse(fs.readFileSync(historicalSource, "utf8"));
 
-  // const res2 = await fetch(`http://localhost:3000/api/detail/${id}`);
+  // const res2 = await fetch(`http://localhost:3008/api/detail/${id}`);
   // const activeData = await res2.json();
 
   const activeData = {

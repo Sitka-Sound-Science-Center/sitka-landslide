@@ -1,0 +1,26 @@
+# Reusable snippet for loading the Node and Yarn versions in other scripts.
+# Not intended to be run directly.
+
+if [ "$(command -v nvm &>/dev/null)" ]; then
+    echo "nvm command not found. Is nvm installed?"
+    exit 1
+fi
+nvm_script="$HOME/.nvm/nvm.sh"
+if [ -f "$nvm_script" ]; then
+    source "$nvm_script"
+fi
+if ! nvm use; then
+    # If just running 'nvm use' didn't work, run 'nvm install' then try again
+    nvm install "$(cat .nvmrc)"
+    nvm use
+fi
+
+if [ "$(command -v yvm &>/dev/null)" ]; then
+    echo "yvm command not found. Is yvm installed?"
+    exit 1
+fi
+yvm_script="$HOME/.yvm/yvm.sh"
+if [ -f "$yvm_script" ]; then
+    source "$yvm_script"
+fi
+yvm use

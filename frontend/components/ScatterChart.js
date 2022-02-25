@@ -1,22 +1,12 @@
 import PropTypes from "prop-types";
 
-import {
-  select,
-  selectAll,
-  scaleLinear,
-  scaleTime,
-  axisLeft,
-  create,
-  extent,
-} from "d3";
+import { select, selectAll, scaleLinear, scaleTime, axisLeft, create, extent } from "d3";
 
 const ScatterChart = ({ historicalData, activeData, height, width }) => {
   const margin = { top: 30, right: 10, bottom: 30, left: 30 };
 
   const extentX = extent(historicalData.map((d) => d.precip_mm_max3hr));
-  const extentY = extent(
-    historicalData.map((d) => d.precip_mm_max3hr)
-  ).reverse();
+  const extentY = extent(historicalData.map((d) => d.precip_mm_max3hr)).reverse();
 
   const scaleY = scaleLinear()
     .domain(extentY)
@@ -39,9 +29,7 @@ const ScatterChart = ({ historicalData, activeData, height, width }) => {
 
   const ticksXCount = 4;
   const minX = parseInt(historicalData[0].day.split("-")[0]);
-  const maxX = parseInt(
-    historicalData[historicalData.length - 1].day.split("-")[0]
-  );
+  const maxX = parseInt(historicalData[historicalData.length - 1].day.split("-")[0]);
   const gapX = Math.floor((maxX - minX) / ticksXCount);
 
   const ticksX = [];
@@ -69,11 +57,7 @@ const ScatterChart = ({ historicalData, activeData, height, width }) => {
           />
           {ticksY.map((tick, i) => {
             return (
-              <g
-                key={i}
-                className="tick"
-                transform={`translate(${margin.left},${0})`}
-              >
+              <g key={i} className="tick" transform={`translate(${margin.left},${0})`}>
                 <text dy="0.2em" className="tick-y" x={-30} y={scaleY(tick)}>
                   {tick}
                 </text>
@@ -152,11 +136,7 @@ const ScatterChart = ({ historicalData, activeData, height, width }) => {
               )}
             </g>
             <text
-              className={
-                arrowDown
-                  ? "annotation annotation-down"
-                  : "annotation annotation-up"
-              }
+              className={arrowDown ? "annotation annotation-down" : "annotation annotation-up"}
               x={scaleX(new Date(dataActive.timestamp))}
               dy={scaleY(dataActive.precip_mm_max3hr)}
             >
@@ -166,14 +146,8 @@ const ScatterChart = ({ historicalData, activeData, height, width }) => {
               className={arrowDown ? "arrow-down" : "arrow-up"}
               transform={`
                     translate(
-                      ${
-                        scaleX(new Date(dataActive.timestamp)) -
-                        (arrowDown ? 49 : 49)
-                      }, 
-                      ${
-                        scaleY(dataActive.precip_mm_max3hr) -
-                        (arrowDown ? 48 : -15)
-                      }
+                      ${scaleX(new Date(dataActive.timestamp)) - (arrowDown ? 49 : 49)},
+                      ${scaleY(dataActive.precip_mm_max3hr) - (arrowDown ? 48 : -15)}
                     ) 
                   `}
               d={

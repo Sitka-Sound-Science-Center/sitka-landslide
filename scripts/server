@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+function usage() {
+    echo -n \
+        "Usage: $(basename "$0")
+Start application.
+"
+}
+
+if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
+    if [ "${1:-}" = "--help" ]; then
+        usage
+    else
+        source "$(dirname $0)"/activate_yvm
+        pushd frontend
+        yarn run dev
+    fi
+fi
