@@ -58,60 +58,40 @@ const landslideRisk = (rainfall) => {
   }
 };
 
-// Download observed 3hr rainfall totals over the past 24 hrs from the Sitka airport weather station
-const getPast24hrRainfall = async () => {
-  // Get the data
-  const mesoResponse = await axios
-    .get(`${MESOWEST_API}/stations/timeseries`, {
-      params: {
-        token: MESOWEST_TOKEN,
-        stid: "PASI", // Sitka airport station ID
-        vars: "precip_accum_three_hour",
-        recent: "1440", // Observations within the past 24 hours (1440 minutes)
-        obtimezone: "local",
-      },
-    })
-    .catch(logRequestError);
-
-  console.log("HMM", mesoResponse)
-  // Parse results into an array of [timestamp, value] pairs
-  const data = mesoResponse.data.STATION[0].OBSERVATIONS;
-  const obs = data.date_time.map((time, i) => [time, data.precip_accum_three_hour_set_1[i]]);
-
-  return obs.map(([time, rainfall]) => ({
-    timestamp: toLocalTimestamp(time),
-    precip: rainfall,
-    risk: landslideRisk(rainfall),
-  }));
-};
-
-// Download observed 3hr rainfall total at the Sitka airport weather station over the past 3 hours
-const getPast3hrRainfall = async () => {
+// Download observed 3hr rainfall total at the Sitka airport weather station over the past 6 hours
+const getPastRainfall = async () => {
   const mesoResponse = await axios.get(`${MESOWEST_API}/stations/precip`, {
     params: {
       token: MESOWEST_TOKEN,
       stid: "PASI", // Sitka airport station ID
       pmode: "last",
-      accum_hours: 3,
+      accum_hours: "3,6",
       obtimezone: "local",
     },
   });
 
-  // There's only one data point, but it's nested deeply
-  const data = mesoResponse.data.STATION[0].OBSERVATIONS.precipitation[0];
+  // Pull the observations out from the depths of the response
+  const data = mesoResponse.data.STATION[0].OBSERVATIONS.precipitation;
+  const threeHourObs = data.find((d) => d.accum_hours === 3);
+  const sixHourObs = data.find((d) => d.accum_hours === 6);
+  // Calculate risk based on the highest 3-hour precip within the past 6 hours
+  const riskPrecip = Math.max(threeHourObs.total, sixHourObs.total - threeHourObs.total);
 
   return {
-    timestamp: toLocalTimestamp(data.last_report),
-    precip: data.total,
-    risk: landslideRisk(data.total),
+    timestamp: toLocalTimestamp(threeHourObs.last_report),
+    precip: threeHourObs.total,
+    riskPrecip: riskPrecip,
+    risk: landslideRisk(riskPrecip),
   };
 };
 
 // Download predicted 3hr rainfall amounts NWS from the grid cell containing Sitka airport
-const getForecastRainfall = async () => {
-  const nwsResponse = await axios.get(NWS_API, {
-    headers: { "User-Agent": NWS_USERAGENT },
-  }).catch(logRequestError);
+const getForecastRainfall = async (observed) => {
+  const nwsResponse = await axios
+    .get(NWS_API, {
+      headers: { "User-Agent": NWS_USERAGENT },
+    })
+    .catch(logRequestError);
 
   // Get precip values from response, keeping only ones with a 3-hour window
   const data = nwsResponse.data.properties.quantitativePrecipitation.values.filter((f) =>
@@ -122,34 +102,34 @@ const getForecastRainfall = async () => {
     // The timestamp format is an ISO date string plus an interval. We only want the datetime.
     timestamp: toLocalTimestamp(f.validTime.split("/")[0]),
     precip: f.value,
-    risk: landslideRisk(f.value),
   }));
   // Filter out forecasts periods that are fully in the past (i.e. started more than 3 hours ago)
   const futureForecasts = forecasts.filter(
     (f) => DateTime.fromISO(f.timestamp) > DateTime.now().minus({ hours: 3 })
   );
-  return futureForecasts;
+
+  // Get the rainfall amounts, with the most recent observation prepended
+  const prevPrecip = [observed].concat(futureForecasts.map((f) => f.precip));
+  // For each forecast, use the higher of its own rainfall amount or the previous one to
+  // calculate risk.
+  const riskForecasts = futureForecasts.map((f, i) => {
+    const riskPrecip = Math.max(f.precip, prevPrecip[i]);
+    return {
+      ...f,
+      riskPrecip,
+      risk: landslideRisk(riskPrecip),
+    };
+  });
+  return riskForecasts;
 };
 
-console.log("MesoWest time series, 3-hour precip for past 24 hours:");
-const past = await getPast24hrRainfall();
-past.forEach((o) => console.log(o));
+const observed = await getPastRainfall();
+const forecast = await getForecastRainfall(observed.precip);
+if (observed && forecast) {
+  const result = {
+    observed,
+    forecast,
+  };
 
-console.log("MesoWest precip, past 3 hours:");
-const current = await getPast3hrRainfall();
-console.log(current);
-
-console.log("NWS 3-hour quantitative precip forecasts:");
-const future = await getForecastRainfall();
-future.forEach((o) => console.log(o));
-
-// console.log(
-//   JSON.stringify(
-//     {
-//       current: await getPast3hrRainfall(),
-//       forecast: await getForecastRainfall(),
-//     },
-//     null,
-//     2
-//   )
-// );
+  console.log(JSON.stringify(result, null, 2));
+}
