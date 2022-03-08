@@ -86,6 +86,7 @@ const getPastRainfall = async () => {
 };
 
 // Download predicted 3hr rainfall amounts NWS from the grid cell containing Sitka airport
+// The argument is the past two 3hr totals, as an array
 const getForecastRainfall = async (observed) => {
   const nwsResponse = await axios
     .get(NWS_API, {
@@ -103,17 +104,18 @@ const getForecastRainfall = async (observed) => {
     timestamp: toLocalTimestamp(f.validTime.split("/")[0]),
     precip: f.value,
   }));
+
   // Filter out forecasts periods that are fully in the past (i.e. started more than 3 hours ago)
   const futureForecasts = forecasts.filter(
     (f) => DateTime.fromISO(f.timestamp) > DateTime.now().minus({ hours: 3 })
   );
 
-  // Get the rainfall amounts, with the most recent observation prepended
-  const prevPrecip = [observed].concat(futureForecasts.map((f) => f.precip));
-  // For each forecast, use the higher of its own rainfall amount or the previous one to
-  // calculate risk.
+  // Get the rainfall amounts, with the most recent observations prepended, then for each
+  // forecast, calculate risk based on the highest rainfall amount from the period in
+  // question or the two previous 3-hour chunks.
+  const prevPrecip = observed.concat(futureForecasts.map((f) => f.precip));
   const riskForecasts = futureForecasts.map((f, i) => {
-    const riskPrecip = Math.max(f.precip, prevPrecip[i]);
+    const riskPrecip = Math.max(f.precip, prevPrecip[i], prevPrecip[i + 1]);
     return {
       ...f,
       riskPrecip,
@@ -124,7 +126,11 @@ const getForecastRainfall = async (observed) => {
 };
 
 const observed = await getPastRainfall();
-const forecast = await getForecastRainfall(observed.precip);
+// Pass the observed amounts to the forecast function for use in the look-back of the first
+// couple forecast periods. Note that 'riskPrecip' could be the earlier observation or it could
+// be a copy of the most recent one, depending on which was higher, but since the calculations
+// just wants to know the max, it doesn't matter.
+const forecast = await getForecastRainfall([observed.riskPrecip, observed.precip]);
 if (observed && forecast) {
   const result = {
     observed,
