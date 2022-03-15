@@ -27,22 +27,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-<<<<<<< HEAD:frontend/pages/detail/[id].js
-  const id = params.id;
-<<<<<<< HEAD
-  // const res1 = await fetch("http://localhost:3008/api/3dayhistory");
-  // const historicalData = await res1.json();
-
   const historicalSource = path.join(process.cwd(), "/data/historical.json");
   const historicalData = JSON.parse(fs.readFileSync(historicalSource, "utf8"));
 
-  // const res2 = await fetch(`http://localhost:3008/api/detail/${id}`);
-=======
-=======
-  const id = params.timestamp;
->>>>>>> e8dfc37 (Continuing frontend development):frontend/pages/detail/[timestamp].js
   // const res2 = await fetch(`http://localhost:3000/api/detail/${id}`);
->>>>>>> fda3315 (Use nivo for detail chart)
   // const activeData = await res2.json();
 
   const activeData = {
@@ -128,9 +116,7 @@ export default function Detail({ activeData }) {
           </div>
           <div className={styles.rainfall}>
             <h3 className={styles.figureHeading}>3 hour rainfall</h3>
-            <div className={styles.rainfallNumber}>
-              {activeData.precip_mm_max3hr}″
-            </div>
+            <div className={styles.rainfallNumber}>{activeData.precip_mm_max3hr}″</div>
           </div>
         </div>
 
@@ -144,11 +130,7 @@ export default function Detail({ activeData }) {
               colors={["rgba(0, 0, 0, 0.2)", "red", "green"]}
               margin={{ top: 60, right: 5, bottom: 70, left: 60 }}
               nodeSize={(d) =>
-                d.serieId === "nolandslide"
-                  ? 5
-                  : d.serieId === "landslide"
-                  ? 7
-                  : 10
+                d.serieId === "nolandslide" ? 5 : d.serieId === "landslide" ? 7 : 10
               }
               xScale={{ type: "time", format: "%Y-%m-%d", precision: "day" }}
               xFormat=">-.2f"

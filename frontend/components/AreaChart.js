@@ -74,12 +74,6 @@ const AreaChart = ({ data }) => {
   }
 
   return (
-<<<<<<< HEAD
-    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
-      {ticksY.map((tick, i) => {
-        return (
-          <g key={i} className="tick" transform={`translate(${margin.left},${0})`}>
-=======
     <div className={styles.chart}>
       <svg
         preserveAspectRatio="none"
@@ -90,7 +84,6 @@ const AreaChart = ({ data }) => {
       >
         {ticksY.map((tick, i) => {
           return (
->>>>>>> fda3315 (Use nivo for detail chart)
             <line
               className={styles.lineY}
               key={i}
@@ -98,46 +91,6 @@ const AreaChart = ({ data }) => {
               y1={Math.floor(scaleY(tick))}
               y2={Math.floor(scaleY(tick))}
             />
-<<<<<<< HEAD
-          </g>
-        );
-      })}
-      {labelsY.map((label, i) => {
-        return (
-          <g key={i} className="tick" transform={`translate(${margin.left},${0})`}>
-            <text dy="0.2em" className="tick-y" x={-30} y={scaleY(label.position)}>
-              {label.text}
-            </text>
-          </g>
-        );
-      })}
-      <g>
-        {lineSegments.map((segment, i) => (
-          <path
-            key={i}
-            className="chart-line"
-            stroke={getRiskColor(data[i].riskLevel)}
-            strokeWidth="3"
-            fill="transparent"
-            d={segment}
-          ></path>
-        ))}
-      </g>
-      <g>
-        {areaSegments.map((segment, i) => (
-          <path
-            key={i}
-            className="chart-area"
-            fill={getRiskColor(data[i].riskLevel)}
-            d={segment}
-          ></path>
-        ))}
-      </g>
-      {ticksX.map((tick, i) => {
-        return (
-          <g key={i} className="tick">
-            <text dy="2" className="tick-x" x={scaleX(i)} y={height - margin.bottom + 20}>
-=======
           );
         })}
         <g>
@@ -177,12 +130,7 @@ const AreaChart = ({ data }) => {
         })}
         {ticksX.map((tick, i) => {
           return (
-            <div
-              className={styles.textX}
-              key={i}
-              style={{ left: `${(scaleX(i) / width) * 100}%` }}
-            >
->>>>>>> fda3315 (Use nivo for detail chart)
+            <div className={styles.textX} key={i} style={{ left: `${(scaleX(i) / width) * 100}%` }}>
               {tick.time}
             </div>
           );

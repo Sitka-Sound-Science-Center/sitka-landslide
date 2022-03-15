@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import "../styles/globals.css";
-
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
-=======
 import Layout from "../components/Layout";
 
 import "../styles/reset.css";
@@ -16,7 +10,6 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
     </Layout>
   );
->>>>>>> e8dfc37 (Continuing frontend development)
 }
 
 export default MyApp;

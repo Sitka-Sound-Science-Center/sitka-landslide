@@ -10,17 +10,9 @@ import Understanding from "/components/Understanding";
 import Resources from "/components/Resources";
 
 export async function getStaticProps() {
-<<<<<<< HEAD
-  // const res = await fetch("http://localhost:3008/api/today");
-  const source = path.join(process.cwd(), "/data/today.json");
-  const data = JSON.parse(fs.readFileSync(source, "utf8"));
-=======
   // const res = await fetch("http://localhost:3000/api/today");
   const index = path.join(process.cwd(), "/data/index.json");
-  const { current, twentyfourhour, threeday } = JSON.parse(
-    fs.readFileSync(index, "utf8")
-  );
->>>>>>> e8dfc37 (Continuing frontend development)
+  const { current, twentyfourhour, threeday } = JSON.parse(fs.readFileSync(index, "utf8"));
 
   return {
     props: {
@@ -41,14 +33,9 @@ export default function Home({ current, twentyfourhour, threeday }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="main">
-        <div
-          style={{ backgroundColor: "var(--background-accent)", width: "100%" }}
-        >
+        <div style={{ backgroundColor: "var(--background-accent)", width: "100%" }}>
           <RiskCurrent riskLevel={current.riskLevel} />
-          <RiskHours
-            message={twentyfourhour.message}
-            hours={twentyfourhour.hours}
-          />
+          <RiskHours message={twentyfourhour.message} hours={twentyfourhour.hours} />
           <RiskDays days={threeday.days} hours={threeday.hours} />
         </div>
         <Understanding />
