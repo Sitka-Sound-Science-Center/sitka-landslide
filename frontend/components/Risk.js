@@ -13,14 +13,7 @@ const riskIcons = {
   2: { name: "risk2", color: "var(--risk2)" },
 };
 
-const Risk = ({
-  riskLevel,
-  hasIcon,
-  hasText,
-  fontSize,
-  fontWeight,
-  iconSize,
-}) => {
+const Risk = ({ riskLevel, hasIcon, hasText, fontSize, fontWeight, iconSize }) => {
   const riskText = riskTexts[riskLevel];
   const riskIcon = riskIcons[riskLevel];
   return (
@@ -33,11 +26,7 @@ const Risk = ({
         fontWeight,
       }}
     >
-      {hasIcon ? (
-        <Icon name={riskIcon.name} size={1.2} color={riskIcon.color} />
-      ) : (
-        ""
-      )}
+      {hasIcon ? <Icon name={riskIcon.name} size={1.2} color={riskIcon.color} /> : ""}
       {hasText ? riskText : ""}
     </span>
   );

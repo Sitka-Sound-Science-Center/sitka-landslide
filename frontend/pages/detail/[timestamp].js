@@ -2,12 +2,16 @@ import fs from "fs";
 import path from "path";
 import Head from "next/head";
 import Link from "next/link";
-import styles from "/styles/Detail.module.css";
+import stylesDetail from "/styles/Detail.module.css";
+import stylesArticle from "/styles/Article.module.css";
 import { useState, useEffect } from "react";
 import { ResponsiveScatterPlotCanvas } from "@nivo/scatterplot";
 
 import Risk from "../../components/Risk";
+import DetailContent from "../../components/DetailContent.mdx";
 import historicalData from "/data/historical.json";
+
+const styles = { ...stylesDetail, ...stylesArticle };
 
 export async function getStaticPaths() {
   // const res = await fetch("http://localhost:3008/api/detail/all");
@@ -89,143 +93,147 @@ export default function Detail({ activeData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="main">
-        <div className={styles.header}>
+        <header className={styles.header}>
           <h2>
             <span className={styles.detail}>Risk detail</span>
             <span className="sr-only">:</span>
             <span className={styles.datetime}>{activeData.datetime}</span>
           </h2>
-        </div>
-        <div className={styles.figures}>
-          <div className={styles.risk}>
-            <h3 className={styles.figureHeading}>Risk</h3>
-            <div className={styles.riskBar}>
-              <div
-                style={{ left: `${activeData.riskNumber * 100}%` }}
-                className={styles.riskBarIcon}
-              >
-                <Risk riskLevel={activeData.riskLevel} hasText={false} />
-              </div>
-              <div className={styles.riskBarLine}></div>
-              <div className={styles.riskBarLegend}>
-                <div>Low</div>
-                <div>Medium</div>
-                <div>High</div>
+        </header>
+        <article className={styles.article}>
+          <div className={styles.figures}>
+            <div className={styles.risk}>
+              <h3 className={styles.figureHeading}>Risk</h3>
+              <div className={styles.riskBar}>
+                <div
+                  style={{ left: `${activeData.riskNumber * 100}%` }}
+                  className={styles.riskBarIcon}
+                >
+                  <Risk riskLevel={activeData.riskLevel} hasText={false} />
+                </div>
+                <div className={styles.riskBarLine}></div>
+                <div className={styles.riskBarLegend}>
+                  <div>Low</div>
+                  <div>Medium</div>
+                  <div>High</div>
+                </div>
               </div>
             </div>
+            <div className={styles.rainfall}>
+              <h3 className={styles.figureHeading}>3 hour rainfall</h3>
+              <div className={styles.rainfallNumber}>{activeData.precip_mm_max3hr}″</div>
+            </div>
           </div>
-          <div className={styles.rainfall}>
-            <h3 className={styles.figureHeading}>3 hour rainfall</h3>
-            <div className={styles.rainfallNumber}>{activeData.precip_mm_max3hr}″</div>
-          </div>
-        </div>
 
-        <div className={styles.chart}>
-          {mounted && (
-            <ResponsiveScatterPlotCanvas
-              isInteractive={false}
-              useMesh={false}
-              debugMesh={false}
-              data={data}
-              colors={["rgba(0, 0, 0, 0.2)", "red", "green"]}
-              margin={{ top: 60, right: 5, bottom: 70, left: 60 }}
-              nodeSize={(d) =>
-                d.serieId === "nolandslide" ? 5 : d.serieId === "landslide" ? 7 : 10
-              }
-              xScale={{ type: "time", format: "%Y-%m-%d", precision: "day" }}
-              xFormat=">-.2f"
-              yScale={{ type: "linear", min: 0, max: "auto" }}
-              yFormat=">-.2f"
-              axisTop={null}
-              axisRight={null}
-              axisBottom={{
-                orient: "bottom",
-                tickSize: 5,
-                tickPadding: 5,
-                tickRotation: 0,
-                format: "%Y",
-                tickValues: "every 4 years",
-                legendPosition: "middle",
-                legendOffset: 0,
-              }}
-              axisLeft={{
-                orient: "left",
-                tickSize: 5,
-                tickPadding: 5,
-                tickRotation: 0,
-                legend: "3 hour rainfall (in.)",
-                legendPosition: "middle",
-                legendOffset: -50,
-              }}
-              theme={{
-                background: "#fff",
-                textColor: "#333333",
-                fontSize: 16,
-                fontFamily:
-                  "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-                axis: {
-                  domain: {
+          <div className={styles.chart}>
+            {mounted && (
+              <ResponsiveScatterPlotCanvas
+                isInteractive={false}
+                useMesh={false}
+                debugMesh={false}
+                data={data}
+                colors={["rgba(0, 0, 0, 0.2)", "red", "green"]}
+                margin={{ top: 60, right: 5, bottom: 70, left: 60 }}
+                nodeSize={(d) =>
+                  d.serieId === "nolandslide" ? 5 : d.serieId === "landslide" ? 7 : 10
+                }
+                xScale={{ type: "time", format: "%Y-%m-%d", precision: "day" }}
+                xFormat=">-.2f"
+                yScale={{ type: "linear", min: 0, max: "auto" }}
+                yFormat=">-.2f"
+                axisTop={null}
+                axisRight={null}
+                axisBottom={{
+                  orient: "bottom",
+                  tickSize: 5,
+                  tickPadding: 5,
+                  tickRotation: 0,
+                  format: "%Y",
+                  tickValues: "every 4 years",
+                  legendPosition: "middle",
+                  legendOffset: 0,
+                }}
+                axisLeft={{
+                  orient: "left",
+                  tickSize: 5,
+                  tickPadding: 5,
+                  tickRotation: 0,
+                  legend: "3 hour rainfall (in.)",
+                  legendPosition: "middle",
+                  legendOffset: -50,
+                }}
+                theme={{
+                  background: "#fff",
+                  textColor: "#333333",
+                  fontSize: 16,
+                  fontFamily:
+                    "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+                  axis: {
+                    domain: {
+                      line: {
+                        stroke: "#777777",
+                        strokeWidth: 1,
+                      },
+                    },
+                    legend: {
+                      text: {
+                        fontSize: 16,
+                        fontWeight: 600,
+                        fill: "#333333",
+                      },
+                    },
+                    ticks: {
+                      line: {
+                        strokeWidth: 0,
+                      },
+                      text: {
+                        fontSize: 16,
+                        fill: "#333333",
+                      },
+                    },
+                  },
+                  grid: {
                     line: {
-                      stroke: "#777777",
+                      stroke: "#dddddd",
                       strokeWidth: 1,
                     },
                   },
-                  legend: {
-                    text: {
-                      fontSize: 16,
-                      fontWeight: 600,
-                      fill: "#333333",
-                    },
-                  },
-                  ticks: {
-                    line: {
-                      strokeWidth: 0,
-                    },
+                  annotations: {
                     text: {
                       fontSize: 16,
                       fill: "#333333",
+                      outlineWidth: 2,
+                      outlineColor: "#ffffff",
+                      outlineOpacity: 1,
+                    },
+                    link: {
+                      stroke: "#000000",
+                      strokeWidth: 1,
+                      outlineWidth: 2,
+                      outlineColor: "#ffffff",
+                      outlineOpacity: 1,
+                    },
+                    outline: {
+                      stroke: "#000000",
+                      strokeWidth: 2,
+                      outlineWidth: 2,
+                      outlineColor: "#ffffff",
+                      outlineOpacity: 1,
+                    },
+                    symbol: {
+                      fill: "#000000",
+                      outlineWidth: 2,
+                      outlineColor: "#ffffff",
+                      outlineOpacity: 1,
                     },
                   },
-                },
-                grid: {
-                  line: {
-                    stroke: "#dddddd",
-                    strokeWidth: 1,
-                  },
-                },
-                annotations: {
-                  text: {
-                    fontSize: 16,
-                    fill: "#333333",
-                    outlineWidth: 2,
-                    outlineColor: "#ffffff",
-                    outlineOpacity: 1,
-                  },
-                  link: {
-                    stroke: "#000000",
-                    strokeWidth: 1,
-                    outlineWidth: 2,
-                    outlineColor: "#ffffff",
-                    outlineOpacity: 1,
-                  },
-                  outline: {
-                    stroke: "#000000",
-                    strokeWidth: 2,
-                    outlineWidth: 2,
-                    outlineColor: "#ffffff",
-                    outlineOpacity: 1,
-                  },
-                  symbol: {
-                    fill: "#000000",
-                    outlineWidth: 2,
-                    outlineColor: "#ffffff",
-                    outlineOpacity: 1,
-                  },
-                },
-              }}
-            />
-          )}
-        </div>
+                }}
+              />
+            )}
+          </div>
+
+          <DetailContent />
+        </article>
       </main>
     </div>
   );

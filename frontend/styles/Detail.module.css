@@ -1,3 +1,7 @@
+.article {
+  width: 100%;
+}
+
 .chart {
   position: relative;
   width: 100%;
@@ -30,6 +34,7 @@
 }
 
 .risk {
+  height: 80px;
 }
 
 .figureHeading {
@@ -52,6 +57,7 @@
   position: absolute;
   transform: translate(-50%, -5px);
 }
+
 .riskBarLine {
   margin-top: var(--space-500);
 }

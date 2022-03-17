@@ -43,8 +43,8 @@
 
   --shadow-500: 0 0 2px rgb(0 0 0 / 0.25);
 
-  --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 @supports (color: color(display-p3 1 1 1)) {

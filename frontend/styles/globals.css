@@ -2,7 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.4;
   font-family: var(--font-family);
   text-rendering: geometricPrecision;
   color: var(--text);
@@ -20,7 +20,6 @@ h5,
 h6 {
   line-height: 1.1;
   color: var(--heading);
-  margin: 0.3em 0;
 }
 
 * {
@@ -51,6 +50,26 @@ hr {
 
 .mapboxgl-ctrl-attrib-button {
   display: none;
+}
+
+.mapboxgl-ctrl button.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
+  background-image: url("/images/svg/mapboxgl-ctrl-zoom-out.svg");
+}
+
+.mapboxgl-ctrl button.mapboxgl-ctrl-compass .mapboxgl-ctrl-icon {
+  background-image: url("/images/svg/mapboxgl-ctrl-compass.svg");
+}
+
+.mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
+  background-image: url("/images/svg/mapboxgl-ctrl-zoom-in.svg");
+}
+
+a.mapboxgl-ctrl-logo {
+  background-image: url("/images/svg/mapboxgl-ctrl-logo.svg");
+}
+
+.mapboxgl-ctrl-attrib-button {
+  background-image: url("/images/svg/mapboxgl-ctrl-attrib.svg");
 }
 
 .sr-only {

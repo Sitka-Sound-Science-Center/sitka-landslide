@@ -20,22 +20,22 @@ const data = [
   },
 ];
 
-const resources = data.map((resource, i) => (
-  <div key={resource.riskLevel} className={styles.resource}>
+const risks = data.map((risk, i) => (
+  <div key={risk.riskLevel} className={styles.risk}>
     <h3 className={styles.title}>
-      <Risk riskLevel={resource.riskLevel} />
+      <Risk riskLevel={risk.riskLevel} />
     </h3>
-    <div className={styles.description}>{resource.description}</div>
+    <div className={styles.description}>{risk.description}</div>
   </div>
 ));
 
-const Resources = () => {
+const Risks = () => {
   return (
-    <div className={styles.understanding}>
+    <div className={styles.risks}>
       <h2 className={styles.section}>Understanding risk</h2>
-      {resources}
+      {risks}
     </div>
   );
 };
 
-export default Resources;
+export default Risks;

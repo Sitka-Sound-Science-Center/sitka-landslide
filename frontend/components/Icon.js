@@ -63,10 +63,7 @@ const Icon = ({ name, color, overlayColor, size }) => {
     <svg style={{ height: `${size}em`, width: `${size}em` }} viewBox={viewBox}>
       <path d={path} style={{ fill: color ? color : "currentColor" }} />
       {pathOverlay && (
-        <path
-          d={pathOverlay}
-          style={{ fill: overlayColor ? overlayColor : "currentColor" }}
-        />
+        <path d={pathOverlay} style={{ fill: overlayColor ? overlayColor : "currentColor" }} />
       )}
     </svg>
   );

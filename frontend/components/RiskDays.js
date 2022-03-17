@@ -11,18 +11,20 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
   AccordionItemState,
+  resetNextUuid,
 } from "react-accessible-accordion";
 
 const RiskDays = ({ days, hours }) => {
+  // Reset uuid
+  resetNextUuid();
+
   const daysAccordion = (
     <Accordion allowZeroExpanded={true}>
-      {days.map((category) => {
-        const hoursInDay = hours.filter(
-          (hour) => hour.dayNumber === category.dayNumber
-        );
+      {days.map((category, i) => {
+        const hoursInDay = hours.filter((hour) => hour.dayNumber === category.dayNumber);
         return (
           <AccordionItem key={category.dayNumber}>
-            <AccordionItemHeading>
+            <AccordionItemHeading instanceid={i}>
               <AccordionItemButton className={styles.category}>
                 <div className={styles.categoryName}>{category.dayName}</div>
                 <div className={styles.categoryRisk}>
@@ -30,9 +32,7 @@ const RiskDays = ({ days, hours }) => {
                 </div>
                 <div className={styles.categoryAction}>
                   <AccordionItemState>
-                    {({ expanded }) =>
-                      expanded ? <Icon name="minus" /> : <Icon name="plus" />
-                    }
+                    {({ expanded }) => (expanded ? <Icon name="minus" /> : <Icon name="plus" />)}
                   </AccordionItemState>
                 </div>
               </AccordionItemButton>

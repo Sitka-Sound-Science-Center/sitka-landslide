@@ -1,0 +1,20 @@
+.header {
+	background-color: var(--gray-300);
+	width: 100%;
+	text-align: center;
+	padding: var(--space-400);
+}
+
+.title {
+	display: block;
+	font-size: var(--size-900);
+	font-weight: var(--weight-black);
+	margin-bottom: var(--space-200);
+}
+
+.description {
+	font-size: var(--size-800);
+	font-weight: var(--weight-normal);
+	display: inline-block;
+	line-height: 1.5;
+}

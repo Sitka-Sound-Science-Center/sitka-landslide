@@ -16,8 +16,8 @@ const links = [
     permalink: "/about/",
   },
   {
-    text: "Another thing",
-    permalink: "https://sitkascience.org",
+    text: "Areas at risk",
+    permalink: "/areas-at-risk/",
   },
 ];
 
@@ -35,16 +35,16 @@ const Header = () => {
         <div className={styles.menucontainer}>
           <button
             className={`${styles.button} ${isOpen ? styles.buttonopen : ""}`}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
             {...buttonProps}
           >
-            {isOpen ? <Icon name="xmark" /> : <Icon name="bars" />}
+            <Icon name="bars" />
           </button>
-          <div
-            className={`${styles.menu} ${isOpen ? styles.menuopen : ""}`}
-            role="menu"
-          >
+          <div className={`${styles.menu} ${isOpen ? styles.menuopen : ""}`} role="menu">
             {links.map((link) => (
-              <a href={link.permalink}>{link.text}</a>
+              <a key={link.permalink} href={link.permalink}>
+                {link.text}
+              </a>
             ))}
           </div>
         </div>
