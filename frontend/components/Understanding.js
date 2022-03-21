@@ -21,7 +21,7 @@ const data = [
 ];
 
 const risks = data.map((risk, i) => (
-  <div key={risk.riskLevel} className={styles.risk}>
+  <div key={risk.riskLevel} className={styles.resource}>
     <h3 className={styles.title}>
       <Risk riskLevel={risk.riskLevel} />
     </h3>
@@ -31,8 +31,8 @@ const risks = data.map((risk, i) => (
 
 const Risks = () => {
   return (
-    <div className={styles.risks}>
-      <h2 className={styles.section}>Understanding risk</h2>
+    <div className={styles.section}>
+      <h2 className={styles.heading}>Understanding risk</h2>
       {risks}
     </div>
   );

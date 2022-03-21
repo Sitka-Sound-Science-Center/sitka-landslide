@@ -1,19 +1,28 @@
 .section {
-	margin-bottom: var(--space-300);
-	align-items: center;
-	justify-content: center;
-	display: flex;
-	flex-direction: column;
+  padding: var(--space-400);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: relative;
+  flex-direction: column;
 }
 
 .title {
-	font-weight: var(--weight-heavy);
-	font-size: var(--size-600);
-	margin-bottom: var(--space-100);
+  font-weight: var(--weight-heavy);
+  font-size: var(--size-600);
+  margin-bottom: var(--space-100);
 }
 
 .risk {
-	font-size: var(--size-900);
-	font-weight: var(--weight-black);
-	color: var(--heading);
+  font-size: var(--size-900);
+  font-weight: var(--weight-black);
+  color: var(--heading);
+}
+
+.link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }

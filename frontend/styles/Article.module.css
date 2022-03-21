@@ -1,3 +1,7 @@
+.article {
+	padding: var(--space-400);
+}
+
 .article p {
 	margin-bottom: var(--space-300);
 }

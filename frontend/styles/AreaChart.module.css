@@ -1,7 +1,7 @@
 .chart {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 150px;
 }
 
 .labels {
@@ -9,6 +9,7 @@
   height: 100%;
   width: 100%;
   top: 0;
+  font-size: var(--size-500);
 }
 
 .svg {
@@ -25,6 +26,12 @@
   bottom: 0;
 }
 
+@media only screen and (max-width: 375px) {
+  .textX:nth-child(2n) {
+    display: none;
+  }
+}
+
 .textX:last-child {
   display: none;
 }
@@ -38,4 +45,8 @@
   stroke: rgb(0 0 0 / 20%);
   stroke-width: 1;
   shape-rendering: crispEdges;
+}
+
+.lineY:last-of-type {
+  display: none;
 }

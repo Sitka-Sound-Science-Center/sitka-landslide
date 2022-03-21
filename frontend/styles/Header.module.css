@@ -1,17 +1,25 @@
 .header {
   background-color: var(--darkblue);
-  padding: var(--space-300);
+  padding: 0 var(--space-300);
   display: flex;
   color: var(--white);
+  height: 48px;
+  align-items: center;
 }
 
 .left {
-  flex: 1;
 }
 
 .brand {
   font-weight: var(--weight-medium);
   color: var(--white);
+  font-size: var(--size-600);
+  height: 50px;
+  display: inline-block;
+  align-items: center;
+  display: flex;
+  margin-left: -10px;
+  padding: 0 10px;
 }
 
 .right {
@@ -22,11 +30,14 @@
 .button {
   color: white;
   border: none;
-  height: var(--space-700);
+  height: 44px;
+  width: 44px;
   display: inline-flex;
+  font-size: var(--size-600);
   align-items: center;
+  justify-content: center;
   position: relative;
-  margin-top: -10px;
+  margin-right: -10px;
   background: transparent;
   cursor: pointer;
   border-radius: 2px;
@@ -60,8 +71,10 @@
 }
 
 .menu a {
-  display: block;
+  display: flex;
   padding: var(--space-200);
+  height: 44px;
+  align-items: center;
 }
 
 .menu a:not(:last-child) {

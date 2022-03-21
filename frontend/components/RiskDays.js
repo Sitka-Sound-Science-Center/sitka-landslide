@@ -15,7 +15,7 @@ import {
 } from "react-accessible-accordion";
 
 const RiskDays = ({ days, hours }) => {
-  // Reset uuid
+  // Reset uuid; this is needed to prevent a warning for the accordion
   resetNextUuid();
 
   const daysAccordion = (

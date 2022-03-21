@@ -2,15 +2,18 @@
   width: 100%;
 }
 
-.section {
+.heading {
   font-weight: var(--weight-black);
   font-size: var(--size-800);
   margin-bottom: var(--space-500);
 }
 
 .resource {
-  margin-bottom: var(--space-300);
   width: 100%;
+}
+
+.resource:not(:last-child) {
+  margin-bottom: var(--space-500);
 }
 
 .title {
@@ -19,5 +22,6 @@
   margin-bottom: var(--space-200);
 }
 
-.description {
+.section {
+  padding: var(--space-500) var(--space-200);
 }

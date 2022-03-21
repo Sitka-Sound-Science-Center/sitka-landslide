@@ -40,8 +40,8 @@ const resources = data.map((resource, i) => (
 
 const Resources = () => {
   return (
-    <div className={styles.resources}>
-      <h2 className={styles.section}>Resources</h2>
+    <div className={styles.section}>
+      <h2 className={styles.heading}>Resources</h2>
       {resources}
     </div>
   );

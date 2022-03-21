@@ -1,8 +1,12 @@
+.section {
+  padding: var(--space-500) var(--space-200);
+}
+
 .resources {
   width: 100%;
 }
 
-.section {
+.heading {
   font-weight: var(--weight-black);
   font-size: var(--size-800);
   margin-bottom: var(--space-500);
@@ -19,7 +23,4 @@
   font-weight: var(--weight-bold);
   font-size: var(--size-700);
   margin-bottom: var(--space-200);
-}
-
-.description {
 }

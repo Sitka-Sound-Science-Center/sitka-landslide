@@ -124,7 +124,7 @@ export default function Detail({ activeData }) {
               <div className={styles.rainfallNumber}>{activeData.precip_mm_max3hr}″</div>
             </div>
           </div>
-
+          <hr />
           <div className={styles.chart}>
             {mounted && (
               <ResponsiveScatterPlotCanvas
@@ -133,7 +133,7 @@ export default function Detail({ activeData }) {
                 debugMesh={false}
                 data={data}
                 colors={["rgba(0, 0, 0, 0.2)", "red", "green"]}
-                margin={{ top: 60, right: 5, bottom: 70, left: 60 }}
+                margin={{ top: 10, right: 5, bottom: 30, left: 60 }}
                 nodeSize={(d) =>
                   d.serieId === "nolandslide" ? 5 : d.serieId === "landslide" ? 7 : 10
                 }
@@ -165,7 +165,7 @@ export default function Detail({ activeData }) {
                 theme={{
                   background: "#fff",
                   textColor: "#333333",
-                  fontSize: 16,
+                  fontSize: 14,
                   fontFamily:
                     "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
                   axis: {
@@ -177,7 +177,7 @@ export default function Detail({ activeData }) {
                     },
                     legend: {
                       text: {
-                        fontSize: 16,
+                        fontSize: 14,
                         fontWeight: 600,
                         fill: "#333333",
                       },
@@ -187,7 +187,7 @@ export default function Detail({ activeData }) {
                         strokeWidth: 0,
                       },
                       text: {
-                        fontSize: 16,
+                        fontSize: 14,
                         fill: "#333333",
                       },
                     },
@@ -200,7 +200,7 @@ export default function Detail({ activeData }) {
                   },
                   annotations: {
                     text: {
-                      fontSize: 16,
+                      fontSize: 14,
                       fill: "#333333",
                       outlineWidth: 2,
                       outlineColor: "#ffffff",

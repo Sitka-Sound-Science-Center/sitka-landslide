@@ -5,7 +5,7 @@ import styles from "/styles/AreaChart.module.css";
 const AreaChart = ({ data }) => {
   const height = 400;
   const width = 800;
-  const margin = { top: 1, right: 0, bottom: 1, left: 0 };
+  const margin = { top: 1, right: 0, bottom: 80, left: 80 };
 
   const hours = data.map((hour, i) => {
     return { ...hour, ...{ id: i } };
@@ -82,17 +82,19 @@ const AreaChart = ({ data }) => {
         viewBox={`0 0 ${width} ${height}`}
         className={styles.svg}
       >
-        {ticksY.map((tick, i) => {
-          return (
-            <line
-              className={styles.lineY}
-              key={i}
-              x2={width - margin.right - margin.left}
-              y1={Math.floor(scaleY(tick))}
-              y2={Math.floor(scaleY(tick))}
-            />
-          );
-        })}
+        <g>
+          {ticksY.map((tick, i) => {
+            return (
+              <line
+                className={styles.lineY}
+                key={i}
+                x2={width}
+                y1={Math.floor(scaleY(tick))}
+                y2={Math.floor(scaleY(tick))}
+              />
+            );
+          })}
+        </g>
         <g>
           {lineSegments.map((segment, i) => (
             <path
@@ -117,24 +119,32 @@ const AreaChart = ({ data }) => {
         </g>
       </svg>
       <div className={styles.labels}>
-        {labelsY.map((label, i) => {
-          return (
-            <div
-              className={styles.textY}
-              key={i}
-              style={{ top: `${(scaleY(label.position) / height) * 100}%` }}
-            >
-              {label.text}
-            </div>
-          );
-        })}
-        {ticksX.map((tick, i) => {
-          return (
-            <div className={styles.textX} key={i} style={{ left: `${(scaleX(i) / width) * 100}%` }}>
-              {tick.time}
-            </div>
-          );
-        })}
+        <div className={styles.legendY}>
+          {labelsY.map((label, i) => {
+            return (
+              <div
+                className={styles.textY}
+                key={i}
+                style={{ top: `${(scaleY(label.position) / height) * 100}%` }}
+              >
+                {label.text}
+              </div>
+            );
+          })}
+        </div>
+        <div className={styles.legendX}>
+          {ticksX.map((tick, i) => {
+            return (
+              <div
+                className={styles.textX}
+                key={i}
+                style={{ left: `${(scaleX(i) / width) * 100}%` }}
+              >
+                {tick.time}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ const Map = ({}) => {
       map.on("load", function () {
         map.addSource("raster-risk", {
           type: "raster",
-          tiles: [window.location.origin + "/images/tiles/risk-purple/{z}/{x}/{y}.png"],
+          tiles: [window.location.origin + "/images/tiles/rose/{z}/{x}/{y}.png"],
           minzoom: 8,
           maxzoom: 15,
           tileSize: 512,
@@ -41,7 +41,7 @@ const Map = ({}) => {
           },
         });
 
-        map.setPaintProperty("satellite", "raster-saturation", -0.8);
+        map.setPaintProperty("satellite", "raster-saturation", -0.9);
 
         map.addLayer({
           id: "simple-tiles",
@@ -51,8 +51,7 @@ const Map = ({}) => {
           maxzoom: 20,
           paint: {
             "raster-resampling": "nearest",
-            "raster-hue-rotate": 50,
-            "raster-opacity": ["interpolate", ["exponential", 0.85], ["zoom"], 12, 0.75, 18, 0.65],
+            "raster-opacity": 0.9,
           },
         });
       });
@@ -66,24 +65,39 @@ const Map = ({}) => {
     }
   }, []);
 
-  return <div id="map" style={{ height: "800px", width: "100%" }} className="map"></div>;
+  return (
+    <div id="map" className="map">
+      <style global jsx>{`
+        .map {
+          width: 100%;
+          height: 100vh;
+        }
+        .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
+          background-image: url("/images/svg/mapboxgl-ctrl-zoom-out.svg");
+        }
+
+        .mapboxgl-ctrl button.mapboxgl-ctrl-compass .mapboxgl-ctrl-icon {
+          background-image: url("/images/svg/mapboxgl-ctrl-compass.svg");
+        }
+
+        .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
+          background-image: url("/images/svg/mapboxgl-ctrl-zoom-in.svg");
+        }
+
+        a.mapboxgl-ctrl-logo {
+          background-image: url("/images/svg/mapboxgl-ctrl-logo.svg");
+        }
+
+        .mapboxgl-ctrl-attrib-button {
+          background-image: url("/images/svg/mapboxgl-ctrl-attrib.svg");
+        }
+
+        .mapboxgl-ctrl-attrib.mapboxgl-compact {
+          min-height: 24px;
+        }
+      `}</style>
+    </div>
+  );
 };
-
-// Map.defaultProps = {
-//   hasIcon: true,
-//   hasText: true,
-//   fontSize: "inherit",
-//   fontWeight: "inherit",
-//   iconSize: "1.2em",
-// };
-
-// Map.propTypes = {
-//   MapLevel: PropTypes.number.isRequired,
-//   hasIcon: PropTypes.bool,
-//   hasText: PropTypes.bool,
-//   fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-//   fontWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-//   iconSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-// };
 
 export default Map;
