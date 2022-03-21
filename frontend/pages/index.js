@@ -3,6 +3,8 @@ import path from "path";
 import Head from "next/head";
 import Link from "next/link";
 
+import styles from "../styles/Index.module.css";
+import WeatherAdvisory from "/components/WeatherAdvisory";
 import RiskCurrent from "/components/RiskCurrent";
 import RiskHours from "/components/RiskHours";
 import RiskDays from "/components/RiskDays";
@@ -13,23 +15,17 @@ import LastUpdated from "/components/LastUpdated";
 export async function getStaticProps() {
   // const res = await fetch("http://localhost:3000/api/today");
   const index = path.join(process.cwd(), "/data/index.json");
-  const { lastupdated, current, twentyfourhour, threeday } = JSON.parse(
+  const { weatheradvisory, lastupdated, current, twentyfourhour, threeday } = JSON.parse(
     fs.readFileSync(index, "utf8")
   );
 
   return {
-    props: {
-      lastupdated,
-      current,
-      twentyfourhour,
-      threeday,
-    },
-    revalidate: 600,
+    props: { weatheradvisory, lastupdated, current, twentyfourhour, threeday },
   };
 }
 
-export default function Home({ lastupdated, current, twentyfourhour, threeday }) {
-  console.log(lastupdated);
+export default function Home({ weatheradvisory, lastupdated, current, twentyfourhour, threeday }) {
+  console.log(weatheradvisory);
   return (
     <div>
       <Head>
@@ -38,7 +34,8 @@ export default function Home({ lastupdated, current, twentyfourhour, threeday })
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="main">
-        <div style={{ backgroundColor: "var(--background-accent)", width: "100%" }}>
+        {weatheradvisory.active && <WeatherAdvisory permalink={weatheradvisory.permalink} />}
+        <div className={styles.risk}>
           <RiskCurrent riskLevel={current.riskLevel} date={current.date} />
           <RiskHours message={twentyfourhour.message} hours={twentyfourhour.hours} />
           <RiskDays days={threeday.days} hours={threeday.hours} />
