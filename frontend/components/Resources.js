@@ -30,7 +30,7 @@ const data = [
 ];
 
 const resources = data.map((resource, i) => (
-  <Link key={i} href={resource.permalink}>
+  <Link key={i} href={resource.permalink} prefetch={false}>
     <a className={styles.resource} style={{ backgroundColor: resource.backgroundColor }}>
       <h3 className={styles.title}>{resource.title}</h3>
       <div className={styles.description}>{resource.description}</div>
