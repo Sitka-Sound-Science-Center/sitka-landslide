@@ -39,7 +39,12 @@ const logos = data.logos.map((logo, i) => (
   <a href={logo.permalink} key={i} className={styles.logo}>
     <picture>
       <source
+        type="image/avif"
         srcSet={`/images/${logo.filename}.avif, /images/${logo.filename}@2x.avif 2x`}
+      />
+      <source
+        type="image/png"
+        srcSet={`/images/${logo.filename}.png, /images/${logo.filename}@2x.png 2x`}
       />
       <img
         className={styles.logoimage}
