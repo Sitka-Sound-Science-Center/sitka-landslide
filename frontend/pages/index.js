@@ -36,7 +36,7 @@ export default function Home({ weatheradvisory, lastupdated, current, twentyfour
           content="Current and forecasted landslide risk for Sitka, Alaska."
         />
       </Head>
-      <main className="main">
+      <>
         {weatheradvisory.active && <WeatherAdvisory permalink={weatheradvisory.permalink} />}
         <div className={styles.risk}>
           <RiskCurrent riskLevel={current.riskLevel} date={current.date} />
@@ -51,7 +51,7 @@ export default function Home({ weatheradvisory, lastupdated, current, twentyfour
         <Understanding />
         <hr />
         <Resources />
-      </main>
+      </>
     </>
   );
 }
