@@ -8,7 +8,6 @@
 .header {
 	border-bottom: var(--gray-400) 1px solid;
 	text-align: left;
-	cursor: pointer;
 	color: inherit;
 	margin: 0 calc(-1 * var(--space-200));
 	padding: var(--space-300) var(--space-200);
@@ -16,8 +15,22 @@
 	align-items: center;
 }
 
+.message {
+	display: flex;
+	align-items: flex-start;
+	grid-column-gap: var(--space-200);
+}
+
+.message {
+}
+
 .title {
 	font-weight: var(--weight-heavy);
 	font-size: var(--size-600);
 	margin-bottom: var(--space-200);
+}
+
+.prepare {
+	margin-top: var(--space-100);
+	/*display: block;*/
 }

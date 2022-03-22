@@ -3,7 +3,7 @@ import Icon from "./Icon";
 
 import styles from "../styles/WeatherAdvisory.module.css";
 
-const LastUpdated = ({ permalink }) => {
+const WeatherAdvisory = ({ permalink }) => {
   return (
     <a className={styles.banner} href={permalink}>
       <span className={styles.title}>
@@ -15,8 +15,8 @@ const LastUpdated = ({ permalink }) => {
   );
 };
 
-LastUpdated.propTypes = {
+WeatherAdvisory.propTypes = {
   permalink: PropTypes.string.isRequired,
 };
 
-export default LastUpdated;
+export default WeatherAdvisory;

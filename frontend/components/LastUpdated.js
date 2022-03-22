@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import * as timeago from "timeago.js";
 import { useState, useEffect } from "react";
 
+import styles from "../styles/LastUpdated.module.css";
+
 const LastUpdated = ({ update }) => {
   const [time, setTime] = useState();
 
@@ -10,8 +12,11 @@ const LastUpdated = ({ update }) => {
   }, []);
 
   return (
-    <div style={{ textAlign: "center", marginBottom: "var(--space-300)" }}>
-      Last updated: {time}
+    <div className={styles.lastupdated}>
+      Last updated {time} with data from{" "}
+      <a href="https://forecast.weather.gov/MapClick.php?lat=57.0531&lon=-135.33">
+        National Weather Service
+      </a>
     </div>
   );
 };

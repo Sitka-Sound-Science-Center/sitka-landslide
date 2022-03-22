@@ -33,6 +33,8 @@
     "fs": "0.0.1-security",
     "path": "^0.12.7",
     "prettier": "2.5.1",
+    "rehype-stringify": "^9.0.3",
+    "remark-slug": "^7.0.1",
     "sass": "^1.49.8"
   }
 }

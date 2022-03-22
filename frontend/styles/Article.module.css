@@ -6,6 +6,10 @@
 	margin-bottom: var(--space-300);
 }
 
+.article p:last-child {
+	margin-bottom: 0;
+}
+
 .article h2 {
 	font-weight: var(--weight-black);
 	font-size: var(--size-900);
@@ -24,7 +28,20 @@
 	margin: var(--space-400) 0;
 }
 
+.article h5 {
+	font-weight: var(--weight-bold);
+	font-size: var(--size-600);
+	margin: var(--space-400) 0;
+}
+
 .article ul {
 	list-style: disc;
 	margin-left: 1.5em;
+	margin-bottom: var(--space-300);
+}
+
+.article ol {
+	list-style: number;
+	margin-left: 1.5em;
+	margin-bottom: var(--space-300);
 }

@@ -1,0 +1,10 @@
+.lastupdated {
+  text-align: center;
+  padding: var(--space-400);
+  font-size: var(--size-500);
+}
+
+.lastupdated a {
+  color: var(--text);
+  text-decoration: underline;
+}

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { scaleLinear, scaleTime, area, line, curveLinear } from "d3";
 import styles from "/styles/AreaChart.module.css";
+import riskDefinitions from "/content/riskDefinitions";
 
 const AreaChart = ({ data }) => {
   const height = 400;
@@ -19,9 +20,9 @@ const AreaChart = ({ data }) => {
     .range([margin.top, height - margin.bottom]);
 
   const labelsY = [
-    { position: 1 / 6, text: "Low" },
-    { position: 3 / 6, text: "Med" },
-    { position: 5 / 6, text: "High" },
+    { position: 1 / 6, text: riskDefinitions[0].abbreviated },
+    { position: 3 / 6, text: riskDefinitions[1].abbreviated },
+    { position: 5 / 6, text: riskDefinitions[2].abbreviated },
   ];
 
   const ticksY = [0, 0.333, 0.666, 1];
@@ -60,13 +61,13 @@ const AreaChart = ({ data }) => {
   function getRiskColor(riskLevel) {
     switch (riskLevel) {
       case 0:
-        return "var(--risk0)";
+        return riskDefinitions[0].color;
         break;
       case 1:
-        return "var(--risk1)";
+        return riskDefinitions[1].color;
         break;
       case 2:
-        return "var(--risk2)";
+        return riskDefinitions[2].color;
         break;
       default:
         return "#666";

@@ -1,33 +1,22 @@
 import PropTypes from "prop-types";
 import Icon from "/components/Icon";
-
-const riskTexts = {
-  0: "Low",
-  1: "Medium",
-  2: "High",
-};
-
-const riskIcons = {
-  0: { name: "risk0", color: "var(--risk0)" },
-  1: { name: "risk1", color: "var(--risk1)" },
-  2: { name: "risk2", color: "var(--risk2)" },
-};
+import riskDefinitions from "/content/riskDefinitions";
 
 const Risk = ({ riskLevel, hasIcon, hasText, fontSize, fontWeight, iconSize }) => {
-  const riskText = riskTexts[riskLevel];
-  const riskIcon = riskIcons[riskLevel];
+  const risk = riskDefinitions[riskLevel];
+
   return (
     <span
       style={{
         display: "flex",
-        gridGap: hasText && riskText ? "0.3em" : 0,
+        gridGap: hasText && risk.text ? "0.3em" : 0,
         alignItems: "center",
         fontSize,
         fontWeight,
       }}
     >
-      {hasIcon ? <Icon name={riskIcon.name} size={1.2} color={riskIcon.color} /> : ""}
-      {hasText ? riskText : ""}
+      {hasIcon ? <Icon name={risk.id} size={iconSize} color={risk.color} /> : ""}
+      {hasText ? risk.text : ""}
     </span>
   );
 };
@@ -37,7 +26,7 @@ Risk.defaultProps = {
   hasText: true,
   fontSize: "inherit",
   fontWeight: "inherit",
-  iconSize: "1.2em",
+  iconSize: 1.2,
 };
 
 Risk.propTypes = {

@@ -18,7 +18,7 @@ const Map = ({}) => {
         center: [-135.32, 57.0531],
         minZoom: 8,
         zoom: 10,
-        maxZoom: 15,
+        maxZoom: 18,
         hash: true,
       });
 
@@ -51,7 +51,7 @@ const Map = ({}) => {
           maxzoom: 20,
           paint: {
             "raster-resampling": "nearest",
-            "raster-opacity": 0.9,
+            "raster-opacity": 0.6,
           },
         });
       });
