@@ -42,9 +42,9 @@ const Header = () => {
           </button>
           <div className={`${styles.menu} ${isOpen ? styles.menuopen : ""}`} role="menu">
             {links.map((link) => (
-              <a key={link.permalink} href={link.permalink}>
-                {link.text}
-              </a>
+              <Link prefetch={false} href={link.permalink}>
+                <a key={link.permalink}>{link.text}</a>
+              </Link>
             ))}
           </div>
         </div>

@@ -13,7 +13,7 @@ const RiskCurrent = ({ riskLevel, date }) => {
     <section className={styles.section}>
       <h2 className={styles.title}>Current risk</h2>
       <p className={styles.risk}>
-        <Link href={detailUrl}>
+        <Link href={detailUrl} prefetch={false}>
           <a className={styles.link}>
             <Risk riskLevel={riskLevel} iconSize={1} />
             <span className={styles.detailIcon}>
