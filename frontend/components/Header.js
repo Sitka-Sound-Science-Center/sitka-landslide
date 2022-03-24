@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <div className={styles.left}>
-        <Link href={`/`}>
+        <Link prefetch={false} href={`/`}>
           <a className={styles.brand}>Sitka Landslide Risk</a>
         </Link>
       </div>
@@ -42,8 +42,8 @@ const Header = () => {
           </button>
           <div className={`${styles.menu} ${isOpen ? styles.menuopen : ""}`} role="menu">
             {links.map((link) => (
-              <Link prefetch={false} href={link.permalink}>
-                <a key={link.permalink}>{link.text}</a>
+              <Link key={link.permalink} prefetch={false} href={link.permalink}>
+                <a>{link.text}</a>
               </Link>
             ))}
           </div>
