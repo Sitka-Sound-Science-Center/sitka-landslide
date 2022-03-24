@@ -19,7 +19,7 @@ const RiskHours = ({ message, hours, riskLevel }) => {
             {message}
             {riskLevel !== 0 && (
               <span>
-                <Link href={`/prepare/#${riskSlug}`}>
+                <Link prefetch={false} href={`/prepare/#${riskSlug}`}>
                   <a className={styles.prepare}> Learn how to prepare</a>
                 </Link>
                 .
