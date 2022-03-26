@@ -63,7 +63,7 @@ const Map = ({}) => {
 
       map.addControl(nav, "bottom-right");
     }
-  }, []);
+  }, [mounted]);
 
   return (
     <div id="map" className="map">

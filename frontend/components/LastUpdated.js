@@ -9,7 +9,7 @@ const LastUpdated = ({ update }) => {
 
   useEffect(() => {
     setTime(timeago.format(new Date(update)));
-  }, []);
+  }, [update]);
 
   return (
     <div className={styles.lastupdated}>
