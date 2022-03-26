@@ -1,6 +1,6 @@
 .banner {
   display: flex;
-  background-color: var(--gray-900);
+  background-color: var(--mediumblue);
   padding: var(--space-300);
   width: 100%;
   align-items: center;
@@ -11,6 +11,7 @@
   flex: 1;
   display: flex;
   align-items: center;
+  color: #fff;
 }
 
 .title svg {
@@ -20,4 +21,5 @@
 .link {
   text-transform: uppercase;
   font-size: var(--size-500);
+  color: #fff;
 }

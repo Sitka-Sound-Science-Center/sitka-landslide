@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
-import { scaleLinear, scaleTime, area, line, curveLinear } from "d3";
+import { scaleLinear, scaleTime } from "d3-scale";
+import { area, line, curveLinear } from "d3-shape";
 import styles from "/styles/AreaChart.module.css";
 import riskDefinitions from "/content/riskDefinitions";
 
