@@ -1,5 +1,5 @@
 .section {
-	box-shadow: var(--shadow-500);
+	border-radius: var(--radius-500);
 	padding: 0 var(--space-200) var(--space-300);
 	background-color: var(--white);
 	margin: 0 var(--space-200) var(--space-300);

@@ -42,7 +42,12 @@
   --weight-medium: 500;
   --weight-normal: 400;
 
-  --shadow-500: 0 0 2px rgb(0 0 0 / 0.25);
+  --radius-500: 5px;
+
+  --shadow-500: 0 0 0 1px rgb(17 20 24 / 10%), 0 0 0 rgb(17 20 24 / 0%),
+    0 1px 1px rgb(17 20 24 / 20%);
+  --shadow-700: 0 0 0 1px rgb(17 20 24 / 10%), 0 2px 4px rgb(17 20 24 / 20%),
+    0 8px 24px rgb(17 20 24 / 20%);
 
   --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;

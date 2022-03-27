@@ -7,7 +7,7 @@ import riskDefinitions from "/content/riskDefinitions";
 const AreaChart = ({ data }) => {
   const height = 400;
   const width = 800;
-  const margin = { top: 1, right: 0, bottom: 80, left: 80 };
+  const margin = { top: 1, right: 0, bottom: 80, left: 0 };
 
   const hours = data.map((hour, i) => {
     return { ...hour, ...{ id: i } };

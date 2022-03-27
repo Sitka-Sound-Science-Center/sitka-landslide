@@ -15,7 +15,6 @@
 .title {
   font-weight: var(--weight-heavy);
   font-size: var(--size-600);
-  margin-bottom: var(--space-100);
 }
 
 .risk {

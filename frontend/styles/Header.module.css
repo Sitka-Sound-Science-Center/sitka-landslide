@@ -11,9 +11,9 @@
 }
 
 .brand {
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-heavy);
   color: var(--white);
-  font-size: var(--size-600);
+  font-size: var(--size-500);
   height: 50px;
   display: inline-block;
   align-items: center;
@@ -63,7 +63,7 @@
   transform: translateY(100%);
   bottom: 0;
   display: none;
-  box-shadow: var(--shadow-500);
+  box-shadow: var(--shadow-700);
 }
 
 .menuopen {
