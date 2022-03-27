@@ -15,9 +15,10 @@
 
 .resource {
   display: block;
-  padding: var(--space-500);
+  padding: var(--space-400) var(--space-300);
   color: inherit;
-  margin-bottom: var(--space-300);
+  margin-bottom: var(--space-200);
+  border-radius: var(--radius-500);
 }
 
 .title {

@@ -85,6 +85,108 @@ export default function Detail({ activeData }) {
     setMounted(true);
   }, []);
 
+  let theme = {
+    background: "transparent",
+    textColor: "#333333",
+    fontSize: 14,
+    fontFamily:
+      "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+    axis: {
+      domain: {
+        line: {
+          stroke: "#777777",
+          strokeWidth: 1,
+        },
+      },
+      legend: {
+        text: {
+          fontSize: 14,
+          fontWeight: 600,
+          fill: "#333333",
+        },
+      },
+      ticks: {
+        line: {
+          strokeWidth: 0,
+        },
+        text: {
+          fontSize: 14,
+          fill: "#333333",
+        },
+      },
+    },
+    grid: {
+      line: {
+        stroke: "#454545",
+        strokeWidth: 1,
+      },
+    },
+    annotations: {
+      text: {
+        fontSize: 14,
+        fill: "#333333",
+        outlineWidth: 2,
+        outlineColor: "#ffffff",
+        outlineOpacity: 1,
+      },
+    },
+  };
+
+  if (
+    typeof window !== "undefined" &&
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    theme = {
+      background: "transparent",
+      textColor: "#cfcfd8",
+      fontSize: 14,
+      fontFamily:
+        "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+      axis: {
+        domain: {
+          line: {
+            stroke: "#454545",
+            strokeWidth: 1,
+          },
+        },
+        legend: {
+          text: {
+            fontSize: 14,
+            fontWeight: 600,
+            fill: "#cfcfd8",
+          },
+        },
+        ticks: {
+          line: {
+            strokeWidth: 0,
+          },
+          text: {
+            fontSize: 14,
+            fill: "#cfcfd8",
+          },
+        },
+      },
+      grid: {
+        line: {
+          stroke: "#454545",
+          strokeWidth: 1,
+        },
+      },
+      annotations: {
+        text: {
+          fontSize: 14,
+          fill: "#cfcfd8",
+          outlineWidth: 2,
+          outlineColor: "#ffffff",
+          outlineOpacity: 1,
+        },
+      },
+    };
+  }
+
+  console.log(theme);
+
   return (
     <div>
       <Head>
@@ -162,72 +264,7 @@ export default function Detail({ activeData }) {
                   legendPosition: "middle",
                   legendOffset: -50,
                 }}
-                theme={{
-                  background: "#fff",
-                  textColor: "#333333",
-                  fontSize: 14,
-                  fontFamily:
-                    "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-                  axis: {
-                    domain: {
-                      line: {
-                        stroke: "#777777",
-                        strokeWidth: 1,
-                      },
-                    },
-                    legend: {
-                      text: {
-                        fontSize: 14,
-                        fontWeight: 600,
-                        fill: "#333333",
-                      },
-                    },
-                    ticks: {
-                      line: {
-                        strokeWidth: 0,
-                      },
-                      text: {
-                        fontSize: 14,
-                        fill: "#333333",
-                      },
-                    },
-                  },
-                  grid: {
-                    line: {
-                      stroke: "#dddddd",
-                      strokeWidth: 1,
-                    },
-                  },
-                  annotations: {
-                    text: {
-                      fontSize: 14,
-                      fill: "#333333",
-                      outlineWidth: 2,
-                      outlineColor: "#ffffff",
-                      outlineOpacity: 1,
-                    },
-                    link: {
-                      stroke: "#000000",
-                      strokeWidth: 1,
-                      outlineWidth: 2,
-                      outlineColor: "#ffffff",
-                      outlineOpacity: 1,
-                    },
-                    outline: {
-                      stroke: "#000000",
-                      strokeWidth: 2,
-                      outlineWidth: 2,
-                      outlineColor: "#ffffff",
-                      outlineOpacity: 1,
-                    },
-                    symbol: {
-                      fill: "#000000",
-                      outlineWidth: 2,
-                      outlineColor: "#ffffff",
-                      outlineOpacity: 1,
-                    },
-                  },
-                }}
+                theme={theme}
               />
             )}
           </div>

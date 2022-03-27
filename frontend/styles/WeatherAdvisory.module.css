@@ -4,6 +4,7 @@
   padding: var(--space-300);
   width: 100%;
   align-items: center;
+  border-bottom: 1px solid var(--header-border);
 }
 
 .title {

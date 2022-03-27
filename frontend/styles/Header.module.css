@@ -2,17 +2,15 @@
   background-color: var(--darkblue);
   padding: 0 var(--space-300);
   display: flex;
-  color: var(--white);
+  color: var(--background);
   height: 48px;
   align-items: center;
-}
-
-.left {
+  border-bottom: 1px solid var(--header-border);
 }
 
 .brand {
   font-weight: var(--weight-heavy);
-  color: var(--white);
+  color: #fff;
   font-size: var(--size-500);
   height: 50px;
   display: inline-block;
@@ -56,7 +54,7 @@
 }
 
 .menu {
-  background: var(--white);
+  background: var(--background);
   z-index: 100;
   position: absolute;
   right: 0;

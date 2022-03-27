@@ -1,5 +1,5 @@
 .header {
-	background-color: var(--gray-300);
+	background-color: var(--page-header);
 	width: 100%;
 	text-align: center;
 	padding: var(--space-400);

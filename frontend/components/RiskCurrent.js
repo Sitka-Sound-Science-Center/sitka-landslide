@@ -17,7 +17,7 @@ const RiskCurrent = ({ riskLevel, date }) => {
           <a className={styles.link}>
             <Risk riskLevel={riskLevel} iconSize={1} />
             <span className={styles.detailIcon}>
-              <Icon name={"chevron-right"} color="var(--gray-900)" size={0.6} />
+              <Icon name={"chevron-right"} color="var(--detail-chevron)" size={0.6} />
             </span>
             <span className="sr-only"> Details</span>
           </a>

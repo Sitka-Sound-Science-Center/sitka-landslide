@@ -71,7 +71,7 @@ const Icon = ({ name, color, overlayColor, size }) => {
 
 Icon.defaultProps = {
   size: 1,
-  overlayColor: "#fff",
+  overlayColor: "var(--background)",
 };
 
 Icon.propTypes = {

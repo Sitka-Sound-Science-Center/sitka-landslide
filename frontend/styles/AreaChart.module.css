@@ -19,8 +19,7 @@
 .textY {
   position: absolute;
   transform: translateY(-50%);
-  text-shadow: -1px -1px 0 #fff, 0 -1px 0 #fff, 1px -1px 0 #fff, 1px 0 0 #fff, 1px 1px 0 #fff,
-    0 1px 0 #fff, -1px 1px 0 #fff, -1px 0 0 #fff;
+  text-shadow: var(--text-stroke);
 }
 
 .textX {
@@ -44,7 +43,7 @@
 }
 
 .lineY {
-  stroke: rgb(0 0 0 / 20%);
+  stroke: var(--gray-100);
   stroke-width: 1;
   shape-rendering: crispEdges;
 }
