@@ -1,0 +1,7 @@
+.container {
+  padding: var(--space-200) 0 !important;
+}
+
+.container:empty {
+  display: none;
+}

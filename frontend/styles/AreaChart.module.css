@@ -1,0 +1,53 @@
+.chart {
+  position: relative;
+  width: 100%;
+  height: 150px;
+}
+
+.labels {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  font-size: var(--size-500);
+}
+
+.svg {
+  max-width: 100%;
+}
+
+.textY {
+  position: absolute;
+  transform: translateY(-50%);
+  text-shadow: var(--text-stroke);
+}
+
+.textX {
+  position: absolute;
+  bottom: 0;
+}
+
+@media only screen and (max-width: 375px) {
+  .textX:nth-child(2n) {
+    display: none;
+  }
+}
+
+.textX:last-child {
+  display: none;
+}
+
+.area {
+  fill-opacity: 0.5;
+  shape-rendering: crispEdges;
+}
+
+.lineY {
+  stroke: var(--gray-100);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.lineY:last-of-type {
+  display: none;
+}

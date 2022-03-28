@@ -1,0 +1,27 @@
+.understanding {
+  width: 100%;
+}
+
+.heading {
+  font-weight: var(--weight-black);
+  font-size: var(--size-800);
+  margin-bottom: var(--space-500);
+}
+
+.resource {
+  width: 100%;
+}
+
+.resource:not(:last-child) {
+  margin-bottom: var(--space-500);
+}
+
+.title {
+  font-weight: var(--weight-bold);
+  font-size: var(--size-700);
+  margin-bottom: var(--space-200);
+}
+
+.section {
+  padding: var(--space-500) var(--space-200);
+}

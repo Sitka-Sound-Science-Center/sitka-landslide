@@ -1,0 +1,41 @@
+import Page from "/components/Page";
+import Risk from "/components/Risk";
+import ForecastRisk0 from "/content/ForecastRisk0.mdx";
+import ForecastRisk1 from "/content/ForecastRisk1.mdx";
+import ForecastRisk2 from "/content/ForecastRisk2.mdx";
+import riskDefinitions from "/content/riskDefinitions";
+
+export const page = {
+  title: "How to prepare for a landslide",
+  description: "Learn what you and your community can do to be ready for a landslide",
+};
+
+### Landslide preparedness
+
+Read the [USGS guide for landslide preparedness](https://www.usgs.gov/programs/landslide-hazards/landslide-preparedness) for more information.
+
+### Responding to risk levels
+
+<h4 id={riskDefinitions[2].slug}>
+  <Risk riskLevel={2} />
+</h4>
+
+<ForecastRisk2 />
+
+<h4 id={riskDefinitions[1].slug}>
+  <Risk riskLevel={1} />
+</h4>
+
+<ForecastRisk1 />
+
+<h4 id={riskDefinitions[0].slug}>
+  <Risk riskLevel={0} />
+</h4>
+
+<ForecastRisk0 />
+
+export default ({ children }) => (
+  <Page title={page.title} description={page.description}>
+    {children}
+  </Page>
+);

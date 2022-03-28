@@ -1,0 +1,317 @@
+{
+  "lastupdated": "2022-03-19T09:30:00-09:00",
+  "weatheradvisory": {
+    "active": false,
+    "permalink": "https://darksky.net/"
+  },
+  "current": {
+    "riskLevel": 0,
+    "date": "2022-04-05T09:00:00"
+  },
+  "twentyfourhour": {
+    "message": "Sitka will experience medium risk within the next 24 hours.",
+    "riskLevel": 1,
+    "hours": [
+      {
+        "id": 0,
+        "date": "2022-04-05T03:00:00",
+        "time": "3PM",
+        "riskNumber": 0.1,
+        "riskLevel": 0
+      },
+      {
+        "id": 1,
+        "date": "2022-04-05T06:00:00",
+        "time": "6PM",
+        "riskNumber": 0.3,
+        "riskLevel": 0
+      },
+      {
+        "id": 2,
+        "date": "2022-04-05T09:00:00",
+        "time": "9PM",
+        "riskNumber": 0.12,
+        "riskLevel": 0
+      },
+      {
+        "id": 3,
+        "date": "2022-04-05T012:00:00",
+        "time": "12PM",
+        "riskNumber": 0.13,
+        "riskLevel": 0
+      },
+      {
+        "id": 4,
+        "date": "2022-04-05T15:00:00",
+        "time": "3AM",
+        "riskNumber": 0.24,
+        "riskLevel": 0
+      },
+      {
+        "id": 5,
+        "date": "2022-04-05T18:00:00",
+        "time": "6PM",
+        "riskNumber": 0.39,
+        "riskLevel": 1
+      },
+      {
+        "id": 6,
+        "date": "2022-04-05T21:00:00",
+        "time": "9PM",
+        "riskNumber": 0.41,
+        "riskLevel": 1
+      },
+      {
+        "id": 7,
+        "date": "2022-04-06T00:00:00",
+        "time": "12AM",
+        "riskNumber": 0.41,
+        "riskLevel": 1
+      },
+      {
+        "id": 8,
+        "date": "2022-04-06T03:00:00",
+        "time": "3AM",
+        "riskNumber": 0.53,
+        "riskLevel": 2
+      }
+    ]
+  },
+  "threeday": {
+    "days": [
+      {
+        "dayNumber": 0,
+        "dayName": "Monday",
+        "riskLevel": 0
+      },
+      {
+        "dayNumber": 1,
+        "dayName": "Tuesday",
+        "riskLevel": 1
+      },
+      {
+        "dayNumber": 2,
+        "dayName": "Wednesday",
+        "riskLevel": 0
+      }
+    ],
+    "hours": [
+      {
+        "timestamp": "2020-12-13T00",
+        "dayNumber": 0,
+        "dayName": "Monday",
+        "time": "12AM",
+        "riskNumber": 0.01,
+        "precip_mm_max3hr": 0.1,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-13T03",
+        "dayNumber": 0,
+        "dayName": "Monday",
+        "time": "3AM",
+        "riskNumber": 0.01,
+        "precip_mm_max3hr": 0.1,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-13T06",
+        "dayNumber": 0,
+        "dayName": "Monday",
+        "time": "6AM",
+        "riskNumber": 0.08,
+        "precip_mm_max3hr": 0.5,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-13T09",
+        "dayNumber": 0,
+        "dayName": "Monday",
+        "time": "9AM",
+        "riskNumber": 0.12,
+        "precip_mm_max3hr": 0.8,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-13T12",
+        "dayNumber": 0,
+        "dayName": "Monday",
+        "time": "12PM",
+        "riskNumber": 0.13,
+        "precip_mm_max3hr": 0.85,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-13T15",
+        "dayNumber": 0,
+        "dayName": "Monday",
+        "time": "3PM",
+        "riskNumber": 0.24,
+        "precip_mm_max3hr": 1.6,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-13T18",
+        "dayNumber": 0,
+        "dayName": "Monday",
+        "time": "6PM",
+        "riskNumber": 0.34,
+        "precip_mm_max3hr": 3.1,
+        "riskLevel": 1
+      },
+      {
+        "timestamp": "2020-12-13T21",
+        "dayNumber": 0,
+        "dayName": "Monday",
+        "time": "9PM",
+        "riskNumber": 0.38,
+        "precip_mm_max3hr": 3.2,
+        "riskLevel": 1
+      },
+      {
+        "timestamp": "2020-12-14T00",
+        "dayNumber": 1,
+        "dayName": "Tuesday",
+        "time": "12AM",
+        "riskNumber": 0.01,
+        "precip_mm_max3hr": 0.1,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-14T03",
+        "dayNumber": 1,
+        "dayName": "Tuesday",
+        "time": "3AM",
+        "riskNumber": 0.01,
+        "precip_mm_max3hr": 0.1,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-14T06",
+        "dayNumber": 1,
+        "dayName": "Tuesday",
+        "time": "6AM",
+        "riskNumber": 0.08,
+        "precip_mm_max3hr": 0.5,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-14T09",
+        "dayNumber": 1,
+        "dayName": "Tuesday",
+        "time": "9AM",
+        "riskNumber": 0.12,
+        "precip_mm_max3hr": 0.8,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-14T12",
+        "dayNumber": 1,
+        "dayName": "Tuesday",
+        "time": "12PM",
+        "riskNumber": 0.13,
+        "precip_mm_max3hr": 0.85,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-14T15",
+        "dayNumber": 1,
+        "dayName": "Tuesday",
+        "time": "3PM",
+        "riskNumber": 0.24,
+        "precip_mm_max3hr": 1.6,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-14T18",
+        "dayNumber": 1,
+        "dayName": "Tuesday",
+        "time": "6PM",
+        "riskNumber": 0.34,
+        "precip_mm_max3hr": 3.1,
+        "riskLevel": 1
+      },
+      {
+        "timestamp": "2020-12-14T21",
+        "dayNumber": 1,
+        "dayName": "Tuesday",
+        "time": "9PM",
+        "riskNumber": 0.38,
+        "precip_mm_max3hr": 3.2,
+        "riskLevel": 1
+      },
+      {
+        "timestamp": "2020-12-15T00",
+        "dayNumber": 2,
+        "dayName": "Wednesday",
+        "time": "12AM",
+        "riskNumber": 0.01,
+        "precip_mm_max3hr": 0.1,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-15T03",
+        "dayNumber": 2,
+        "dayName": "Wednesday",
+        "time": "3AM",
+        "riskNumber": 0.01,
+        "precip_mm_max3hr": 0.1,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-15T06",
+        "dayNumber": 2,
+        "dayName": "Wednesday",
+        "time": "6AM",
+        "riskNumber": 0.08,
+        "precip_mm_max3hr": 0.5,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-15T09",
+        "dayNumber": 2,
+        "dayName": "Wednesday",
+        "time": "9AM",
+        "riskNumber": 0.12,
+        "precip_mm_max3hr": 0.8,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-15T12",
+        "dayNumber": 2,
+        "dayName": "Wednesday",
+        "time": "12PM",
+        "riskNumber": 0.13,
+        "precip_mm_max3hr": 0.85,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-15T15",
+        "dayNumber": 2,
+        "dayName": "Wednesday",
+        "time": "3PM",
+        "riskNumber": 0.24,
+        "precip_mm_max3hr": 1.6,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2020-12-15T18",
+        "dayNumber": 2,
+        "dayName": "Wednesday",
+        "time": "6PM",
+        "riskNumber": 0.34,
+        "precip_mm_max3hr": 3.1,
+        "riskLevel": 1
+      },
+      {
+        "timestamp": "2020-12-15T21",
+        "dayNumber": 2,
+        "dayName": "Wednesday",
+        "time": "9PM",
+        "riskNumber": 0.38,
+        "precip_mm_max3hr": 3.2,
+        "riskLevel": 1
+      }
+    ]
+  }
+}

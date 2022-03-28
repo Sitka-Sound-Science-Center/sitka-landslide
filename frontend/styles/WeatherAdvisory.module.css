@@ -1,0 +1,26 @@
+.banner {
+  display: flex;
+  background-color: var(--mediumblue);
+  padding: var(--space-300);
+  width: 100%;
+  align-items: center;
+  border-bottom: 1px solid var(--header-border);
+}
+
+.title {
+  color: var(--heading);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.title svg {
+  margin-right: var(--space-200);
+}
+
+.link {
+  text-transform: uppercase;
+  font-size: var(--size-500);
+  color: #fff;
+}

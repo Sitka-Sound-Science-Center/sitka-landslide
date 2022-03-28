@@ -1,0 +1,86 @@
+.section {
+	border-radius: var(--radius-500);
+	padding: 0 var(--space-200);
+	background-color: var(--background);
+	margin: var(--space-300) var(--space-200) 0;
+}
+
+.title {
+	font-weight: var(--weight-heavy);
+	font-size: var(--size-600);
+	height: 44px;
+	display: flex;
+	align-items: center;
+}
+
+.accordion {
+	width: 100%;
+}
+
+.category,
+.hour {
+	display: flex;
+	text-align: left;
+	cursor: pointer;
+	color: inherit;
+	height: 44px;
+	margin: 0 calc(-1 * var(--space-200));
+	padding: 0 var(--space-200);
+	border-top: var(--gray-400) 1px solid;
+	align-items: center;
+}
+
+.hour {
+	background-color: var(--gray-200);
+}
+
+.hourName {
+	flex: 1;
+	font-weight: var(--weight-medium);
+	color: var(--heading);
+}
+
+.hourRisk {
+	flex: 1;
+}
+
+.hourAction {
+	text-align: right;
+	flex: 1;
+}
+
+.categoryName {
+	flex: 1;
+	color: var(--heading);
+	font-weight: var(--weight-medium);
+}
+
+.categoryRisk {
+	flex: 1;
+}
+
+.categoryAction {
+	text-align: right;
+	flex: 1;
+}
+
+.panel {
+}
+
+.block {
+	width: 100%;
+	display: flex;
+}
+
+.blockName {
+	flex: 1;
+}
+
+.blockRisk {
+	flex: 1;
+}
+
+.blockAction {
+	text-align: right;
+	flex: 1;
+}

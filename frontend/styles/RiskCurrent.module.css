@@ -1,0 +1,29 @@
+.section {
+  padding: var(--space-500) 0 var(--space-300);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.detailIcon {
+  margin-left: var(--space-100);
+  display: inline;
+}
+
+.title {
+  font-weight: var(--weight-heavy);
+  font-size: var(--size-600);
+}
+
+.risk {
+  font-size: var(--size-900);
+  font-weight: var(--weight-black);
+  color: var(--heading);
+}
+
+.link {
+  color: var(--heading);
+  display: flex;
+}
