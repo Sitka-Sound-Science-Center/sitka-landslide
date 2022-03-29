@@ -9,14 +9,14 @@ const NWS_API = "https://api.weather.gov/gridpoints/AJK/188,113";
 const NWS_USERAGENT = "(Sitka Landslide Risk Forecasting, systems@azavea.com)";
 
 // Converts any ISO timestamp (whether it's in UTC or local time) to one in Sitka local time
-const toLocalTimestamp = (isoTimestamp) => {
+function toLocalTimestamp(isoTimestamp) {
   return DateTime.fromISO(isoTimestamp, {
     zone: "America/Sitka",
   }).toString();
-};
+}
 
 // Utility function to log errors. I just lifted the example right out of the Axios docs.
-const logRequestError = (error) => {
+function logRequestError(error) {
   console.log("==== ERROR ====");
   if (error.response) {
     // The request was made and the server responded with a status code
@@ -34,20 +34,20 @@ const logRequestError = (error) => {
     console.log("Error", error.message);
   }
   console.log(error.config);
-};
+}
 
 // Landslide probability predicted by the model, given 3hr rainfall (in mm)
-const landslideProbability = (rainfall) => {
+function landslideProbability(rainfall) {
   const intercept = -13.7821;
   const coefficient = 0.4294;
   const prob =
     Math.exp(intercept + coefficient * rainfall) /
     (1 + Math.exp(intercept + coefficient * rainfall));
   return prob;
-};
+}
 
 // Landslide risk rating based on calculated probability from 3hr rainfall (in mm)
-const landslideRisk = (rainfall) => {
+function landslideRisk(rainfall) {
   const prob = landslideProbability(rainfall);
   if (prob <= 0.01) {
     return 0;
@@ -56,10 +56,10 @@ const landslideRisk = (rainfall) => {
   } else {
     return 2;
   }
-};
+}
 
 // Download observed 3hr rainfall total at the Sitka airport weather station over the past 6 hours
-const getPastRainfall = async () => {
+async function getPastRainfall() {
   const mesoResponse = await axios.get(`${MESOWEST_API}/stations/precip`, {
     params: {
       token: MESOWEST_TOKEN,
@@ -83,11 +83,11 @@ const getPastRainfall = async () => {
     riskPrecip: riskPrecip,
     riskLevel: landslideRisk(riskPrecip),
   };
-};
+}
 
 // Download predicted 3hr rainfall amounts NWS from the grid cell containing Sitka airport
 // The argument is the past two 3hr totals, as an array
-const getForecastRainfall = async (observed) => {
+async function getForecastRainfall(observed) {
   const nwsResponse = await axios
     .get(NWS_API, {
       headers: { "User-Agent": NWS_USERAGENT },
@@ -123,17 +123,17 @@ const getForecastRainfall = async (observed) => {
     };
   });
   return riskForecasts;
-};
+}
 
 // Get current weather advisory status
 // TODO: implement this. currently it's just a placeholder.
 // Note: This shouldn't block an update, so if the API call fails it should return a
 //       valid block with "active": false.
-const getWeatherAdvisory = async () => {
+async function getWeatherAdvisory() {
   return {
-      "active": false,
-      "permalink": "https://forecast.weather.gov/MapClick.php?lat=57.052&lon=-135.334",
-  }
+    active: false,
+    permalink: "https://forecast.weather.gov/MapClick.php?lat=57.052&lon=-135.334",
+  };
 }
 
 const current = await getPastRainfall();
