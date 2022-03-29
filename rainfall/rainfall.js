@@ -50,11 +50,11 @@ const landslideProbability = (rainfall) => {
 const landslideRisk = (rainfall) => {
   const prob = landslideProbability(rainfall);
   if (prob <= 0.01) {
-    return "Low";
+    return 0;
   } else if (prob <= 0.7) {
-    return "Moderate";
+    return 1;
   } else {
-    return "High";
+    return 2;
   }
 };
 
@@ -81,7 +81,7 @@ const getPastRainfall = async () => {
     timestamp: toLocalTimestamp(threeHourObs.last_report),
     precip: threeHourObs.total,
     riskPrecip: riskPrecip,
-    risk: landslideRisk(riskPrecip),
+    riskLevel: landslideRisk(riskPrecip),
   };
 };
 
@@ -125,15 +125,28 @@ const getForecastRainfall = async (observed) => {
   return riskForecasts;
 };
 
-const observed = await getPastRainfall();
+// Get current weather advisory status
+// TODO: implement this. currently it's just a placeholder.
+// Note: This shouldn't block an update, so if the API call fails it should return a
+//       valid block with "active": false.
+const getWeatherAdvisory = async () => {
+  return {
+      "active": false,
+      "permalink": "https://forecast.weather.gov/MapClick.php?lat=57.052&lon=-135.334",
+  }
+}
+
+const current = await getPastRainfall();
 // Pass the observed amounts to the forecast function for use in the look-back of the first
 // couple forecast periods. Note that 'riskPrecip' could be the earlier observation or it could
 // be a copy of the most recent one, depending on which was higher, but since the calculations
 // just wants to know the max, it doesn't matter.
-const forecast = await getForecastRainfall([observed.riskPrecip, observed.precip]);
-if (observed && forecast) {
+const forecast = await getForecastRainfall([current.riskPrecip, current.precip]);
+if (current && forecast) {
   const result = {
-    observed,
+    lastUpdated: toLocalTimestamp(DateTime.now()),
+    weatherAdvisory: await getWeatherAdvisory(),
+    current,
     forecast,
   };
 

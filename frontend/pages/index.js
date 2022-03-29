@@ -15,16 +15,19 @@ import LastUpdated from "/components/LastUpdated";
 export async function getStaticProps() {
   // const res = await fetch("http://localhost:3000/api/today");
   const index = path.join(process.cwd(), "/data/index.json");
-  const { weatheradvisory, lastupdated, current, twentyfourhour, threeday } = JSON.parse(
+  const { twentyfourhour, threeday } = JSON.parse(
     fs.readFileSync(index, "utf8")
+  );
+  const { weatherAdvisory, lastUpdated, current } = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), "/data/rainfall.json"), "utf8")
   );
 
   return {
-    props: { weatheradvisory, lastupdated, current, twentyfourhour, threeday },
+    props: { weatherAdvisory, lastUpdated, current, twentyfourhour, threeday },
   };
 }
 
-export default function Home({ weatheradvisory, lastupdated, current, twentyfourhour, threeday }) {
+export default function Home({ weatherAdvisory, lastUpdated, current, twentyfourhour, threeday }) {
   return (
     <>
       <Head>
@@ -37,9 +40,9 @@ export default function Home({ weatheradvisory, lastupdated, current, twentyfour
         />
       </Head>
       <>
-        {weatheradvisory.active && <WeatherAdvisory permalink={weatheradvisory.permalink} />}
+        {weatherAdvisory.active && <WeatherAdvisory permalink={weatherAdvisory.permalink} />}
         <div className={styles.risk}>
-          <RiskCurrent riskLevel={current.riskLevel} date={current.date} />
+          <RiskCurrent riskLevel={current.riskLevel} date={current.timestamp} />
           <div className="container">
             <RiskHours
               message={twentyfourhour.message}
@@ -47,7 +50,7 @@ export default function Home({ weatheradvisory, lastupdated, current, twentyfour
               hours={twentyfourhour.hours}
             />
             <RiskDays days={threeday.days} hours={threeday.hours} />
-            <LastUpdated update={lastupdated} />
+            <LastUpdated update={lastUpdated} />
           </div>
         </div>
         <div className="container">

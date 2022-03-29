@@ -6,8 +6,8 @@ import Risk from "/components/Risk";
 import Nowcast from "/components/Nowcast";
 import Icon from "/components/Icon";
 
-const RiskCurrent = ({ riskLevel, date }) => {
-  const detailUrl = `/detail/${date}`;
+const RiskCurrent = ({ riskLevel }) => {
+  const detailUrl = `/detail/current`;
 
   return (
     <section className={styles.section}>
