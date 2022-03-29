@@ -15,6 +15,13 @@ function toLocalTimestamp(isoTimestamp) {
   }).toString();
 }
 
+// Converts any ISO timestamp to a short hour label (e.g. "3AM", "11PM")
+function toHourLabel(isoTimestamp) {
+  return DateTime.fromISO(isoTimestamp, {
+    zone: "America/Sitka",
+  }).toFormat("ha");
+};
+
 // Utility function to log errors. I just lifted the example right out of the Axios docs.
 function logRequestError(error) {
   console.log("==== ERROR ====");
@@ -34,6 +41,12 @@ function logRequestError(error) {
     console.log("Error", error.message);
   }
   console.log(error.config);
+}
+
+// Apparently rounding is a mess in Javascript and this mess is the preferred workaround
+// See https://www.jacklmoore.com/notes/rounding-in-javascript/
+function round(value, decimals) {
+  return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
 }
 
 // Landslide probability predicted by the model, given 3hr rainfall (in mm)
@@ -114,12 +127,14 @@ async function getForecastRainfall(observed) {
   // forecast, calculate risk based on the highest rainfall amount from the period in
   // question or the two previous 3-hour chunks.
   const prevPrecip = observed.concat(futureForecasts.map((f) => f.precip));
-  const riskForecasts = futureForecasts.map((f, i) => {
-    const riskPrecip = Math.max(f.precip, prevPrecip[i], prevPrecip[i + 1]);
+  const riskForecasts = futureForecasts.map((forecast, i) => {
+    const riskPrecip = Math.max(forecast.precip, prevPrecip[i], prevPrecip[i + 1]);
     return {
-      ...f,
+      ...forecast,
+      hour: toHourLabel(forecast.timestamp),
       riskPrecip,
-      risk: landslideRisk(riskPrecip),
+      riskProb: round(landslideProbability(riskPrecip), 4),
+      riskLevel: landslideRisk(riskPrecip),
     };
   });
   return riskForecasts;
@@ -136,18 +151,30 @@ async function getWeatherAdvisory() {
   };
 }
 
+function composeTwentyFourHours(forecasts) {
+  const hours = forecasts.filter(
+    (f) => DateTime.fromISO(f.timestamp) <= DateTime.now().plus({ hours: 24 })
+  );
+  const riskLevel = Math.max(...hours.map((h) => h.riskLevel));
+  return {
+    riskLevel,
+    hours,
+  }
+}
+
 const current = await getPastRainfall();
 // Pass the observed amounts to the forecast function for use in the look-back of the first
 // couple forecast periods. Note that 'riskPrecip' could be the earlier observation or it could
 // be a copy of the most recent one, depending on which was higher, but since the calculations
 // just wants to know the max, it doesn't matter.
-const forecast = await getForecastRainfall([current.riskPrecip, current.precip]);
-if (current && forecast) {
+const forecasts = await getForecastRainfall([current.riskPrecip, current.precip]);
+const twentyFourHours = composeTwentyFourHours(forecasts);
+if (current && forecasts) {
   const result = {
     lastUpdated: toLocalTimestamp(DateTime.now()),
     weatherAdvisory: await getWeatherAdvisory(),
     current,
-    forecast,
+    twentyFourHours,
   };
 
   console.log(JSON.stringify(result, null, 2));

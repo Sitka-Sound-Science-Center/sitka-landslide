@@ -39,12 +39,12 @@ const AreaChart = ({ data }) => {
   const createArea = area()
     .x((d) => scaleX(d.id))
     .y0(scaleY(0))
-    .y1((d) => scaleY(d.riskNumber))
+    .y1((d) => scaleY(d.riskProb))
     .curve(curveLinear);
 
   const createLine = line()
     .x((d) => scaleX(d.id))
-    .y((d) => scaleY(d.riskNumber))
+    .y((d) => scaleY(d.riskProb))
     .curve(curveLinear);
 
   const lineSegments = [];
@@ -142,7 +142,7 @@ const AreaChart = ({ data }) => {
                 key={i}
                 style={{ left: `${(scaleX(i) / width) * 100}%` }}
               >
-                {tick.time}
+                {tick.hour}
               </div>
             );
           })}
