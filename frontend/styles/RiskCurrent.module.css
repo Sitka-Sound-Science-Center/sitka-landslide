@@ -5,6 +5,7 @@
   display: flex;
   position: relative;
   flex-direction: column;
+  text-align: center;
 }
 
 .detailIcon {
@@ -26,4 +27,40 @@
 .link {
   color: var(--heading);
   display: flex;
+  grid-gap: var(--space-300);
+  justify-content: center;
+}
+
+.desktopText {
+  display: none;
+}
+
+@media screen and (min-width: 860px) {
+  .risk {
+    width: 800px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .desktopText {
+    display: inline;
+  }
+
+  .title {
+    display: none;
+  }
+
+  .section {
+    align-items: flex-start;
+    background-color: var(--page-header);
+    padding: var(--space-700) 0;
+    margin-bottom: var(--space-700);
+    border-bottom: 1px solid var(--header-border);
+    margin: 0 0 var(--space-500);
+  }
+
+  .link {
+    font-weight: var(--weight-bold);
+    justify-content: flex-start;
+  }
 }

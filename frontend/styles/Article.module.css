@@ -1,5 +1,5 @@
 .article {
-	padding: var(--space-400);
+	padding: var(--space-700) var(--space-400);
 }
 
 .article p {
@@ -44,4 +44,16 @@
 	list-style: number;
 	margin-left: 1.5em;
 	margin-bottom: var(--space-300);
+}
+
+@media screen and (min-width: 600px) {
+	.article {
+		padding: var(--space-600) 0;
+	}
+	.article h3 {
+		margin: var(--space-600) 0 var(--space-400);
+	}
+	.article h4 {
+		margin: var(--space-500) 0 var(--space-300);
+	}
 }

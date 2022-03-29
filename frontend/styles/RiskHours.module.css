@@ -20,9 +20,6 @@
 	grid-column-gap: var(--space-200);
 }
 
-.message {
-}
-
 .title {
 	font-weight: var(--weight-heavy);
 	font-size: var(--size-600);
@@ -31,5 +28,24 @@
 
 .prepare {
 	margin-top: var(--space-100);
-	/*display: block;*/
+}
+
+@media screen and (min-width: 600px) {
+	.header {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+
+	.message {
+		margin-top: var(--space-300);
+	}
+
+	.section {
+		margin: 0 0 var(--space-800);
+		padding: 0;
+	}
+
+	.title {
+		font-size: var(--size-800);
+	}
 }

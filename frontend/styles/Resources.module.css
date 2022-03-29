@@ -3,6 +3,13 @@
   width: 100%;
 }
 
+@media screen and (min-width: 600px) {
+  .section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .resources {
   width: 100%;
 }

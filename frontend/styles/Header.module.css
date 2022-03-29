@@ -1,9 +1,9 @@
 .header {
   background-color: var(--darkblue);
-  padding: 0 var(--space-300);
+  padding: var(--space-100) var(--space-300);
   display: flex;
   color: var(--background);
-  height: 48px;
+  height: 56px;
   align-items: center;
   border-bottom: 1px solid var(--header-border);
 }

@@ -17,9 +17,11 @@ const Map = ({}) => {
         style: "mapbox://styles/lknarf/cl0pf3asg000114nt5jepzs6s",
         center: [-135.32, 57.0531],
         minZoom: 8,
-        zoom: 10,
+        zoom: 14,
+        pitch: 60,
+        bearing: 0,
         maxZoom: 18,
-        hash: true,
+        // hash: true,
       });
 
       map.on("load", function () {
@@ -72,6 +74,14 @@ const Map = ({}) => {
           width: 100%;
           height: 100vh;
         }
+
+        @media screen and (min-width: 1000px) {
+          .map {
+            width: auto;
+            margin: 0 -100px;
+          }
+        }
+
         .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
           background-image: url("/images/svg/mapboxgl-ctrl-zoom-out.svg");
         }

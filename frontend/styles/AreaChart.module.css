@@ -4,6 +4,12 @@
   height: 150px;
 }
 
+@media screen and (min-width: 600px) {
+  .chart {
+    height: 260px;
+  }
+}
+
 .labels {
   position: absolute;
   height: 100%;
@@ -43,7 +49,7 @@
 }
 
 .lineY {
-  stroke: var(--gray-100);
+  stroke: var(--gray-500);
   stroke-width: 1;
   shape-rendering: crispEdges;
 }

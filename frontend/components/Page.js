@@ -12,15 +12,17 @@ const Page = ({ children, title, description }) => {
         <title>{title} | Sitka Landslide Risk</title>
         <meta name="description" content={description} />
       </Head>
-      <div>
-        <header className={styles.header}>
+      <header className={styles.header}>
+        <div className="container">
           <h2>
             <span className={styles.title}>{title}</span>
           </h2>
           <p className={styles.description}>{description}</p>
-        </header>
-        <article className={styles.article}>{children}</article>
-      </div>
+        </div>
+      </header>
+      <article className={styles.article}>
+        <div className="container">{children}</div>
+      </article>
     </>
   );
 };
