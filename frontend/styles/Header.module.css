@@ -1,9 +1,9 @@
 .header {
   background-color: var(--darkblue);
-  padding: var(--space-100) var(--space-300);
+  padding: 0 var(--space-300);
   display: flex;
   color: var(--background);
-  height: 56px;
+  height: 48px;
   align-items: center;
   border-bottom: 1px solid var(--header-border);
 }
@@ -77,4 +77,11 @@
 
 .menu a:not(:last-child) {
   border-bottom: 1px solid var(--gray-300);
+}
+
+@media screen and (min-width: 600px) {
+  .header {
+    padding: var(--space-100) var(--space-300);
+    height: 56px;
+  }
 }

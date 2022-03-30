@@ -10,26 +10,37 @@ export const page = {
   description: "Learn what you and your community can do to be ready for a landslide",
 };
 
+export const style = { display: "flex", gridGap: "6px", alignItems: "center" };
+
 ### Landslide preparedness
 
 Read the [USGS guide for landslide preparedness](https://www.usgs.gov/programs/landslide-hazards/landslide-preparedness) for more information.
 
 ### Responding to risk levels
 
-<h4 id={riskDefinitions[2].slug}>
-  <Risk riskLevel={2} />
+<h4 id={riskDefinitions[2].slug} style={style}>
+  <span>
+    <Risk riskLevel={2} hasText={false} />
+  </span>
+  <span>High risk</span>
 </h4>
 
 <ForecastRisk2 />
 
-<h4 id={riskDefinitions[1].slug}>
-  <Risk riskLevel={1} />
+<h4 id={riskDefinitions[1].slug} style={style}>
+  <span>
+    <Risk riskLevel={1} hasText={false} />
+  </span>
+  <span>Medium risk</span>
 </h4>
 
 <ForecastRisk1 />
 
-<h4 id={riskDefinitions[0].slug}>
-  <Risk riskLevel={0} />
+<h4 id={riskDefinitions[0].slug} style={style}>
+  <span>
+    <Risk riskLevel={0} hasText={false} />
+  </span>
+  <span>Low risk</span>
 </h4>
 
 <ForecastRisk0 />

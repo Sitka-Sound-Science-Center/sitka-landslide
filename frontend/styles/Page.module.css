@@ -22,7 +22,7 @@
 
 @media screen and (min-width: 600px) {
 	.description {
-		font-size: var(--size-600);
+		font-size: var(--size-700);
 	}
 
 	.header {
