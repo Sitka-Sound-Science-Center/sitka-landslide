@@ -195,74 +195,72 @@ export default function Detail({ activeData }) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <>
-          <article className={styles.article}>
-            <div className={styles.figures}>
-              <div className={styles.risk}>
-                <h3 className={styles.figureHeading}>Risk</h3>
-                <div className={styles.riskBar}>
-                  <div
-                    style={{ left: `${activeData.riskNumber * 100}%` }}
-                    className={styles.riskBarIcon}
-                  >
-                    <Risk riskLevel={activeData.riskLevel} hasText={false} />
-                  </div>
-                  <div className={styles.riskBarLine}></div>
-                  <div className={styles.riskBarLegend}>
-                    <div>{riskDefinitions[0].abbreviated}</div>
-                    <div>{riskDefinitions[1].abbreviated}</div>
-                    <div>{riskDefinitions[2].abbreviated}</div>
-                  </div>
+          <div className={styles.figures}>
+            <div className={styles.risk}>
+              <h3 className={styles.figureHeading}>Risk</h3>
+              <div className={styles.riskBar}>
+                <div
+                  style={{ left: `${activeData.riskNumber * 100}%` }}
+                  className={styles.riskBarIcon}
+                >
+                  <Risk riskLevel={activeData.riskLevel} hasText={false} />
+                </div>
+                <div className={styles.riskBarLine}></div>
+                <div className={styles.riskBarLegend}>
+                  <div>{riskDefinitions[0].abbreviated}</div>
+                  <div>{riskDefinitions[1].abbreviated}</div>
+                  <div>{riskDefinitions[2].abbreviated}</div>
                 </div>
               </div>
-              <div className={styles.rainfall}>
-                <h3 className={styles.figureHeading}>3 hour rainfall</h3>
-                <div className={styles.rainfallNumber}>{activeData.precip_mm_max3hr}″</div>
-              </div>
             </div>
-            <hr />
-            <div className={styles.chart}>
-              {mounted && (
-                <ResponsiveScatterPlotCanvas
-                  isInteractive={false}
-                  useMesh={false}
-                  debugMesh={false}
-                  data={data}
-                  colors={["rgba(0, 0, 0, 0.2)", "red", "green"]}
-                  margin={{ top: 10, right: 5, bottom: 30, left: 60 }}
-                  nodeSize={(d) =>
-                    d.serieId === "nolandslide" ? 5 : d.serieId === "landslide" ? 7 : 10
-                  }
-                  xScale={{ type: "time", format: "%Y-%m-%d", precision: "day" }}
-                  xFormat=">-.2f"
-                  yScale={{ type: "linear", min: 0, max: "auto" }}
-                  yFormat=">-.2f"
-                  axisTop={null}
-                  axisRight={null}
-                  axisBottom={{
-                    orient: "bottom",
-                    tickSize: 5,
-                    tickPadding: 5,
-                    tickRotation: 0,
-                    format: "%Y",
-                    tickValues: "every 4 years",
-                    legendPosition: "middle",
-                    legendOffset: 0,
-                  }}
-                  axisLeft={{
-                    orient: "left",
-                    tickSize: 5,
-                    tickPadding: 5,
-                    tickRotation: 0,
-                    legend: "3 hour rainfall (in.)",
-                    legendPosition: "middle",
-                    legendOffset: -50,
-                  }}
-                  theme={theme}
-                />
-              )}
+            <div className={styles.rainfall}>
+              <h3 className={styles.figureHeading}>3 hour rainfall</h3>
+              <div className={styles.rainfallNumber}>{activeData.precip_mm_max3hr}″</div>
             </div>
-            <DetailContent />
-          </article>
+          </div>
+          <hr />
+          <div className={styles.chart}>
+            {mounted && (
+              <ResponsiveScatterPlotCanvas
+                isInteractive={false}
+                useMesh={false}
+                debugMesh={false}
+                data={data}
+                colors={["rgba(0, 0, 0, 0.2)", "red", "green"]}
+                margin={{ top: 10, right: 5, bottom: 30, left: 60 }}
+                nodeSize={(d) =>
+                  d.serieId === "nolandslide" ? 5 : d.serieId === "landslide" ? 7 : 10
+                }
+                xScale={{ type: "time", format: "%Y-%m-%d", precision: "day" }}
+                xFormat=">-.2f"
+                yScale={{ type: "linear", min: 0, max: "auto" }}
+                yFormat=">-.2f"
+                axisTop={null}
+                axisRight={null}
+                axisBottom={{
+                  orient: "bottom",
+                  tickSize: 5,
+                  tickPadding: 5,
+                  tickRotation: 0,
+                  format: "%Y",
+                  tickValues: "every 4 years",
+                  legendPosition: "middle",
+                  legendOffset: 0,
+                }}
+                axisLeft={{
+                  orient: "left",
+                  tickSize: 5,
+                  tickPadding: 5,
+                  tickRotation: 0,
+                  legend: "3 hour rainfall (in.)",
+                  legendPosition: "middle",
+                  legendOffset: -50,
+                }}
+                theme={theme}
+              />
+            )}
+          </div>
+          <DetailContent />
         </>
       </div>
     </Page>

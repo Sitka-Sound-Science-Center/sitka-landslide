@@ -9,7 +9,7 @@
 }
 
 .detailIcon {
-  margin-left: var(--space-100);
+  margin-left: -4px;
   display: inline;
 }
 
@@ -27,7 +27,7 @@
 .link {
   color: var(--heading);
   display: flex;
-  grid-gap: var(--space-300);
+  grid-gap: var(--space-200);
   justify-content: center;
 }
 

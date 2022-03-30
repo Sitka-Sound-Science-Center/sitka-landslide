@@ -15,13 +15,14 @@ const Map = ({}) => {
         cooperativeGestures: true,
         container: "map",
         style: "mapbox://styles/lknarf/cl0pf3asg000114nt5jepzs6s",
-        center: [-135.32, 57.0531],
         minZoom: 8,
-        zoom: 14,
         pitch: 60,
         bearing: 0,
         maxZoom: 18,
-        // hash: true,
+        bounds: [
+          [-135.40821075439453, 57.031763208858415],
+          [-135.19054412841797, 57.12282315984669],
+        ],
       });
 
       map.on("load", function () {
@@ -53,7 +54,7 @@ const Map = ({}) => {
           maxzoom: 20,
           paint: {
             "raster-resampling": "nearest",
-            "raster-opacity": 0.6,
+            "raster-opacity": 0.7,
           },
         });
       });

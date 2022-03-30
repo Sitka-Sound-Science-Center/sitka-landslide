@@ -21,6 +21,9 @@ const RiskCurrent = ({ riskLevel, date }) => {
                 <Risk riskLevel={riskLevel} hasIcon={false} iconSize={1} />
                 <span className={styles.desktopText}> risk of landslide now</span>
               </span>
+              <span className={styles.detailIcon}>
+                <Icon name={"chevron-right"} color="var(--detail-chevron)" size={0.6} />
+              </span>
             </a>
           </Link>
         </p>
