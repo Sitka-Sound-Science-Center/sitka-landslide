@@ -44,6 +44,10 @@ function round(value, decimals) {
   return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
 }
 
+function mmToInches(mm) {
+  return round(mm / 25.4, 2);
+}
+
 // Landslide probability predicted by the model, given 3hr rainfall (in mm)
 function landslideProbability(rainfall) {
   const intercept = -13.7821;
@@ -94,7 +98,9 @@ async function getPastRainfall() {
   return {
     timestamp: toLocalTimestamp(threeHourObs.last_report),
     precip: threeHourObs.total,
+    precipInches: mmToInches(threeHourObs.total),
     riskPrecip: riskPrecip,
+    riskPrecipInches: mmToInches(riskPrecip),
     riskLevel: landslideRisk(riskPrecip),
   };
 }
@@ -138,6 +144,7 @@ async function getForecastRainfall(observed) {
       ...forecast,
       hour: toLocalDateTime(forecast.timestamp).toFormat("ha"),
       riskPrecip,
+      riskPrecipInches: mmToInches(riskPrecip),
       riskProb: round(landslideProbability(riskPrecip), 4),
       riskLevel: landslideRisk(riskPrecip),
     };
