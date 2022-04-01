@@ -13,21 +13,16 @@ import Resources from "/components/Resources";
 import LastUpdated from "/components/LastUpdated";
 
 export async function getStaticProps() {
-  // const res = await fetch("http://localhost:3000/api/today");
-  const index = path.join(process.cwd(), "/data/index.json");
-  const { threeday } = JSON.parse(
-    fs.readFileSync(index, "utf8")
-  );
-  const { weatherAdvisory, lastUpdated, current, twentyFourHours } = JSON.parse(
+  const { weatherAdvisory, lastUpdated, current, twentyFourHours, threeDays } = JSON.parse(
     fs.readFileSync(path.join(process.cwd(), "/data/rainfall.json"), "utf8")
   );
 
   return {
-    props: { weatherAdvisory, lastUpdated, current, twentyFourHours, threeday },
+    props: { weatherAdvisory, lastUpdated, current, twentyFourHours, threeDays },
   };
 }
 
-export default function Home({ weatherAdvisory, lastUpdated, current, twentyFourHours, threeday }) {
+export default function Home({ weatherAdvisory, lastUpdated, current, twentyFourHours, threeDays }) {
   return (
     <>
       <Head>
@@ -45,7 +40,7 @@ export default function Home({ weatherAdvisory, lastUpdated, current, twentyFour
           <RiskCurrent riskLevel={current.riskLevel} date={current.timestamp} />
           <div className="container">
             <RiskHours riskLevel={twentyFourHours.riskLevel} hours={twentyFourHours.hours} />
-            <RiskDays days={threeday.days} hours={threeday.hours} />
+            <RiskDays days={threeDays.days} hours={threeDays.hours} />
             <LastUpdated update={lastUpdated} />
           </div>
         </div>

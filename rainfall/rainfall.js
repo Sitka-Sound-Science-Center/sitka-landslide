@@ -8,19 +8,18 @@ const NWS_API = "https://api.weather.gov/gridpoints/AJK/188,113";
 // NWS doesn't require authentication, but they ask for an identifiable user-agent
 const NWS_USERAGENT = "(Sitka Landslide Risk Forecasting, systems@azavea.com)";
 
-// Converts any ISO timestamp (whether it's in UTC or local time) to one in Sitka local time
-function toLocalTimestamp(isoTimestamp) {
+// Converts any ISO timestamp (whether it's in UTC or local time) to a luxon DateTime
+// instance in Sitka local time
+function toLocalDateTime(isoTimestamp) {
   return DateTime.fromISO(isoTimestamp, {
     zone: "America/Sitka",
-  }).toString();
+  });
 }
 
-// Converts any ISO timestamp to a short hour label (e.g. "3AM", "11PM")
-function toHourLabel(isoTimestamp) {
-  return DateTime.fromISO(isoTimestamp, {
-    zone: "America/Sitka",
-  }).toFormat("ha");
-};
+// Converts any ISO timestamp to one in Sitka local time
+function toLocalTimestamp(isoTimestamp) {
+  return toLocalDateTime(isoTimestamp).toString();
+}
 
 // Utility function to log errors. I just lifted the example right out of the Axios docs.
 function logRequestError(error) {
@@ -131,7 +130,7 @@ async function getForecastRainfall(observed) {
     const riskPrecip = Math.max(forecast.precip, prevPrecip[i], prevPrecip[i + 1]);
     return {
       ...forecast,
-      hour: toHourLabel(forecast.timestamp),
+      hour: toLocalDateTime(forecast.timestamp).toFormat("ha"),
       riskPrecip,
       riskProb: round(landslideProbability(riskPrecip), 4),
       riskLevel: landslideRisk(riskPrecip),
@@ -159,7 +158,33 @@ function composeTwentyFourHours(forecasts) {
   return {
     riskLevel,
     hours,
-  }
+  };
+}
+
+function composeThreeDays(forecasts) {
+  const hours = forecasts
+    .filter((f) => DateTime.fromISO(f.timestamp) <= DateTime.now().plus({ days: 3 }))
+    .map((f) => {
+      return {
+        ...f,
+        dayNumber: toLocalDateTime(f.timestamp).toFormat("c"),
+        dayName: toLocalDateTime(f.timestamp).toFormat("cccc"),
+      };
+    });
+  const days = Object.values(
+    hours.reduce((daysAcc, hour) => {
+      daysAcc[hour.dayNumber] = {
+        dayNumber: hour.dayNumber,
+        dayName: hour.dayName,
+        riskLevel: Math.max(hour.riskLevel, daysAcc[hour.dayNumber]?.riskLevel || 0),
+      };
+      return daysAcc;
+    }, {})
+  );
+  return {
+    days,
+    hours,
+  };
 }
 
 const current = await getPastRainfall();
@@ -169,12 +194,14 @@ const current = await getPastRainfall();
 // just wants to know the max, it doesn't matter.
 const forecasts = await getForecastRainfall([current.riskPrecip, current.precip]);
 const twentyFourHours = composeTwentyFourHours(forecasts);
+const threeDays = composeThreeDays(forecasts);
 if (current && forecasts) {
   const result = {
     lastUpdated: toLocalTimestamp(DateTime.now()),
     weatherAdvisory: await getWeatherAdvisory(),
     current,
     twentyFourHours,
+    threeDays,
   };
 
   console.log(JSON.stringify(result, null, 2));
