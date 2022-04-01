@@ -168,6 +168,7 @@ function composeTwentyFourHours(forecasts) {
 }
 
 function composeThreeDays(forecasts) {
+  // Get all the hourly forecasts for the next three days
   const hours = forecasts
     .filter((f) => DateTime.fromISO(f.timestamp) <= DateTime.now().plus({ days: 3 }))
     .map((f) => {
@@ -177,15 +178,19 @@ function composeThreeDays(forecasts) {
         dayName: toLocalDateTime(f.timestamp).toFormat("cccc"),
       };
     });
-  const days = Object.values(
-    hours.reduce((daysAcc, hour) => {
-      daysAcc[hour.dayNumber] = {
-        dayNumber: hour.dayNumber,
-        dayName: hour.dayName,
-        riskLevel: Math.max(hour.riskLevel, daysAcc[hour.dayNumber]?.riskLevel || 0),
-      };
-      return daysAcc;
-    }, {})
+  // Collect daily summaries, with the highest risk for each calendar day
+  const daysObject = hours.reduce((daysAcc, hour) => {
+    daysAcc[hour.dayNumber] = {
+      dayNumber: hour.dayNumber,
+      dayName: hour.dayName,
+      riskLevel: Math.max(hour.riskLevel, daysAcc[hour.dayNumber]?.riskLevel || 0),
+      lastTimestamp: hour.timestamp,
+    };
+    return daysAcc;
+  }, {});
+  // Make sure they come out sorted chronologically, even if the week wraps around
+  const days = Object.values(daysObject).sort((a, b) =>
+    a.lastTimestamp >= b.lastTimestamp ? 1 : -1
   );
   return {
     days,
