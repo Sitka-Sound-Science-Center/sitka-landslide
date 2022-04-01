@@ -11,10 +11,12 @@ import LastUpdated from "/components/LastUpdated";
 import rainfall from "/data/rainfall";
 
 export async function getStaticProps() {
-  const { weatherAdvisory, lastUpdated, current, twentyFourHours, threeDays } = await rainfall();
+  const rainfallData = await rainfall();
+  // For debugging: uncomment the next line to see the processed data in the build output.
+  // console.log(JSON.stringify(rainfallData, null, 2));
 
   return {
-    props: { weatherAdvisory, lastUpdated, current, twentyFourHours, threeDays },
+    props: rainfallData,
   };
 }
 
