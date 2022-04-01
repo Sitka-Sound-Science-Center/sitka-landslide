@@ -21,25 +21,21 @@ function toLocalTimestamp(isoTimestamp) {
   return toLocalDateTime(isoTimestamp).toString();
 }
 
-// Utility function to log errors. I just lifted the example right out of the Axios docs.
+// Utility function to log errors Axios errors.
 function logRequestError(error) {
   console.log("==== ERROR ====");
   if (error.response) {
     // The request was made and the server responded with a status code
     // that falls out of the range of 2xx
+    console.log(`Error: HTTP ${error.response.status} response from ${error.config.url}`);
     console.log(error.response.data);
-    console.log(error.response.status);
-    console.log(error.response.headers);
   } else if (error.request) {
     // The request was made but no response was received
-    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-    // http.ClientRequest in node.js
-    console.log(error.request);
+    console.log(`Error: Request to ${error.config.url} got no response.`);
   } else {
     // Something happened in setting up the request that triggered an Error
-    console.log("Error", error.message);
+    console.log("Error:", error.message);
   }
-  console.log(error.config);
 }
 
 // Apparently rounding is a mess in Javascript and this mess is the preferred workaround
@@ -72,15 +68,21 @@ function landslideRisk(rainfall) {
 
 // Download observed 3hr rainfall total at the Sitka airport weather station over the past 6 hours
 async function getPastRainfall() {
-  const mesoResponse = await axios.get(`${MESOWEST_API}/stations/precip`, {
-    params: {
-      token: MESOWEST_TOKEN,
-      stid: "PASI", // Sitka airport station ID
-      pmode: "last",
-      accum_hours: "3,6",
-      obtimezone: "local",
-    },
-  });
+  const mesoResponse = await axios
+    .get(`${MESOWEST_API}/stations/precip`, {
+      params: {
+        token: MESOWEST_TOKEN,
+        stid: "PASI", // Sitka airport station ID
+        pmode: "last",
+        accum_hours: "3,6",
+        obtimezone: "local",
+      },
+    })
+    .catch(logRequestError);
+
+  if (!mesoResponse) {
+    return null;
+  }
 
   // Pull the observations out from the depths of the response
   const data = mesoResponse.data.STATION[0].OBSERVATIONS.precipitation;
@@ -105,6 +107,10 @@ async function getForecastRainfall(observed) {
       headers: { "User-Agent": NWS_USERAGENT },
     })
     .catch(logRequestError);
+
+  if (!nwsResponse) {
+    return null;
+  }
 
   // Get precip values from response, keeping only ones with a 3-hour window
   const data = nwsResponse.data.properties.quantitativePrecipitation.values.filter((f) =>
@@ -189,23 +195,25 @@ function composeThreeDays(forecasts) {
 
 export default async function rainfall() {
   const current = await getPastRainfall();
-  // Pass the observed amounts to the forecast function for use in the look-back of the first
-  // couple forecast periods. Note that 'riskPrecip' could be the earlier observation or it could
-  // be a copy of the most recent one, depending on which was higher, but since the calculations
-  // just want to know the max, it doesn't matter.
-  const forecasts = await getForecastRainfall([current.riskPrecip, current.precip]);
-  const twentyFourHours = composeTwentyFourHours(forecasts);
-  const threeDays = composeThreeDays(forecasts);
-  if (current && forecasts) {
-    const result = {
-      lastUpdated: toLocalTimestamp(DateTime.now()),
-      weatherAdvisory: await getWeatherAdvisory(),
-      current,
-      twentyFourHours,
-      threeDays,
-    };
-
-    // console.log(JSON.stringify(result, null, 2));
-    return result;
+  if (current) {
+    // Pass the observed amounts to the forecast function for use in the look-back of the first
+    // couple forecast periods. Note that 'riskPrecip' could be the earlier observation or it could
+    // be a copy of the most recent one, depending on which was higher, but since the calculations
+    // just want to know the max, it doesn't matter.
+    const forecasts = await getForecastRainfall([current.riskPrecip, current.precip]);
+    if (forecasts) {
+      const twentyFourHours = composeTwentyFourHours(forecasts);
+      const threeDays = composeThreeDays(forecasts);
+      return {
+        lastUpdated: toLocalTimestamp(DateTime.now()),
+        weatherAdvisory: await getWeatherAdvisory(),
+        current,
+        twentyFourHours,
+        threeDays,
+      };
+    }
   }
+
+  // If it didn't return above, throw an error.
+  throw "Failed to load observed or forecast rainfall data.";
 }
