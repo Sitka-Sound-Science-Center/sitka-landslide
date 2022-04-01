@@ -140,9 +140,9 @@ async function getForecastRainfall(observed) {
 }
 
 // Get current weather advisory status
-// TODO: implement this. currently it's just a placeholder.
+// TODO (#16): implement this. currently it's just a placeholder.
 // Note: This shouldn't block an update, so if the API call fails it should return a
-//       valid block with "active": false.
+//       valid object with {active: false}.
 async function getWeatherAdvisory() {
   return {
     active: false,
@@ -187,22 +187,25 @@ function composeThreeDays(forecasts) {
   };
 }
 
-const current = await getPastRainfall();
-// Pass the observed amounts to the forecast function for use in the look-back of the first
-// couple forecast periods. Note that 'riskPrecip' could be the earlier observation or it could
-// be a copy of the most recent one, depending on which was higher, but since the calculations
-// just wants to know the max, it doesn't matter.
-const forecasts = await getForecastRainfall([current.riskPrecip, current.precip]);
-const twentyFourHours = composeTwentyFourHours(forecasts);
-const threeDays = composeThreeDays(forecasts);
-if (current && forecasts) {
-  const result = {
-    lastUpdated: toLocalTimestamp(DateTime.now()),
-    weatherAdvisory: await getWeatherAdvisory(),
-    current,
-    twentyFourHours,
-    threeDays,
-  };
+export default async function rainfall() {
+  const current = await getPastRainfall();
+  // Pass the observed amounts to the forecast function for use in the look-back of the first
+  // couple forecast periods. Note that 'riskPrecip' could be the earlier observation or it could
+  // be a copy of the most recent one, depending on which was higher, but since the calculations
+  // just want to know the max, it doesn't matter.
+  const forecasts = await getForecastRainfall([current.riskPrecip, current.precip]);
+  const twentyFourHours = composeTwentyFourHours(forecasts);
+  const threeDays = composeThreeDays(forecasts);
+  if (current && forecasts) {
+    const result = {
+      lastUpdated: toLocalTimestamp(DateTime.now()),
+      weatherAdvisory: await getWeatherAdvisory(),
+      current,
+      twentyFourHours,
+      threeDays,
+    };
 
-  console.log(JSON.stringify(result, null, 2));
+    // console.log(JSON.stringify(result, null, 2));
+    return result;
+  }
 }

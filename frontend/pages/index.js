@@ -1,7 +1,4 @@
-import fs from "fs";
-import path from "path";
 import Head from "next/head";
-import Link from "next/link";
 
 import styles from "../styles/Index.module.css";
 import WeatherAdvisory from "/components/WeatherAdvisory";
@@ -11,18 +8,23 @@ import RiskDays from "/components/RiskDays";
 import Understanding from "/components/Understanding";
 import Resources from "/components/Resources";
 import LastUpdated from "/components/LastUpdated";
+import rainfall from "/data/rainfall";
 
 export async function getStaticProps() {
-  const { weatherAdvisory, lastUpdated, current, twentyFourHours, threeDays } = JSON.parse(
-    fs.readFileSync(path.join(process.cwd(), "/data/rainfall.json"), "utf8")
-  );
+  const { weatherAdvisory, lastUpdated, current, twentyFourHours, threeDays } = await rainfall();
 
   return {
     props: { weatherAdvisory, lastUpdated, current, twentyFourHours, threeDays },
   };
 }
 
-export default function Home({ weatherAdvisory, lastUpdated, current, twentyFourHours, threeDays }) {
+export default function Home({
+  weatherAdvisory,
+  lastUpdated,
+  current,
+  twentyFourHours,
+  threeDays,
+}) {
   return (
     <>
       <Head>
