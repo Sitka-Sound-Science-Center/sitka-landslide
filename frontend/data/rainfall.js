@@ -31,6 +31,11 @@ function toDatetimeLabel(isoTimestamp) {
   return `${dt.toFormat("LLLL d")} · ${dt.toFormat("ha")}-${endDt.toFormat("ha")}`;
 }
 
+function toShortTimestamp(isoTimestamp) {
+  const ts = toLocalTimestamp(isoTimestamp);
+  return ts.substring(0, 16);
+}
+
 // Utility function to log errors Axios errors.
 function logRequestError(error) {
   console.log("==== ERROR ====");
@@ -156,6 +161,7 @@ async function getForecastRainfall(observed) {
     return {
       ...forecast,
       hour: toLocalDateTime(forecast.timestamp).toFormat("ha"),
+      shortTimestamp: toShortTimestamp(forecast.timestamp),
       datetimeLabel: toDatetimeLabel(forecast.timestamp),
       riskPrecip,
       riskPrecipInches: mmToInches(riskPrecip),

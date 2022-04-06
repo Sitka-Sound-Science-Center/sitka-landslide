@@ -26,7 +26,9 @@ export async function getStaticPaths() {
     paths: [{ params: { timestamp: "current" } }].concat(
       rainfallData.threeDays.hours.map((hour) => {
         return {
-          params: { timestamp: hour.timestamp.split(".")[0] },
+          // Note: the path param is called 'timestamp' but we're using the data field that has a
+          // shortened version (so the URLs won't be needlessly cluttered).
+          params: { timestamp: hour.shortTimestamp },
         };
       })
     ),
@@ -38,7 +40,7 @@ export async function getStaticProps({ params }) {
   const activeData =
     params.timestamp === "current"
       ? rainfallData.current
-      : rainfallData.threeDays.hours.find((h) => params.timestamp === h.timestamp.split(".")[0]);
+      : rainfallData.threeDays.hours.find((h) => params.timestamp === h.shortTimestamp);
 
   return {
     props: { activeData },
