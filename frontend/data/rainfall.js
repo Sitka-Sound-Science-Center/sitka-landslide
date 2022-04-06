@@ -1,8 +1,8 @@
 import axios from "axios";
 import { DateTime } from "luxon";
 
-// For debugging: a multiplier applied to rainfall amounts in the risk calculation to get the
-// results up into an interesting range. Something in the 8-15 range will usually do the trick.
+// For debugging: a multiplier applied to rainfall amounts to get the results up into an
+// interesting range. Something in the 8-15 range will usually do the trick.
 const EXAGGERATION_FACTOR = 1;
 
 const MESOWEST_API = "https://api.synopticdata.com/v2";
@@ -53,9 +53,7 @@ function mmToInches(mm) {
 }
 
 // Landslide probability predicted by the model, given 3hr rainfall (in mm)
-function landslideProbability(realRainfall) {
-  // EXAGGERATION_FACTOR is set at the top, to facilitate debugging higher-risk scenarios
-  const rainfall = realRainfall * EXAGGERATION_FACTOR;
+function landslideProbability(rainfall) {
   const intercept = -13.7821;
   const coefficient = 0.4294;
   const prob =
@@ -98,13 +96,15 @@ async function getPastRainfall() {
   const data = mesoResponse.data.STATION[0].OBSERVATIONS.precipitation;
   const threeHourObs = data.find((d) => d.accum_hours === 3);
   const sixHourObs = data.find((d) => d.accum_hours === 6);
+  const precip = threeHourObs.total * EXAGGERATION_FACTOR;
   // Calculate risk based on the highest 3-hour precip within the past 6 hours
-  const riskPrecip = Math.max(threeHourObs.total, sixHourObs.total - threeHourObs.total);
+  const riskPrecip =
+    Math.max(threeHourObs.total, sixHourObs.total - threeHourObs.total) * EXAGGERATION_FACTOR;
 
   return {
     timestamp: toLocalTimestamp(threeHourObs.last_report),
-    precip: threeHourObs.total,
-    precipInches: mmToInches(threeHourObs.total),
+    precip: precip,
+    precipInches: mmToInches(precip),
     riskPrecip: riskPrecip,
     riskPrecipInches: mmToInches(riskPrecip),
     riskLevel: landslideRisk(riskPrecip),
@@ -132,7 +132,7 @@ async function getForecastRainfall(observed) {
   const forecasts = data.map((f) => ({
     // The timestamp format is an ISO date string plus an interval. We only want the datetime.
     timestamp: toLocalTimestamp(f.validTime.split("/")[0]),
-    precip: f.value,
+    precip: f.value * EXAGGERATION_FACTOR,
   }));
 
   // Filter out forecasts periods that are fully in the past (i.e. started more than 3 hours ago)
