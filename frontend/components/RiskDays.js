@@ -40,7 +40,7 @@ const RiskDays = ({ days, hours }) => {
             <AccordionItemPanel>
               {hoursInDay.map((hour) => (
                 <Link
-                  href={`/detail/${hour.timestamp}/`}
+                  href={`/detail/${hour.timestamp.split(".")[0]}/`}
                   prefetch={false}
                   key={hour.timestamp}
                   className={styles.hour}

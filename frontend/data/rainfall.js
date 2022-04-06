@@ -25,6 +25,12 @@ function toLocalTimestamp(isoTimestamp) {
   return toLocalDateTime(isoTimestamp).toString();
 }
 
+function toDatetimeLabel(isoTimestamp) {
+  const dt = toLocalDateTime(isoTimestamp);
+  const endDt = dt.plus({ hours: 3 });
+  return `${dt.toFormat("LLLL d")} · ${dt.toFormat("ha")}-${endDt.toFormat("ha")}`;
+}
+
 // Utility function to log errors Axios errors.
 function logRequestError(error) {
   console.log("==== ERROR ====");
@@ -103,6 +109,7 @@ async function getPastRainfall() {
 
   return {
     timestamp: toLocalTimestamp(threeHourObs.last_report),
+    datetimeLabel: "Current conditions",
     precip: precip,
     precipInches: mmToInches(precip),
     riskPrecip: riskPrecip,
@@ -149,6 +156,7 @@ async function getForecastRainfall(observed) {
     return {
       ...forecast,
       hour: toLocalDateTime(forecast.timestamp).toFormat("ha"),
+      datetimeLabel: toDatetimeLabel(forecast.timestamp),
       riskPrecip,
       riskPrecipInches: mmToInches(riskPrecip),
       riskProb: round(landslideProbability(riskPrecip), 4),
