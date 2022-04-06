@@ -2,13 +2,14 @@
   "name": "landslide-app",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3008",
+    "dev": "yarn get-data && next dev -p 3008",
     "analyze": "cross-env ANALYZE=true next build",
-    "build": "next build",
+    "build": "yarn get-data && next build",
     "start": "next start",
     "lint": "next lint",
     "check-format": "prettier --check '{pages,components}/*.{js,jsx,json,css}'",
-    "fix-format": "prettier --write '{pages,components}/*.{js,jsx,json,css}'"
+    "fix-format": "prettier --write '{pages,components}/*.{js,jsx,json,css}'",
+    "get-data": "node data/getRainfall.js"
   },
   "dependencies": {
     "@mdx-js/loader": "^2.1.0",

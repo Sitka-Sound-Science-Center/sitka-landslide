@@ -1,5 +1,6 @@
-import axios from "axios";
-import { DateTime } from "luxon";
+const axios = require("axios");
+const { DateTime } = require("luxon");
+const fs = require("fs");
 
 // For debugging: a multiplier applied to rainfall amounts to get the results up into an
 // interesting range. Something in the 8-15 range will usually do the trick.
@@ -225,7 +226,7 @@ function composeThreeDays(forecasts) {
   };
 }
 
-export default async function rainfall() {
+async function rainfall() {
   const current = await getPastRainfall();
   if (current) {
     // Pass the observed amounts to the forecast function for use in the look-back of the first
@@ -249,3 +250,10 @@ export default async function rainfall() {
   // If it didn't return above, throw an error.
   throw "Failed to load observed or forecast rainfall data.";
 }
+
+async function saveRainfall() {
+  const rainfallData = await rainfall()
+  fs.writeFileSync("data/rainfall.json", JSON.stringify(rainfallData, null, 2))
+}
+
+saveRainfall()
