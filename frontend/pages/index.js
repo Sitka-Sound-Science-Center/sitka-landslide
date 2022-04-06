@@ -10,10 +10,13 @@ import Resources from "/components/Resources";
 import LastUpdated from "/components/LastUpdated";
 import rainfall from "/data/rainfall";
 
+import fs from "fs";
+
 export async function getStaticProps() {
   const rainfallData = await rainfall();
   // For debugging: uncomment the next line to see the processed data in the build output.
   // console.log(JSON.stringify(rainfallData, null, 2));
+  fs.writeFileSync("data/rainfall.json", JSON.stringify(rainfallData, null, 2))
 
   return {
     props: rainfallData,
