@@ -48,7 +48,7 @@ const RiskDays = ({ days, hours }) => {
                   <a className={styles.hour}>
                     <div className={styles.hourName}>{hour.time}</div>
                     <div className={styles.hourRisk}>
-                      <Risk riskLevel={category.riskLevel} />
+                      <Risk riskLevel={hour.riskLevel} />
                     </div>
                     <div className={styles.hourAction}>
                       <Icon name="chevron-right" />

@@ -40,17 +40,20 @@ export default function Home({ weatheradvisory, lastupdated, current, twentyfour
         {weatheradvisory.active && <WeatherAdvisory permalink={weatheradvisory.permalink} />}
         <div className={styles.risk}>
           <RiskCurrent riskLevel={current.riskLevel} date={current.date} />
-          <RiskHours
-            message={twentyfourhour.message}
-            riskLevel={twentyfourhour.riskLevel}
-            hours={twentyfourhour.hours}
-          />
-          <RiskDays days={threeday.days} hours={threeday.hours} />
-          <LastUpdated update={lastupdated} />
+          <div className="container">
+            <RiskHours
+              message={twentyfourhour.message}
+              riskLevel={twentyfourhour.riskLevel}
+              hours={twentyfourhour.hours}
+            />
+            <RiskDays days={threeday.days} hours={threeday.hours} />
+            <LastUpdated update={lastupdated} />
+          </div>
         </div>
-        <Understanding />
-        <hr />
-        <Resources />
+        <div className="container">
+          <Understanding />
+          <Resources />
+        </div>
       </>
     </>
   );

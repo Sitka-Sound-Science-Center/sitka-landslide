@@ -1,3 +1,7 @@
+.section {
+  padding: var(--space-800) var(--space-200) var(--space-500);
+}
+
 .understanding {
   width: 100%;
 }
@@ -22,6 +26,18 @@
   margin-bottom: var(--space-200);
 }
 
-.section {
-  padding: var(--space-500) var(--space-200);
+@media screen and (min-width: 600px) {
+  .resource {
+    display: flex;
+  }
+
+  .title {
+    width: 160px;
+    flex-shrink: 0;
+  }
+
+  .section {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

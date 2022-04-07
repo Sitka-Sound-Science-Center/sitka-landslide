@@ -14,7 +14,7 @@ const RiskHours = ({ message, hours, riskLevel }) => {
       <div className={styles.header}>
         <h2 className={styles.title}>24 hour forecast</h2>
         <p className={styles.message}>
-          <Risk riskLevel={riskLevel} hasText={false} />
+          {riskLevel !== 0 && <Risk riskLevel={riskLevel} hasText={false} />}
           <span>
             {message}
             {riskLevel !== 0 && (

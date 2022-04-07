@@ -9,13 +9,6 @@
   padding-top: var(--space-200);
 }
 
-.header {
-  background-color: var(--gray-300);
-  width: 100%;
-  text-align: center;
-  padding: var(--space-400);
-}
-
 .detail {
   display: block;
   font-size: var(--size-900);

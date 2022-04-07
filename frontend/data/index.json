@@ -1,5 +1,5 @@
 {
-  "lastupdated": "2022-03-19T09:30:00-09:00",
+  "lastupdated": "2022-03-29T16:50:00-09:00",
   "weatheradvisory": {
     "active": false,
     "permalink": "https://darksky.net/"
@@ -157,7 +157,7 @@
         "time": "6PM",
         "riskNumber": 0.34,
         "precip_mm_max3hr": 3.1,
-        "riskLevel": 1
+        "riskLevel": 0
       },
       {
         "timestamp": "2020-12-13T21",
@@ -166,7 +166,7 @@
         "time": "9PM",
         "riskNumber": 0.38,
         "precip_mm_max3hr": 3.2,
-        "riskLevel": 1
+        "riskLevel": 0
       },
       {
         "timestamp": "2020-12-14T00",
@@ -184,7 +184,7 @@
         "time": "3AM",
         "riskNumber": 0.01,
         "precip_mm_max3hr": 0.1,
-        "riskLevel": 0
+        "riskLevel": 1
       },
       {
         "timestamp": "2020-12-14T06",

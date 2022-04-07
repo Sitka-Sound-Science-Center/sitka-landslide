@@ -78,3 +78,10 @@
 .menu a:not(:last-child) {
   border-bottom: 1px solid var(--gray-300);
 }
+
+@media screen and (min-width: 600px) {
+  .header {
+    padding: var(--space-100) var(--space-300);
+    height: 56px;
+  }
+}

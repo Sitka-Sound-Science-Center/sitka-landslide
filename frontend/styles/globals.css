@@ -4,8 +4,16 @@ body {
   margin: 0;
   line-height: 1.4;
   font-family: var(--font-family);
+  font-size: var(--size-600);
   color: var(--text);
-  background-color: var(--background);
+  background-color: var(--background-content);
+  height: 100%;
+}
+
+body > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 a {
@@ -22,8 +30,17 @@ h6 {
   color: var(--heading);
 }
 
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0 !important;
+}
+
 p {
   line-height: 1.4;
+  font-size: var(--size-600);
 }
 
 * {
@@ -43,7 +60,6 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -66,4 +82,14 @@ hr {
   position: absolute !important;
   width: 1px !important;
   white-space: nowrap !important;
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: 0 var(--space-400);
+  }
 }

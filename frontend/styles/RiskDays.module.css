@@ -13,6 +13,18 @@
 	align-items: center;
 }
 
+@media screen and (min-width: 600px) {
+	.title {
+		font-size: var(--size-800);
+		margin-bottom: var(--space-100);
+	}
+
+	.section {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
 .accordion {
 	width: 100%;
 }
@@ -42,11 +54,13 @@
 
 .hourRisk {
 	flex: 1;
+	display: flex;
 }
 
 .hourAction {
-	text-align: right;
 	flex: 1;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .categoryName {
@@ -57,14 +71,15 @@
 
 .categoryRisk {
 	flex: 1;
+	justify-self: center;
+	display: flex;
 }
 
 .categoryAction {
 	text-align: right;
 	flex: 1;
-}
-
-.panel {
+	display: flex;
+	justify-content: flex-end;
 }
 
 .block {
@@ -83,4 +98,31 @@
 .blockAction {
 	text-align: right;
 	flex: 1;
+}
+
+@media screen and (min-width: 600px) {
+	.category {
+		border-top: none;
+		background: var(--gray-400);
+		margin: 0;
+		margin-top: var(--space-200);
+		border-radius: var(--radius-500);
+		height: 50px;
+		padding: var(--space-300) var(--space-300);
+	}
+
+	.hour {
+		background-color: transparent;
+		margin: 0;
+		height: 50px;
+		padding: var(--space-300) var(--space-300);
+	}
+
+	.categoryName {
+	}
+
+	.section {
+		margin: 0 0 var(--space-400);
+		padding: 0;
+	}
 }

@@ -19,7 +19,7 @@
 .links {
   text-align: center;
   display: flex;
-  grid-gap: 0;
+  grid-gap: 4px;
   justify-content: center;
 }
 
@@ -42,10 +42,23 @@
 .link:not(:last-child):after {
   content: "";
   position: absolute;
-  right: -6px;
+  right: -8px;
   flex: 1;
   height: var(--space-700);
   width: 1px;
   background-color: rgb(255 255 255 / 0.25);
   transform: rotate(10deg);
+}
+
+@media screen and (min-width: 600px) {
+  .footer > div {
+    display: flex;
+  }
+  .logos,
+  .links {
+    flex: 1;
+  }
+  .links {
+    justify-content: flex-end;
+  }
 }

@@ -69,8 +69,10 @@ const links = data.links.map((link, i) => (
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <div className={styles.logos}>{logos}</div>
-      <div className={styles.links}>{links}</div>
+      <div className="container">
+        <div className={styles.logos}>{logos}</div>
+        <div className={styles.links}>{links}</div>
+      </div>
     </div>
   );
 };

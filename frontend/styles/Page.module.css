@@ -3,6 +3,7 @@
 	width: 100%;
 	text-align: center;
 	padding: var(--space-400);
+	border-bottom: 1px solid var(--header-border);
 }
 
 .title {
@@ -17,4 +18,14 @@
 	font-weight: var(--weight-normal);
 	display: inline-block;
 	line-height: 1.5;
+}
+
+@media screen and (min-width: 600px) {
+	.description {
+		font-size: var(--size-700);
+	}
+
+	.header {
+		padding: var(--space-600) 0;
+	}
 }

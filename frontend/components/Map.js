@@ -15,11 +15,14 @@ const Map = ({}) => {
         cooperativeGestures: true,
         container: "map",
         style: "mapbox://styles/lknarf/cl0pf3asg000114nt5jepzs6s",
-        center: [-135.32, 57.0531],
         minZoom: 8,
-        zoom: 10,
+        pitch: 60,
+        bearing: 0,
         maxZoom: 18,
-        hash: true,
+        bounds: [
+          [-135.408, 57.032],
+          [-135.191, 57.123],
+        ],
       });
 
       map.on("load", function () {
@@ -51,7 +54,7 @@ const Map = ({}) => {
           maxzoom: 20,
           paint: {
             "raster-resampling": "nearest",
-            "raster-opacity": 0.6,
+            "raster-opacity": 0.7,
           },
         });
       });
@@ -72,6 +75,14 @@ const Map = ({}) => {
           width: 100%;
           height: 100vh;
         }
+
+        @media screen and (min-width: 1000px) {
+          .map {
+            width: auto;
+            margin: 0 -100px;
+          }
+        }
+
         .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
           background-image: url("/images/svg/mapboxgl-ctrl-zoom-out.svg");
         }

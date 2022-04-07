@@ -2,3 +2,9 @@
   background-color: var(--background-accent);
   width: 100%;
 }
+
+@media screen and (min-width: 600px) {
+  .risk {
+    background-color: var(--background);
+  }
+}
