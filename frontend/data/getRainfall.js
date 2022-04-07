@@ -120,6 +120,7 @@ async function getPastRainfall() {
     precipInches: mmToInches(precip),
     riskPrecip: riskPrecip,
     riskPrecipInches: mmToInches(riskPrecip),
+    riskProb: round(landslideProbability(riskPrecip), 4),
     riskLevel: landslideRisk(riskPrecip),
   };
 }
