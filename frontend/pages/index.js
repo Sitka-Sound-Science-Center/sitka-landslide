@@ -1,7 +1,4 @@
-import fs from "fs";
-import path from "path";
 import Head from "next/head";
-import Link from "next/link";
 
 import styles from "../styles/Index.module.css";
 import WeatherAdvisory from "/components/WeatherAdvisory";
@@ -11,20 +8,25 @@ import RiskDays from "/components/RiskDays";
 import Understanding from "/components/Understanding";
 import Resources from "/components/Resources";
 import LastUpdated from "/components/LastUpdated";
+import rainfall from "/data/rainfall";
 
 export async function getStaticProps() {
-  // const res = await fetch("http://localhost:3000/api/today");
-  const index = path.join(process.cwd(), "/data/index.json");
-  const { weatheradvisory, lastupdated, current, twentyfourhour, threeday } = JSON.parse(
-    fs.readFileSync(index, "utf8")
-  );
+  const rainfallData = await rainfall();
+  // For debugging: uncomment the next line to see the processed data in the build output.
+  // console.log(JSON.stringify(rainfallData, null, 2));
 
   return {
-    props: { weatheradvisory, lastupdated, current, twentyfourhour, threeday },
+    props: rainfallData,
   };
 }
 
-export default function Home({ weatheradvisory, lastupdated, current, twentyfourhour, threeday }) {
+export default function Home({
+  weatherAdvisory,
+  lastUpdated,
+  current,
+  twentyFourHours,
+  threeDays,
+}) {
   return (
     <>
       <Head>
@@ -37,17 +39,13 @@ export default function Home({ weatheradvisory, lastupdated, current, twentyfour
         />
       </Head>
       <>
-        {weatheradvisory.active && <WeatherAdvisory permalink={weatheradvisory.permalink} />}
+        {weatherAdvisory.active && <WeatherAdvisory permalink={weatherAdvisory.permalink} />}
         <div className={styles.risk}>
-          <RiskCurrent riskLevel={current.riskLevel} date={current.date} />
+          <RiskCurrent riskLevel={current.riskLevel} date={current.timestamp} />
           <div className="container">
-            <RiskHours
-              message={twentyfourhour.message}
-              riskLevel={twentyfourhour.riskLevel}
-              hours={twentyfourhour.hours}
-            />
-            <RiskDays days={threeday.days} hours={threeday.hours} />
-            <LastUpdated update={lastupdated} />
+            <RiskHours riskLevel={twentyFourHours.riskLevel} hours={twentyFourHours.hours} />
+            <RiskDays days={threeDays.days} hours={threeDays.hours} />
+            <LastUpdated update={lastUpdated} />
           </div>
         </div>
         <div className="container">

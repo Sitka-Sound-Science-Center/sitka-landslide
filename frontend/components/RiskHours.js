@@ -6,7 +6,7 @@ import Risk from "/components/Risk";
 import styles from "/styles/RiskHours.module.css";
 import riskDefinitions from "/content/riskDefinitions";
 
-const RiskHours = ({ message, hours, riskLevel }) => {
+const RiskHours = ({ hours, riskLevel }) => {
   const riskSlug = riskDefinitions[riskLevel].slug;
 
   return (
@@ -16,7 +16,8 @@ const RiskHours = ({ message, hours, riskLevel }) => {
         <p className={styles.message}>
           {riskLevel !== 0 && <Risk riskLevel={riskLevel} hasText={false} />}
           <span>
-            {message}
+            Sitka will experience {riskDefinitions[riskLevel].text.toLowerCase()} risk within the
+            next 24 hours.
             {riskLevel !== 0 && (
               <span>
                 <Link prefetch={false} href={`/prepare/#${riskSlug}`}>
