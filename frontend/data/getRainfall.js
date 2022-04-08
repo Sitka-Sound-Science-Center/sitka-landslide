@@ -1,8 +1,9 @@
-import axios from "axios";
-import { DateTime } from "luxon";
+const axios = require("axios");
+const { DateTime } = require("luxon");
+const fs = require("fs");
 
-// For debugging: a multiplier applied to rainfall amounts in the risk calculation to get the
-// results up into an interesting range. Something in the 8-15 range will usually do the trick.
+// For debugging: a multiplier applied to rainfall amounts to get the results up into an
+// interesting range. Something in the 8-15 range will usually do the trick.
 const EXAGGERATION_FACTOR = 1;
 
 const MESOWEST_API = "https://api.synopticdata.com/v2";
@@ -23,6 +24,17 @@ function toLocalDateTime(isoTimestamp) {
 // Converts any ISO timestamp to one in Sitka local time
 function toLocalTimestamp(isoTimestamp) {
   return toLocalDateTime(isoTimestamp).toString();
+}
+
+function toDatetimeLabel(isoTimestamp) {
+  const dt = toLocalDateTime(isoTimestamp);
+  const endDt = dt.plus({ hours: 3 });
+  return `${dt.toFormat("LLLL d")} · ${dt.toFormat("ha")}-${endDt.toFormat("ha")}`;
+}
+
+function toShortTimestamp(isoTimestamp) {
+  const ts = toLocalTimestamp(isoTimestamp);
+  return ts.substring(0, 16);
 }
 
 // Utility function to log errors Axios errors.
@@ -53,9 +65,7 @@ function mmToInches(mm) {
 }
 
 // Landslide probability predicted by the model, given 3hr rainfall (in mm)
-function landslideProbability(realRainfall) {
-  // EXAGGERATION_FACTOR is set at the top, to facilitate debugging higher-risk scenarios
-  const rainfall = realRainfall * EXAGGERATION_FACTOR;
+function landslideProbability(rainfall) {
   const intercept = -13.7821;
   const coefficient = 0.4294;
   const prob =
@@ -98,15 +108,19 @@ async function getPastRainfall() {
   const data = mesoResponse.data.STATION[0].OBSERVATIONS.precipitation;
   const threeHourObs = data.find((d) => d.accum_hours === 3);
   const sixHourObs = data.find((d) => d.accum_hours === 6);
+  const precip = threeHourObs.total * EXAGGERATION_FACTOR;
   // Calculate risk based on the highest 3-hour precip within the past 6 hours
-  const riskPrecip = Math.max(threeHourObs.total, sixHourObs.total - threeHourObs.total);
+  const riskPrecip =
+    Math.max(threeHourObs.total, sixHourObs.total - threeHourObs.total) * EXAGGERATION_FACTOR;
 
   return {
     timestamp: toLocalTimestamp(threeHourObs.last_report),
-    precip: threeHourObs.total,
-    precipInches: mmToInches(threeHourObs.total),
+    datetimeLabel: "Current conditions",
+    precip: precip,
+    precipInches: mmToInches(precip),
     riskPrecip: riskPrecip,
     riskPrecipInches: mmToInches(riskPrecip),
+    riskProb: round(landslideProbability(riskPrecip), 4),
     riskLevel: landslideRisk(riskPrecip),
   };
 }
@@ -132,7 +146,7 @@ async function getForecastRainfall(observed) {
   const forecasts = data.map((f) => ({
     // The timestamp format is an ISO date string plus an interval. We only want the datetime.
     timestamp: toLocalTimestamp(f.validTime.split("/")[0]),
-    precip: f.value,
+    precip: f.value * EXAGGERATION_FACTOR,
   }));
 
   // Filter out forecasts periods that are fully in the past (i.e. started more than 3 hours ago)
@@ -149,6 +163,8 @@ async function getForecastRainfall(observed) {
     return {
       ...forecast,
       hour: toLocalDateTime(forecast.timestamp).toFormat("ha"),
+      shortTimestamp: toShortTimestamp(forecast.timestamp),
+      datetimeLabel: toDatetimeLabel(forecast.timestamp),
       riskPrecip,
       riskPrecipInches: mmToInches(riskPrecip),
       riskProb: round(landslideProbability(riskPrecip), 4),
@@ -211,7 +227,7 @@ function composeThreeDays(forecasts) {
   };
 }
 
-export default async function rainfall() {
+async function rainfall() {
   const current = await getPastRainfall();
   if (current) {
     // Pass the observed amounts to the forecast function for use in the look-back of the first
@@ -235,3 +251,10 @@ export default async function rainfall() {
   // If it didn't return above, throw an error.
   throw "Failed to load observed or forecast rainfall data.";
 }
+
+async function saveRainfall() {
+  const rainfallData = await rainfall()
+  fs.writeFileSync("data/rainfall.json", JSON.stringify(rainfallData, null, 2))
+}
+
+saveRainfall()

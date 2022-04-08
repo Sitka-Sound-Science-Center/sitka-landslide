@@ -8,13 +8,12 @@ import RiskDays from "/components/RiskDays";
 import Understanding from "/components/Understanding";
 import Resources from "/components/Resources";
 import LastUpdated from "/components/LastUpdated";
-import rainfall from "/data/rainfall";
+
+import rainfallData from "/data/rainfall.json";
 
 export async function getStaticProps() {
-  const rainfallData = await rainfall();
-  // For debugging: uncomment the next line to see the processed data in the build output.
-  // console.log(JSON.stringify(rainfallData, null, 2));
-
+  // It might work to just use the imported data in the main function, but calling
+  // getStaticProps doesn't hurt anything, and it explicitly marks this page as static.
   return {
     props: rainfallData,
   };
