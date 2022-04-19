@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import styles from "/styles/Footer.module.css";
+import Link from "next/link";
 
 const data = {
   links: [
@@ -61,9 +62,11 @@ const logos = data.logos.map((logo, i) => (
 ));
 
 const links = data.links.map((link, i) => (
-  <a href={link.permalink} key={i} className={styles.link}>
-    <div className={styles.linktext}>{link.text}</div>
-  </a>
+  <Link href={link.permalink} key={i} prefetch={false}>
+    <a className={styles.link}>
+      <div className={styles.linktext}>{link.text}</div>
+    </a>
+  </Link>
 ));
 
 const Footer = () => {

@@ -118,11 +118,14 @@
 		padding: var(--space-300) var(--space-300);
 	}
 
-	.categoryName {
-	}
-
 	.section {
 		margin: 0 0 var(--space-400);
 		padding: 0;
+	}
+}
+
+@media screen and (min-width: 600px) and (prefers-color-scheme: dark) {
+	.category {
+		background: var(--gray-500);
 	}
 }
