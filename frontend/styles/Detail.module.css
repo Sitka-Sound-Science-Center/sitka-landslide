@@ -89,11 +89,11 @@
   font-weight: var(--weight-heavy);
   font-size: var(--size-600);
   display: flex;
-  transform: translateY(calc(-100% - 5px));
+  transform: translateY(-40px);
 }
 
 .arrowUp {
-  transform: translateY(calc(50% + 3px));
+  transform: translateY(calc(50% + 6px));
 }
 
 .arrowUp .forecastArrow {
@@ -107,7 +107,7 @@
 .forecastText {
   position: relative;
   transform: translateY(-38%);
-  margin-right: var(--space-200);
+  margin-right: 0.4em;
   color: var(--heading);
   text-shadow: var(--text-stroke);
 }
@@ -117,6 +117,9 @@
 }
 
 @media screen and (min-width: 600px) {
+  .forecast {
+    transform: translateY(-40px);
+  }
   .chart {
     height: 460px;
   }

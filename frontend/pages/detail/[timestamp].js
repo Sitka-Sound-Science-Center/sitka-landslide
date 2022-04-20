@@ -227,7 +227,7 @@ export default function Detail({ activeData }) {
                 bottom:
                   activeData.riskPrecipInches > maxRiskPrecipInches
                     ? "90%"
-                    : (activeData.riskPrecipInches / 1.6) * 85 + "%",
+                    : (activeData.riskPrecipInches / maxRiskPrecipInches) * 100 * 0.9 + "%",
               }}
             >
               <span className={styles.forecastText}>{activeData.datetimeLabel}</span>
