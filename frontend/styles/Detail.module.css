@@ -5,7 +5,7 @@
 .chart {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 360px;
   padding-top: var(--space-200);
 }
 
@@ -80,4 +80,44 @@
   width: 100%;
   text-align: center;
   padding-top: var(--space-400);
+}
+
+.forecast {
+  position: absolute;
+  right: 0;
+  z-index: 200;
+  font-weight: var(--weight-heavy);
+  font-size: var(--size-600);
+  display: flex;
+  transform: translateY(calc(-100% - 5px));
+}
+
+.arrowUp {
+  transform: translateY(calc(50% + 3px));
+}
+
+.arrowUp .forecastArrow {
+  transform: scaleY(-1);
+}
+
+.arrowUp .forecastText {
+  transform: translateY(55%);
+}
+
+.forecastText {
+  position: relative;
+  transform: translateY(-38%);
+  margin-right: var(--space-200);
+  color: var(--heading);
+  text-shadow: var(--text-stroke);
+}
+
+.forecastArrow {
+  display: block;
+}
+
+@media screen and (min-width: 600px) {
+  .chart {
+    height: 460px;
+  }
 }

@@ -21,6 +21,8 @@ const historicalData = historicalDataMM.map(({ day, precip_mm_max3hr, event }) =
   event,
 }));
 
+const maxRiskPrecipInches = Math.max(...historicalData.map((d) => d.riskPrecipInches));
+
 export async function getStaticPaths() {
   return {
     paths: [{ params: { timestamp: "current" } }].concat(
@@ -55,6 +57,9 @@ export default function Detail({ activeData }) {
       event: d.event,
     };
   });
+
+  const lastHistoricalDate = historical[historical.length - 1].x;
+
   const chartData = [
     {
       id: "nolandslide",
@@ -68,7 +73,7 @@ export default function Detail({ activeData }) {
       id: "active",
       data: [
         {
-          x: activeData.timestamp.split("T")[0],
+          x: lastHistoricalDate,
           y: activeData.riskPrecipInches,
           event: 2,
         },
@@ -81,105 +86,104 @@ export default function Detail({ activeData }) {
     setMounted(true);
   }, []);
 
-  let theme = {
-    background: "transparent",
-    textColor: "#333333",
-    fontSize: 14,
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-    axis: {
-      domain: {
-        line: {
-          stroke: "#777777",
-          strokeWidth: 1,
-        },
-      },
-      legend: {
-        text: {
-          fontSize: 14,
-          fontWeight: 600,
-          fill: "#333333",
-        },
-      },
-      ticks: {
-        line: {
-          strokeWidth: 0,
-        },
-        text: {
-          fontSize: 14,
-          fill: "#333333",
-        },
-      },
-    },
-    grid: {
-      line: {
-        stroke: "#454545",
-        strokeWidth: 1,
-      },
-    },
-    annotations: {
-      text: {
-        fontSize: 14,
-        fill: "#333333",
-        outlineWidth: 2,
-        outlineColor: "#ffffff",
-        outlineOpacity: 1,
-      },
-    },
-  };
-
-  if (
+  const prefersDarkTheme =
     typeof window !== "undefined" &&
     window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  ) {
-    theme = {
-      background: "transparent",
-      textColor: "#cfcfd8",
-      fontSize: 14,
-      fontFamily:
-        "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-      axis: {
-        domain: {
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  let theme = prefersDarkTheme
+    ? {
+        background: "transparent",
+        textColor: "#cfcfd8",
+        fontSize: 14,
+        fontFamily:
+          "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+        axis: {
+          domain: {
+            line: {
+              stroke: "#454545",
+              strokeWidth: 1,
+            },
+          },
+          legend: {
+            text: {
+              fontSize: 14,
+              fontWeight: 600,
+              fill: "#cfcfd8",
+            },
+          },
+          ticks: {
+            line: {
+              strokeWidth: 0,
+            },
+            text: {
+              fontSize: 14,
+              fill: "#cfcfd8",
+            },
+          },
+        },
+        grid: {
           line: {
             stroke: "#454545",
             strokeWidth: 1,
           },
         },
-        legend: {
+        annotations: {
           text: {
             fontSize: 14,
-            fontWeight: 600,
             fill: "#cfcfd8",
+            outlineWidth: 2,
+            outlineColor: "#ffffff",
+            outlineOpacity: 1,
           },
         },
-        ticks: {
+      }
+    : {
+        background: "transparent",
+        textColor: "#333333",
+        fontSize: 14,
+        fontFamily:
+          "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+        axis: {
+          domain: {
+            line: {
+              stroke: "#999",
+              strokeWidth: 1,
+            },
+          },
+          legend: {
+            text: {
+              fontSize: 14,
+              fontWeight: 600,
+              fill: "#333333",
+            },
+          },
+          ticks: {
+            line: {
+              strokeWidth: 0,
+            },
+            text: {
+              fontSize: 14,
+              fill: "#333333",
+            },
+          },
+        },
+        grid: {
           line: {
-            strokeWidth: 0,
+            stroke: "#eee",
+            strokeWidth: 1,
           },
+        },
+        annotations: {
           text: {
             fontSize: 14,
-            fill: "#cfcfd8",
+            fill: "#333333",
+            outlineWidth: 2,
+            outlineColor: "#ffffff",
+            outlineOpacity: 1,
           },
         },
-      },
-      grid: {
-        line: {
-          stroke: "#454545",
-          strokeWidth: 1,
-        },
-      },
-      annotations: {
-        text: {
-          fontSize: 14,
-          fill: "#cfcfd8",
-          outlineWidth: 2,
-          outlineColor: "#ffffff",
-          outlineOpacity: 1,
-        },
-      },
-    };
-  }
+      };
 
   return (
     <Page title="Risk detail" description={activeData.datetimeLabel}>
@@ -215,16 +219,42 @@ export default function Detail({ activeData }) {
           </div>
           <hr />
           <div className={styles.chart}>
+            <div
+              className={`${styles.forecast} ${activeData.riskPrecipInches > 1 && styles.arrowUp}`}
+              // Position the annotation arrow; set a fixed position for when the current value is
+              // higher than all of the historical data
+              style={{
+                bottom:
+                  activeData.riskPrecipInches > maxRiskPrecipInches
+                    ? "90%"
+                    : (activeData.riskPrecipInches / 1.6) * 85 + "%",
+              }}
+            >
+              <span className={styles.forecastText}>{activeData.datetimeLabel}</span>
+              <svg
+                width="41"
+                height="35"
+                viewBox="0 0 41 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className={styles.forecastArrow}
+              >
+                <path
+                  d="M35.5 35L40.0637 24.3931L28.5961 25.7442L35.5 35ZM-4.30478e-08 2C15.0421 2 29.5769 10.5585 33.4764 26.3033L35.4177 25.8225C31.2472 8.98325 15.7355 6.77377e-07 4.30478e-08 0L-4.30478e-08 2Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
             {mounted && (
               <ResponsiveScatterPlotCanvas
                 isInteractive={false}
                 useMesh={false}
                 debugMesh={false}
                 data={chartData}
-                colors={["rgba(0, 0, 0, 0.2)", "red", "green"]}
+                colors={["rgba(0, 0, 0, 0.2)", "#FFBC57", "#30B0C9"]}
                 margin={{ top: 10, right: 5, bottom: 30, left: 60 }}
                 nodeSize={(d) =>
-                  d.serieId === "nolandslide" ? 5 : d.serieId === "landslide" ? 7 : 10
+                  d.serieId === "nolandslide" ? 2 : d.serieId === "landslide" ? 8 : 8
                 }
                 xScale={{ type: "time", format: "%Y-%m-%d", precision: "day" }}
                 xFormat=">-.2f"
@@ -238,7 +268,7 @@ export default function Detail({ activeData }) {
                   tickPadding: 5,
                   tickRotation: 0,
                   format: "%Y",
-                  tickValues: "every 4 years",
+                  tickValues: "every 6 years",
                   legendPosition: "middle",
                   legendOffset: 0,
                 }}
