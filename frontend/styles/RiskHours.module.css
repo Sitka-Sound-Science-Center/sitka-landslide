@@ -1,17 +1,20 @@
 .section {
 	border-radius: var(--radius-500);
-	padding: 0 var(--space-200) var(--space-300);
+	padding: 0 var(--space-200) 0;
 	background-color: var(--background);
 	margin: 0 var(--space-200) var(--space-300);
 }
 
 .header {
-	border-bottom: var(--gray-400) 1px solid;
 	text-align: left;
 	color: inherit;
 	margin: 0 calc(-1 * var(--space-200));
 	padding: var(--space-300) var(--space-200);
 	align-items: center;
+}
+
+.chartContainer {
+	padding-bottom: var(--space-300);
 }
 
 .message {
@@ -26,8 +29,26 @@
 	margin-bottom: var(--space-200);
 }
 
+.showChart {
+	font-size: var(--size-500);
+	/* Adding padding to give button a larger click area, while using
+		 negative margin to not impact layout */
+	margin: -20px;
+	padding: 20px;
+	background: none;
+	text-decoration: underline;
+	color: inherit;
+	border: none;
+	text-align: left;
+	/* Defining a fixed width to prevent layout shift when 
+	   text switches from "Show chart" to "Hide chart" */
+	width: 5.2em;
+	box-sizing: content-box;
+}
+
 .prepare {
 	margin-top: var(--space-100);
+	/*font-weight: var(--weight-heavy);*/
 }
 
 @media screen and (min-width: 600px) {
