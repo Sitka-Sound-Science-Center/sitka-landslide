@@ -2,7 +2,7 @@ name: Build Pages Site
 
 on:
   push:
-    branches: [develop]
+    branches: [testthis]
   pull_request:
     branches: [develop]
   #schedule:
@@ -16,17 +16,5 @@ jobs:
         working-directory: "frontend"
 
     steps:
-      - uses: actions/checkout@v3
       - name: Build and export
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16"
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
-      - run: yarn run next export
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/out
+        run: /usr/bin/ls -alh
