@@ -101,10 +101,8 @@ const AreaChart = ({ data }) => {
           {lineSegments.map((segment, i) => (
             <path
               key={i}
-              className="chart-line"
+              className={styles.line}
               stroke={getRiskColor(data[i].riskLevel)}
-              strokeWidth="3"
-              fill="transparent"
               d={segment}
             ></path>
           ))}

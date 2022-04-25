@@ -9,7 +9,7 @@
   --heading: #111;
   --text: #333;
   --background: #fff;
-  --link: #2667d9;
+  --link: #06c;
   --background-accent: #edeff1;
   --detail-chevron: var(--gray-900);
   --page-header: var(--gray-300);
@@ -40,8 +40,8 @@
   --space-200: 8px;
   --space-100: 4px;
 
-  --size-900: 36px;
-  --size-800: 21px;
+  --size-900: 38px;
+  --size-800: 20px;
   --size-700: 18px;
   --size-600: 16px;
   --size-500: 14px;
@@ -76,11 +76,11 @@
 
 @media screen and (min-width: 600px) {
   :root {
-    --size-900: 36px;
-    --size-800: 24px;
-    --size-700: 21px;
+    --size-900: 44px;
+    --size-800: 28px;
+    --size-700: 23px;
     --size-600: 18px;
-    --size-500: 16px;
+    --size-500: 15px;
 
     --space-900: 45px;
     --space-800: 40px;
@@ -96,14 +96,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --darkblue: #161616;
+    --darkblue: #141414;
     --mediumblue: var(--background);
     --risk0: #63d7bb;
-    --risk1: #d7a963;
-    --risk2: #d763a2;
+    --risk1: #d7bb63;
+    --risk2: #d76380;
     --heading: #fbfbfe;
     --text: #cfcfd8;
-    --background: #252525;
+    --background: #1e1e1e;
     --link: #74a9f6;
     --background-accent: var(--darkblue);
     --background-content: var(--background);
@@ -135,6 +135,6 @@
 
 @media screen and (min-width: 600px) and (prefers-color-scheme: dark) {
   :root {
-    --background: #1f1f1f;
+    /*--background: #1c1e20;*/
   }
 }

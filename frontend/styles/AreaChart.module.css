@@ -1,11 +1,13 @@
 .chart {
   position: relative;
-  width: 100%;
+  width: auto;
   height: 150px;
+  border-top: var(--gray-400) 1px solid;
 }
 
 @media screen and (min-width: 600px) {
   .chart {
+    border-top: none;
     height: 260px;
   }
 }
@@ -48,10 +50,14 @@
   shape-rendering: crispEdges;
 }
 
+.line {
+  stroke-width: 6;
+  fill: transparent;
+}
+
 .lineY {
-  stroke: var(--gray-500);
+  stroke: var(--gray-900);
   stroke-width: 1;
-  shape-rendering: crispEdges;
 }
 
 .lineY:last-of-type {
