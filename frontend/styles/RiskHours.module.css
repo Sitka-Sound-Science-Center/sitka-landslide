@@ -48,7 +48,6 @@
 
 .prepare {
 	margin-top: var(--space-100);
-	/*font-weight: var(--weight-heavy);*/
 }
 
 @media screen and (min-width: 600px) {
