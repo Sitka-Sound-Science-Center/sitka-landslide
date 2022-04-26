@@ -115,7 +115,7 @@ async function getPastRainfall() {
 
   return {
     timestamp: toLocalTimestamp(threeHourObs.last_report),
-    datetimeLabel: "Current conditions",
+    datetimeLabel: "Current risk",
     precip: precip,
     precipInches: mmToInches(precip),
     riskPrecip: riskPrecip,
