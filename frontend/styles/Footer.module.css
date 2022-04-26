@@ -7,6 +7,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: var(--space-300);
+  font-size: var(--size-500);
 }
 
 .logo {
