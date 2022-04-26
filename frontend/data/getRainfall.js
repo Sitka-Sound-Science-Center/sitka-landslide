@@ -86,6 +86,21 @@ function landslideRisk(rainfall) {
   }
 }
 
+// For the charts that show a continuous scale, we want the low/med/high progression to make
+// visual sense, i.e. for Low to cover one third, Med to cover the middle third, etc.
+// To make that work, we need to map the calculated probablity onto a range representing where on
+// low/medium/high risk spectrum it falls.
+function normalizedRiskNum(rainfall) {
+  const prob = landslideProbability(rainfall);
+  if (prob <= 0.01) {
+    return prob / 0.01 / 3;
+  } else if (prob <= 0.7) {
+    return 1 / 3 + (prob - 0.01) / (0.7 - 0.01) / 3;
+  } else {
+    return 2 / 3 + (prob - 0.7) / 0.3 / 3;
+  }
+}
+
 // Download observed 3hr rainfall total at the Sitka airport weather station over the past 6 hours
 async function getPastRainfall() {
   const mesoResponse = await axios
@@ -120,7 +135,7 @@ async function getPastRainfall() {
     precipInches: mmToInches(precip),
     riskPrecip: riskPrecip,
     riskPrecipInches: mmToInches(riskPrecip),
-    riskProb: round(landslideProbability(riskPrecip), 4),
+    riskProb: round(normalizedRiskNum(riskPrecip), 4),
     riskLevel: landslideRisk(riskPrecip),
   };
 }
@@ -167,7 +182,7 @@ async function getForecastRainfall(observed) {
       datetimeLabel: toDatetimeLabel(forecast.timestamp),
       riskPrecip,
       riskPrecipInches: mmToInches(riskPrecip),
-      riskProb: round(landslideProbability(riskPrecip), 4),
+      riskProb: round(normalizedRiskNum(riskPrecip), 4),
       riskLevel: landslideRisk(riskPrecip),
     };
   });
