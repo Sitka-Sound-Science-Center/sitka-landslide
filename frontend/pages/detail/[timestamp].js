@@ -98,7 +98,7 @@ export default function Detail({ activeData }) {
 
   const colors = {
     noLandslide: prefersDarkTheme ? "rgba(255, 255, 255, 0.8)" : "rgba(0, 0, 0, 0.8)",
-    landslide: "#FFBC57",
+    landslide: "#f781bf",
     active: riskColor,
   };
 
