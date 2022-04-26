@@ -9,7 +9,7 @@ const Risk = ({ riskLevel, hasIcon, hasText, fontSize, fontWeight, iconSize, abb
     <span
       style={{
         display: "inline-flex",
-        gridGap: hasText && risk.text ? "0.3em" : 0,
+        gridGap: hasText && risk.text ? "0.5em" : 0,
         alignItems: "center",
         fontSize,
         fontWeight,
