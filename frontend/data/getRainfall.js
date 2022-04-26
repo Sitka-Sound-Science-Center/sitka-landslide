@@ -4,7 +4,7 @@ const fs = require("fs");
 
 // For debugging: a multiplier applied to rainfall amounts to get the results up into an
 // interesting range. Something in the 8-15 range will usually do the trick.
-const EXAGGERATION_FACTOR = 1;
+const EXAGGERATION_FACTOR = process.env.EXAGGERATION_FACTOR || 1;
 
 const MESOWEST_API = "https://api.synopticdata.com/v2";
 const MESOWEST_TOKEN = process.env.MESOWEST_TOKEN || "78b6412c25ea43beb10aa5399dd6fdfa";
