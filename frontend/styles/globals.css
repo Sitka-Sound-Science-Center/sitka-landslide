@@ -70,6 +70,10 @@ hr {
   background-color: var(--gray-300);
 }
 
+.en-dash {
+  content: "&#8288;&#8211;&#8288;";
+}
+
 .sr-only {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import Icon from "/components/Icon";
 import riskDefinitions from "/content/riskDefinitions";
 
-const Risk = ({ riskLevel, hasIcon, hasText, fontSize, fontWeight, iconSize }) => {
+const Risk = ({ riskLevel, hasIcon, hasText, fontSize, fontWeight, iconSize, abbreviated }) => {
   const risk = riskDefinitions[riskLevel];
 
   return (
@@ -16,7 +16,7 @@ const Risk = ({ riskLevel, hasIcon, hasText, fontSize, fontWeight, iconSize }) =
       }}
     >
       {hasIcon ? <Icon name={risk.id} size={iconSize} color={risk.color} /> : ""}
-      {hasText ? risk.text : ""}
+      {hasText ? (abbreviated ? risk.abbreviated : risk.text) : ""}
     </span>
   );
 };
@@ -27,9 +27,11 @@ Risk.defaultProps = {
   fontSize: "inherit",
   fontWeight: "inherit",
   iconSize: 1.2,
+  abbreviated: false,
 };
 
 Risk.propTypes = {
+  abbreviated: PropTypes.bool,
   riskLevel: PropTypes.number.isRequired,
   hasIcon: PropTypes.bool,
   hasText: PropTypes.bool,
