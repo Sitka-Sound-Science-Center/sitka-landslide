@@ -299,7 +299,7 @@ export default function Detail({ activeData }) {
               />
             )}
           </div>
-          <div className={legendStyles.legend}>
+          <div className={legendStyles.legend} style={{ marginBottom: "var(--space-500)" }}>
             <div className={legendStyles.legendItem}>
               <div
                 className={legendStyles.legendColor}
