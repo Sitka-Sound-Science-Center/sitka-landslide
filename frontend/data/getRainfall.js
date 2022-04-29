@@ -207,14 +207,32 @@ async function getForecastRainfall(observed) {
 }
 
 // Get current weather advisory status
-// TODO (#16): implement this. currently it's just a placeholder.
-// Note: This shouldn't block an update, so if the API call fails it should return a
-//       valid object with {active: false}.
+// Note: We don't want an error here to block an update, so if the API call fails it just
+//       returns a valid object with {active: false}.
 async function getWeatherAdvisory() {
-  return {
+  const lat = 57.053;
+  const lon = -135.36;
+  const defaultResult = {
     active: false,
-    permalink: "https://forecast.weather.gov/MapClick.php?lat=57.052&lon=-135.334",
+    permalink: `https://forecast.weather.gov/MapClick.php?lat=${lat}&lon=${lon}`,
   };
+  return axios
+    .get(
+      `https://api.weather.gov/alerts/active?status=actual&message_type=alert&point=${lat},${lon}`,
+      {
+        headers: { "User-Agent": NWS_USERAGENT },
+      }
+    )
+    .then((nwsResponse) => {
+      return {
+        ...defaultResult,
+        active: nwsResponse?.data?.features?.length > 0,
+      };
+    })
+    .catch((error) => {
+      logRequestError(error);
+      return defaultResult;
+    });
 }
 
 function composeTwentyFourHours(forecasts) {
