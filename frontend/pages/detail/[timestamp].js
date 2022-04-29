@@ -10,17 +10,10 @@ import DetailContent from "../../content/DetailContent.mdx";
 import riskDefinitions from "/content/riskDefinitions";
 import Page from "/components/Page";
 
-import historicalDataMM from "/data/historical.json";
+import historicalData from "/data/historical.json";
 import rainfallData from "/data/rainfall.json";
 
-// Convert historical rainfall to inches
-const historicalData = historicalDataMM.map(({ day, precip_mm_max3hr, event }) => ({
-  day,
-  riskPrecipInches: precip_mm_max3hr / 25.4,
-  event,
-}));
-
-const maxRiskPrecipInches = Math.max(...historicalData.map((d) => d.riskPrecipInches));
+const maxRiskPrecipInches = Math.max(...historicalData.map((d) => d.precipInchesMax3hr));
 
 export async function getStaticPaths() {
   return {
@@ -52,7 +45,7 @@ export default function Detail({ activeData }) {
   const historical = historicalData.map((d) => {
     return {
       x: d.day,
-      y: d.riskPrecipInches,
+      y: d.precipInchesMax3hr,
       event: d.event,
     };
   });
@@ -282,7 +275,7 @@ export default function Detail({ activeData }) {
                   tickPadding: 5,
                   tickRotation: 0,
                   format: "%Y",
-                  tickValues: "every 6 years",
+                  tickValues: "every 3 years",
                   legendPosition: "middle",
                   legendOffset: 0,
                 }}
