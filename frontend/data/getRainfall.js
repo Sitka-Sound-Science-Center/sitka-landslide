@@ -37,6 +37,23 @@ function toShortTimestamp(isoTimestamp) {
   return ts.substring(0, 16);
 }
 
+// Returns a DateTime for the end of the third day from now (in Sitka time)
+// Note: This only gets used once, so it could be inline, but making it self-contained and
+// putting it with the other datetime-related functions seemed nicer.
+function calculateEndOfThirdDay() {
+  const twoDaysHence = DateTime.now({ zome: "America/Sitka" }).plus({ days: 2 });
+  return DateTime.fromObject(
+    {
+      year: twoDaysHence.year,
+      month: twoDaysHence.month,
+      day: twoDaysHence.day,
+      hour: 23,
+      minute: 59,
+    },
+    { zone: "America/Sitka" }
+  );
+}
+
 // Utility function to log errors Axios errors.
 function logRequestError(error) {
   console.log("==== ERROR ====");
@@ -213,8 +230,9 @@ function composeTwentyFourHours(forecasts) {
 
 function composeThreeDays(forecasts) {
   // Get all the hourly forecasts for the next three days
+  const endOfThirdDay = calculateEndOfThirdDay();
   const hours = forecasts
-    .filter((f) => DateTime.fromISO(f.timestamp) <= DateTime.now().plus({ days: 3 }))
+    .filter((f) => DateTime.fromISO(f.timestamp) <= endOfThirdDay)
     .map((f) => {
       return {
         ...f,
