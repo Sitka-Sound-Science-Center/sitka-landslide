@@ -1,0 +1,40 @@
+.banner {
+	display: flex;
+	padding: var(--space-300);
+	font-size: var(--size-500);
+	width: 100%;
+	align-items: center;
+	background-color: #1d4752;
+	background-image: linear-gradient(45deg, #1d4752 0%, #61277c 100%);
+}
+
+.banner strong {
+	font-weight: var(--weight-bold);
+}
+
+.title {
+	color: var(--heading);
+	flex: 1;
+	display: flex;
+	align-items: center;
+	color: #fff;
+}
+
+.title svg {
+	margin-right: var(--space-300);
+	flex-shrink: 0;
+}
+
+.link {
+	text-transform: uppercase;
+	font-size: var(--size-500);
+	color: #fff;
+	background: transparent;
+	border: none;
+	border-left: 1px solid rgb(255 255 255 / 20%);
+	height: 100%;
+	padding-left: 10px;
+	margin-left: var(--space-300);
+	text-transform: inherit;
+	cursor: pointer;
+}
