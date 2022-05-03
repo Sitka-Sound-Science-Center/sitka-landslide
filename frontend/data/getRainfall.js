@@ -29,7 +29,7 @@ function toLocalTimestamp(isoTimestamp) {
 function toDatetimeLabel(isoTimestamp) {
   const dt = toLocalDateTime(isoTimestamp);
   const endDt = dt.plus({ hours: 3 });
-  return `${dt.toFormat("LLLL d")} · ${dt.toFormat("ha")}-${endDt.toFormat("ha")}`;
+  return `${dt.toFormat("LLLL d")} · ${dt.toFormat("ha")}‑${endDt.toFormat("ha")}`;
 }
 
 function toShortTimestamp(isoTimestamp) {
@@ -115,7 +115,7 @@ async function getPastRainfall() {
 
   return {
     timestamp: toLocalTimestamp(threeHourObs.last_report),
-    datetimeLabel: "Current conditions",
+    datetimeLabel: "Current risk",
     precip: precip,
     precipInches: mmToInches(precip),
     riskPrecip: riskPrecip,
@@ -253,8 +253,8 @@ async function rainfall() {
 }
 
 async function saveRainfall() {
-  const rainfallData = await rainfall()
-  fs.writeFileSync("data/rainfall.json", JSON.stringify(rainfallData, null, 2))
+  const rainfallData = await rainfall();
+  fs.writeFileSync("data/rainfall.json", JSON.stringify(rainfallData, null, 2));
 }
 
-saveRainfall()
+saveRainfall();

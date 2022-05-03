@@ -1,6 +1,7 @@
 import Head from "next/head";
-import stylesDetail from "/styles/Detail.module.css";
-import stylesArticle from "/styles/Article.module.css";
+import styles from "/styles/Detail.module.css";
+import articleStyles from "/styles/Article.module.css";
+import legendStyles from "/styles/Legend.module.css";
 import { useState, useEffect } from "react";
 import { ResponsiveScatterPlotCanvas } from "@nivo/scatterplot";
 
@@ -12,14 +13,14 @@ import Page from "/components/Page";
 import historicalDataMM from "/data/historical.json";
 import rainfallData from "/data/rainfall.json";
 
-const styles = { ...stylesDetail, ...stylesArticle };
-
 // Convert historical rainfall to inches
 const historicalData = historicalDataMM.map(({ day, precip_mm_max3hr, event }) => ({
   day,
   riskPrecipInches: precip_mm_max3hr / 25.4,
   event,
 }));
+
+const maxRiskPrecipInches = Math.max(...historicalData.map((d) => d.riskPrecipInches));
 
 export async function getStaticPaths() {
   return {
@@ -55,6 +56,9 @@ export default function Detail({ activeData }) {
       event: d.event,
     };
   });
+
+  const lastHistoricalDate = historical[historical.length - 1].x;
+
   const chartData = [
     {
       id: "nolandslide",
@@ -68,7 +72,7 @@ export default function Detail({ activeData }) {
       id: "active",
       data: [
         {
-          x: activeData.timestamp.split("T")[0],
+          x: lastHistoricalDate,
           y: activeData.riskPrecipInches,
           event: 2,
         },
@@ -81,150 +85,190 @@ export default function Detail({ activeData }) {
     setMounted(true);
   }, []);
 
-  let theme = {
-    background: "transparent",
-    textColor: "#333333",
-    fontSize: 14,
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-    axis: {
-      domain: {
-        line: {
-          stroke: "#777777",
-          strokeWidth: 1,
-        },
-      },
-      legend: {
-        text: {
-          fontSize: 14,
-          fontWeight: 600,
-          fill: "#333333",
-        },
-      },
-      ticks: {
-        line: {
-          strokeWidth: 0,
-        },
-        text: {
-          fontSize: 14,
-          fill: "#333333",
-        },
-      },
-    },
-    grid: {
-      line: {
-        stroke: "#454545",
-        strokeWidth: 1,
-      },
-    },
-    annotations: {
-      text: {
-        fontSize: 14,
-        fill: "#333333",
-        outlineWidth: 2,
-        outlineColor: "#ffffff",
-        outlineOpacity: 1,
-      },
-    },
-  };
-
-  if (
+  const prefersDarkTheme =
     typeof window !== "undefined" &&
     window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-  ) {
-    theme = {
-      background: "transparent",
-      textColor: "#cfcfd8",
-      fontSize: 14,
-      fontFamily:
-        "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
-      axis: {
-        domain: {
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const riskColor =
+    typeof document !== "undefined" &&
+    getComputedStyle(document.documentElement).getPropertyValue(
+      `--${riskDefinitions[activeData.riskLevel].id}`
+    );
+
+  const colors = {
+    noLandslide: prefersDarkTheme ? "rgba(255, 255, 255, 0.8)" : "rgba(0, 0, 0, 0.8)",
+    landslide: "#f781bf",
+    active: riskColor,
+  };
+
+  const theme = prefersDarkTheme
+    ? {
+        background: "transparent",
+        textColor: "#cfcfd8",
+        fontSize: 14,
+        fontFamily:
+          "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+        axis: {
+          domain: {
+            line: {
+              stroke: "#454545",
+              strokeWidth: 1,
+            },
+          },
+          legend: {
+            text: {
+              fontSize: 14,
+              fontWeight: 600,
+              fill: "rgba(255,255, 255,1)",
+            },
+          },
+          ticks: {
+            line: {
+              strokeWidth: 0,
+            },
+            text: {
+              fontSize: 14,
+              fill: "rgba(255,255, 255,0.64)",
+            },
+          },
+        },
+        grid: {
           line: {
-            stroke: "#454545",
+            stroke: "rgba(255,255, 255,0)",
             strokeWidth: 1,
           },
         },
-        legend: {
-          text: {
-            fontSize: 14,
-            fontWeight: 600,
-            fill: "#cfcfd8",
+      }
+    : {
+        background: "transparent",
+        textColor: "#333333",
+        fontSize: 14,
+        fontFamily:
+          "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+        axis: {
+          domain: {
+            line: {
+              stroke: "#999",
+              strokeWidth: 1,
+            },
+          },
+          legend: {
+            text: {
+              fontSize: 14,
+              fontWeight: 600,
+              fill: "#333333",
+            },
+          },
+          ticks: {
+            line: {
+              strokeWidth: 0,
+            },
+            text: {
+              fontSize: 14,
+              fill: "#333333",
+            },
           },
         },
-        ticks: {
+        grid: {
           line: {
-            strokeWidth: 0,
-          },
-          text: {
-            fontSize: 14,
-            fill: "#cfcfd8",
+            stroke: "transparent",
+            strokeWidth: 1,
           },
         },
-      },
-      grid: {
-        line: {
-          stroke: "#454545",
-          strokeWidth: 1,
-        },
-      },
-      annotations: {
-        text: {
-          fontSize: 14,
-          fill: "#cfcfd8",
-          outlineWidth: 2,
-          outlineColor: "#ffffff",
-          outlineOpacity: 1,
-        },
-      },
-    };
-  }
+      };
 
   return (
-    <Page title="Risk detail" description={activeData.datetimeLabel}>
+    <Page title={activeData.datetimeLabel} doNotApplyStyle>
       <div>
         <Head>
           <title>{activeData.datetimeLabel} | Sitka Landslide Risk</title>
           <meta name="description" content="Generated by create next app" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <>
-          <div className={styles.figures}>
+        <div className={styles.content}>
+          <div>
+            <h3 className={styles.figureHeading}>Risk level</h3>
             <div className={styles.risk}>
-              <h3 className={styles.figureHeading}>Risk</h3>
+              <div className={styles.figureText}>
+                <Risk riskLevel={activeData.riskLevel} hasText={true} abbreviated />
+              </div>
               <div className={styles.riskBar}>
                 <div
                   style={{ left: `${activeData.riskProb * 100}%` }}
                   className={styles.riskBarIcon}
                 >
-                  <Risk riskLevel={activeData.riskLevel} hasText={false} />
+                  <div
+                    className={styles.riskBarCircle}
+                    style={{ backgroundColor: riskDefinitions[activeData.riskLevel].color }}
+                  ></div>
                 </div>
                 <div className={styles.riskBarLine}></div>
                 <div className={styles.riskBarLegend}>
-                  <div>{riskDefinitions[0].abbreviated}</div>
-                  <div>{riskDefinitions[1].abbreviated}</div>
-                  <div>{riskDefinitions[2].abbreviated}</div>
+                  <div className={activeData.riskLevel === 0 ? styles.selected : styles.unselected}>
+                    {riskDefinitions[0].abbreviated}
+                  </div>
+                  <div className={activeData.riskLevel === 1 ? styles.selected : styles.unselected}>
+                    {riskDefinitions[1].abbreviated}
+                  </div>
+                  <div className={activeData.riskLevel === 2 ? styles.selected : styles.unselected}>
+                    {riskDefinitions[2].abbreviated}
+                  </div>
                 </div>
               </div>
             </div>
-            <div className={styles.rainfall}>
-              <h3 className={styles.figureHeading}>3 hour rainfall</h3>
-              <div className={styles.rainfallNumber}>{activeData.riskPrecipInches}″</div>
-            </div>
           </div>
           <hr />
+          <h3 className={styles.figureHeading}>3 hour rainfall</h3>
+          <div className={styles.figureText} style={{ marginBottom: "var(--space-100)" }}>
+            {activeData.riskPrecipInches} inches
+          </div>
+          <p>
+            Research in Sitka shows that rainfall measured over an 3-hour interval is the best way
+            to predict landslides. Use the following chart to compare this forecast to past
+            conditions.
+          </p>
           <div className={styles.chart}>
+            <div
+              className={`${styles.forecast} ${activeData.riskPrecipInches > 1 && styles.arrowUp}`}
+              // Position the annotation arrow; set a fixed position for when the current value is
+              // higher than all of the historical data
+              style={{
+                bottom:
+                  activeData.riskPrecipInches > maxRiskPrecipInches
+                    ? "90%"
+                    : (activeData.riskPrecipInches / maxRiskPrecipInches) * 100 * 0.9 + "%",
+              }}
+            >
+              <span className={styles.forecastText}>{activeData.datetimeLabel}</span>
+              <svg
+                width="41"
+                height="35"
+                viewBox="0 0 41 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className={styles.forecastArrow}
+              >
+                <path
+                  d="M35.5 35L40.0637 24.3931L28.5961 25.7442L35.5 35ZM-4.30478e-08 2C15.0421 2 29.5769 10.5585 33.4764 26.3033L35.4177 25.8225C31.2472 8.98325 15.7355 6.77377e-07 4.30478e-08 0L-4.30478e-08 2Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
             {mounted && (
               <ResponsiveScatterPlotCanvas
                 isInteractive={false}
                 useMesh={false}
                 debugMesh={false}
                 data={chartData}
-                colors={["rgba(0, 0, 0, 0.2)", "red", "green"]}
+                colors={[
+                  prefersDarkTheme ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.2)",
+                  colors.landslide,
+                  colors.active,
+                ]}
                 margin={{ top: 10, right: 5, bottom: 30, left: 60 }}
                 nodeSize={(d) =>
-                  d.serieId === "nolandslide" ? 5 : d.serieId === "landslide" ? 7 : 10
+                  d.serieId === "nolandslide" ? 2 : d.serieId === "landslide" ? 8 : 10
                 }
                 xScale={{ type: "time", format: "%Y-%m-%d", precision: "day" }}
                 xFormat=">-.2f"
@@ -238,7 +282,7 @@ export default function Detail({ activeData }) {
                   tickPadding: 5,
                   tickRotation: 0,
                   format: "%Y",
-                  tickValues: "every 4 years",
+                  tickValues: "every 6 years",
                   legendPosition: "middle",
                   legendOffset: 0,
                 }}
@@ -255,8 +299,39 @@ export default function Detail({ activeData }) {
               />
             )}
           </div>
-          <DetailContent />
-        </>
+          <div className={legendStyles.legend} style={{ marginBottom: "var(--space-500)" }}>
+            <div className={legendStyles.legendItem}>
+              <div
+                className={legendStyles.legendColor}
+                style={{ backgroundColor: colors.landslide }}
+              ></div>
+              <div className={legendStyles.legendText}>Landslide occurred</div>
+            </div>
+            <div className={legendStyles.legendItem}>
+              <div
+                className={legendStyles.legendColor}
+                style={{ backgroundColor: colors.noLandslide }}
+              ></div>
+              <div className={legendStyles.legendText}>No landslide</div>
+            </div>
+            {riskColor && (
+              <div className={legendStyles.legendItem}>
+                <div
+                  className={legendStyles.legendColor}
+                  style={{ backgroundColor: riskColor }}
+                ></div>
+                <div className={legendStyles.legendText}>{activeData.datetimeLabel}</div>
+              </div>
+            )}
+          </div>
+          <hr />
+          <div
+            className={articleStyles.article}
+            style={{ padding: 0, marginTop: "var(--space-500)" }}
+          >
+            <DetailContent />
+          </div>
+        </div>
       </div>
     </Page>
   );

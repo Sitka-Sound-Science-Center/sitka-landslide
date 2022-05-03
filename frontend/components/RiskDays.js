@@ -26,7 +26,7 @@ const RiskDays = ({ days, hours }) => {
           <AccordionItem key={category.dayNumber}>
             <AccordionItemHeading instanceid={i}>
               <AccordionItemButton className={styles.category}>
-                <div className={styles.categoryName}>{category.dayName}</div>
+                <div className={styles.categoryName}>{i === 0 ? "Today" : category.dayName}</div>
                 <div className={styles.categoryRisk}>
                   <Risk riskLevel={category.riskLevel} />
                 </div>

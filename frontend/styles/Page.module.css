@@ -10,14 +10,18 @@
 	display: block;
 	font-size: var(--size-900);
 	font-weight: var(--weight-black);
-	margin-bottom: var(--space-200);
 }
 
 .description {
-	font-size: var(--size-800);
+	font-size: var(--size-700);
 	font-weight: var(--weight-normal);
 	display: inline-block;
 	line-height: 1.5;
+	margin-top: var(--space-200);
+}
+
+.description:empty {
+	display: none;
 }
 
 @media screen and (min-width: 600px) {

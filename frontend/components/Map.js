@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "mapbox-gl/src/css/mapbox-gl.css";
 
+import legendStyles from "/styles/Legend.module.css";
+
 const Map = ({}) => {
   mapboxgl.accessToken = "pk.eyJ1IjoibGtuYXJmIiwiYSI6IjhjbGg4RUkifQ.-lS6mAkmR3SVh-W4XwQElg";
 
@@ -18,7 +20,8 @@ const Map = ({}) => {
         minZoom: 8,
         pitch: 60,
         bearing: 0,
-        maxZoom: 18,
+        maxZoom: 13,
+        hash: true,
         bounds: [
           [-135.408, 57.032],
           [-135.191, 57.123],
@@ -69,45 +72,70 @@ const Map = ({}) => {
   }, [mounted]);
 
   return (
-    <div id="map" className="map">
-      <style global jsx>{`
-        .map {
-          width: 100%;
-          height: 100vh;
-        }
-
-        @media screen and (min-width: 1000px) {
+    <>
+      <h4>Landslide probability</h4>
+      <div className={legendStyles.legend} style={{ marginBottom: "var(--space-400)" }}>
+        <div className={legendStyles.legendItem}>
+          <div className={legendStyles.legendColor} style={{ backgroundColor: "#FFDDD8" }}></div>
+          <div className={legendStyles.legendText}>0–20%</div>
+        </div>
+        <div className={legendStyles.legendItem}>
+          <div className={legendStyles.legendColor} style={{ backgroundColor: "#D255A6" }}></div>
+          <div className={legendStyles.legendText}>20–40%</div>
+        </div>
+        <div className={legendStyles.legendItem}>
+          <div className={legendStyles.legendColor} style={{ backgroundColor: "#952887" }}></div>
+          <div className={legendStyles.legendText}>40–60%</div>
+        </div>
+        <div className={legendStyles.legendItem}>
+          <div className={legendStyles.legendColor} style={{ backgroundColor: "#4C1873" }}></div>
+          <div className={legendStyles.legendText}>60–80%</div>
+        </div>
+        <div className={legendStyles.legendItem}>
+          <div className={legendStyles.legendColor} style={{ backgroundColor: "#2C146D" }}></div>
+          <div className={legendStyles.legendText}>80–100%</div>
+        </div>
+      </div>
+      <div id="map" className="map">
+        <style global jsx>{`
           .map {
-            width: auto;
-            margin: 0 -100px;
+            width: 100%;
+            height: 100vh;
           }
-        }
 
-        .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
-          background-image: url("/images/svg/mapboxgl-ctrl-zoom-out.svg");
-        }
+          @media screen and (min-width: 1000px) {
+            .map {
+              width: auto;
+              margin: 0 -100px;
+            }
+          }
 
-        .mapboxgl-ctrl button.mapboxgl-ctrl-compass .mapboxgl-ctrl-icon {
-          background-image: url("/images/svg/mapboxgl-ctrl-compass.svg");
-        }
+          .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
+            background-image: url("/images/svg/mapboxgl-ctrl-zoom-out.svg");
+          }
 
-        .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
-          background-image: url("/images/svg/mapboxgl-ctrl-zoom-in.svg");
-        }
+          .mapboxgl-ctrl button.mapboxgl-ctrl-compass .mapboxgl-ctrl-icon {
+            background-image: url("/images/svg/mapboxgl-ctrl-compass.svg");
+          }
 
-        a.mapboxgl-ctrl-logo {
-          background-image: url("/images/svg/mapboxgl-ctrl-logo.svg");
-        }
+          .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
+            background-image: url("/images/svg/mapboxgl-ctrl-zoom-in.svg");
+          }
 
-        .mapboxgl-ctrl-attrib-button {
-          background-image: url("/images/svg/mapboxgl-ctrl-attrib.svg");
-        }
+          a.mapboxgl-ctrl-logo {
+            background-image: url("/images/svg/mapboxgl-ctrl-logo.svg");
+          }
 
-        .mapboxgl-ctrl-attrib.mapboxgl-compact {
-          min-height: 24px;
-        }
-      `}</style>
-    </div>
+          .mapboxgl-ctrl-attrib-button {
+            background-image: url("/images/svg/mapboxgl-ctrl-attrib.svg");
+          }
+
+          .mapboxgl-ctrl-attrib.mapboxgl-compact {
+            min-height: 24px;
+          }
+        `}</style>
+      </div>
+    </>
   );
 };
 

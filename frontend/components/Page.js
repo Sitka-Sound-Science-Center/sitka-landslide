@@ -5,7 +5,7 @@ import stylesArticle from "/styles/Article.module.css";
 
 const styles = { ...stylesPage, ...stylesArticle };
 
-const Page = ({ children, title, description }) => {
+const Page = ({ children, title, description, doNotApplyStyle }) => {
   return (
     <>
       <Head>
@@ -20,7 +20,7 @@ const Page = ({ children, title, description }) => {
           <p className={styles.description}>{description}</p>
         </div>
       </header>
-      <article className={styles.article}>
+      <article className={doNotApplyStyle ? "" : styles.article}>
         <div className="container">{children}</div>
       </article>
     </>

@@ -5,8 +5,8 @@
 .chart {
   position: relative;
   width: 100%;
-  height: 500px;
-  padding-top: var(--space-200);
+  height: 360px;
+  margin: var(--space-300) 0;
 }
 
 .detail {
@@ -42,21 +42,44 @@
   width: 1px;
 }
 
-.risk {
-  height: 80px;
+.content {
+  padding: var(--space-700) var(--space-400);
+}
+
+.selected {
+  font-weight: var(--weight-bold);
+}
+
+.unselected {
+  font-weight: var(--weight-normal);
+  opacity: 0.6;
 }
 
 .figureHeading {
-  font-size: var(--size-700);
+  font-size: var(--size-600);
   font-weight: var(--weight-black);
+  margin: var(--space-400) 0 var(--space-200);
+}
+
+.risk {
+  display: flex;
 }
 
 .riskBar {
   position: relative;
-  height: var(--space-200);
-  background-color: var(--gray-500);
+  height: 5px;
+  top: 10px;
+  flex: 1;
+  max-width: 300px;
+  background-color: var(--gray-800);
   border-radius: 2px;
-  margin: 0 var(--space-200);
+  margin: 0 2vw 0 var(--space-700);
+}
+
+.riskBarCircle {
+  height: 14px;
+  width: 14px;
+  border-radius: 200px;
 }
 
 .riskBarIcon {
@@ -65,19 +88,101 @@
 }
 
 .riskBarLine {
-  margin-top: var(--space-500);
+  margin-top: var(--space-200);
 }
 
-.rainfallNumber {
-  font-size: var(--size-900);
+.figureText {
+  font-size: var(--size-800);
   color: var(--heading);
 }
 
 .riskBarLegend {
   display: grid;
+  position: relative;
   grid-column-gap: 10px;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
+  font-size: var(--size-500);
   text-align: center;
-  padding-top: var(--space-400);
+}
+
+.riskBarLegend:before,
+.riskBarLegend:after {
+  content: "";
+  height: 20px;
+  background: var(--gray-900);
+  width: 1px;
+  position: absolute;
+  top: -15px;
+  left: 33.333%;
+}
+
+.riskBarLegend:before {
+  left: 33.333%;
+}
+
+.riskBarLegend:after {
+  left: 66.666%;
+}
+
+.forecast {
+  position: absolute;
+  right: 0;
+  z-index: 200;
+  font-weight: var(--weight-heavy);
+  font-size: var(--size-600);
+  display: flex;
+  transform: translateY(-40px);
+}
+
+.arrowUp {
+  transform: translateY(calc(50% + 6px));
+}
+
+.arrowUp .forecastArrow {
+  transform: scaleY(-1);
+}
+
+.arrowUp .forecastText {
+  transform: translateY(55%);
+}
+
+.forecastText {
+  position: relative;
+  transform: translateY(-38%);
+  margin-right: 0.4em;
+  color: var(--heading);
+  text-shadow: var(--text-stroke);
+}
+
+.forecastArrow {
+  display: block;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .riskBarLegend:before,
+  .riskBarLegend:after {
+    background-color: var(--gray-300);
+  }
+  .riskBar {
+    background-color: rgb(255 255 255 / 0.1);
+  }
+  .forecastArrow {
+    filter: invert(1);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .content {
+    padding: var(--space-700) 0;
+  }
+  .forecast {
+    transform: translateY(-40px);
+  }
+  .arrowUp {
+    transform: translateY(10px);
+  }
+  .chart {
+    height: 460px;
+  }
 }

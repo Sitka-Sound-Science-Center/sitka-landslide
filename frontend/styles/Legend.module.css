@@ -1,0 +1,42 @@
+.legend {
+  column-gap: 10px;
+  row-gap: 4px;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.legendColor {
+  height: 12px;
+  width: 12px;
+  border-radius: 20px;
+  margin-right: var(--space-200);
+}
+
+.legendColorSquare {
+  height: 12px;
+  width: 12px;
+  margin-right: var(--space-200);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+}
+
+.legendText {
+}
+
+@media screen and (min-width: 600px) {
+  .legendColor,
+  .legendColorSquare {
+    height: 14px;
+    width: 14px;
+  }
+  .description {
+    font-size: var(--size-700);
+  }
+
+  .header {
+    padding: var(--space-600) 0;
+  }
+}

@@ -6,6 +6,7 @@
   height: 48px;
   align-items: center;
   border-bottom: 1px solid var(--header-border);
+  position: relative;
 }
 
 .brand {
@@ -49,17 +50,13 @@
   background: rgb(255 255 255 / 10%);
 }
 
-.menucontainer {
-  position: relative;
-}
-
 .menu {
   background: var(--background);
   z-index: 100;
   position: absolute;
   right: 0;
-  transform: translateY(100%);
-  bottom: 0;
+  left: 0;
+
   display: none;
   box-shadow: var(--shadow-700);
 }
@@ -70,7 +67,7 @@
 
 .menu a {
   display: flex;
-  padding: var(--space-200);
+  padding: var(--space-200) var(--space-300);
   height: 44px;
   align-items: center;
 }
@@ -83,5 +80,12 @@
   .header {
     padding: var(--space-100) var(--space-300);
     height: 56px;
+  }
+  .menucontainer {
+    position: relative;
+  }
+  .menu {
+    right: -10px;
+    left: auto;
   }
 }
