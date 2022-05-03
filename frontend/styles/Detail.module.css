@@ -179,6 +179,9 @@
   .forecast {
     transform: translateY(-40px);
   }
+  .arrowUp {
+    transform: translateY(10px);
+  }
   .chart {
     height: 460px;
   }
