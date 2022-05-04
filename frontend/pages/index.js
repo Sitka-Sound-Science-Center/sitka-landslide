@@ -9,7 +9,7 @@ import Understanding from "/components/Understanding";
 import Resources from "/components/Resources";
 import LastUpdated from "/components/LastUpdated";
 
-import rainfallData from "/data/rainfall.json";
+import rainfallData from "/data/rainfall-elevated-for-beta.json";
 
 export async function getStaticProps() {
   // It might work to just use the imported data in the main function, but calling

@@ -11,7 +11,7 @@ import riskDefinitions from "/content/riskDefinitions";
 import Page from "/components/Page";
 
 import historicalData from "/data/historical.json";
-import rainfallData from "/data/rainfall.json";
+import rainfallData from "/data/rainfall-elevated-for-beta.json";
 
 const maxRiskPrecipInches = Math.max(...historicalData.map((d) => d.precipInchesMax3hr));
 

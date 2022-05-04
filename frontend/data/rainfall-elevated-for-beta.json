@@ -1,0 +1,431 @@
+{
+  "lastUpdated": "2022-05-04T09:03:21.959-08:00",
+  "weatherAdvisory": {
+    "active": false,
+    "permalink": "https://forecast.weather.gov/MapClick.php?lat=57.053&lon=-135.36"
+  },
+  "current": {
+    "timestamp": "2022-05-04T08:53:00.000-08:00",
+    "datetimeLabel": "Current risk",
+    "precip": 8.928,
+    "precipInches": 0.35,
+    "riskPrecip": 8.928,
+    "riskPrecipInches": 0.35,
+    "riskProb": 0.0016,
+    "riskLevel": 0
+  },
+  "twentyFourHours": {
+    "riskLevel": 1,
+    "hours": [
+      {
+        "timestamp": "2022-05-04T07:00:00.000-08:00",
+        "precip": 16.256,
+        "hour": "7AM",
+        "shortTimestamp": "2022-05-04T07:00",
+        "datetimeLabel": "May 4 · 7AM‑10AM",
+        "riskPrecip": 16.256,
+        "riskPrecipInches": 0.64,
+        "riskProb": 0.037,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2022-05-04T10:00:00.000-08:00",
+        "precip": 16.256,
+        "hour": "10AM",
+        "shortTimestamp": "2022-05-04T10:00",
+        "datetimeLabel": "May 4 · 10AM‑1PM",
+        "riskPrecip": 16.256,
+        "riskPrecipInches": 0.64,
+        "riskProb": 0.037,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2022-05-04T13:00:00.000-08:00",
+        "precip": 28.448,
+        "hour": "1PM",
+        "shortTimestamp": "2022-05-04T13:00",
+        "datetimeLabel": "May 4 · 1PM‑4PM",
+        "riskPrecip": 28.448,
+        "riskPrecipInches": 1.12,
+        "riskProb": 0.4119,
+        "riskLevel": 1
+      },
+      {
+        "timestamp": "2022-05-04T16:00:00.000-08:00",
+        "precip": 16.256,
+        "hour": "4PM",
+        "shortTimestamp": "2022-05-04T16:00",
+        "datetimeLabel": "May 4 · 4PM‑7PM",
+        "riskPrecip": 28.448,
+        "riskPrecipInches": 1.12,
+        "riskProb": 0.4119,
+        "riskLevel": 1
+      },
+      {
+        "timestamp": "2022-05-04T19:00:00.000-08:00",
+        "precip": 8.128,
+        "hour": "7PM",
+        "shortTimestamp": "2022-05-04T19:00",
+        "datetimeLabel": "May 4 · 7PM‑10PM",
+        "riskPrecip": 28.448,
+        "riskPrecipInches": 1.12,
+        "riskProb": 0.4119,
+        "riskLevel": 1
+      },
+      {
+        "timestamp": "2022-05-04T22:00:00.000-08:00",
+        "precip": 4.064,
+        "hour": "10PM",
+        "shortTimestamp": "2022-05-04T22:00",
+        "datetimeLabel": "May 4 · 10PM‑1AM",
+        "riskPrecip": 16.256,
+        "riskPrecipInches": 0.64,
+        "riskProb": 0.037,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2022-05-05T01:00:00.000-08:00",
+        "precip": 4.064,
+        "hour": "1AM",
+        "shortTimestamp": "2022-05-05T01:00",
+        "datetimeLabel": "May 5 · 1AM‑4AM",
+        "riskPrecip": 8.128,
+        "riskPrecipInches": 0.32,
+        "riskProb": 0.0011,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2022-05-05T04:00:00.000-08:00",
+        "precip": 4.064,
+        "hour": "4AM",
+        "shortTimestamp": "2022-05-05T04:00",
+        "datetimeLabel": "May 5 · 4AM‑7AM",
+        "riskPrecip": 4.064,
+        "riskPrecipInches": 0.16,
+        "riskProb": 0.0002,
+        "riskLevel": 0
+      },
+      {
+        "timestamp": "2022-05-05T07:00:00.000-08:00",
+        "precip": 4.064,
+        "hour": "7AM",
+        "shortTimestamp": "2022-05-05T07:00",
+        "datetimeLabel": "May 5 · 7AM‑10AM",
+        "riskPrecip": 4.064,
+        "riskPrecipInches": 0.16,
+        "riskProb": 0.0002,
+        "riskLevel": 0
+      }
+    ]
+  },
+  "threeDays": {
+    "days": [
+      {
+        "dayNumber": "3",
+        "dayName": "Wednesday",
+        "riskLevel": 1,
+        "lastTimestamp": "2022-05-04T22:00:00.000-08:00"
+      },
+      {
+        "dayNumber": "4",
+        "dayName": "Thursday",
+        "riskLevel": 0,
+        "lastTimestamp": "2022-05-05T22:00:00.000-08:00"
+      },
+      {
+        "dayNumber": "5",
+        "dayName": "Friday",
+        "riskLevel": 0,
+        "lastTimestamp": "2022-05-06T22:00:00.000-08:00"
+      }
+    ],
+    "hours": [
+      {
+        "timestamp": "2022-05-04T07:00:00.000-08:00",
+        "precip": 16.256,
+        "hour": "7AM",
+        "shortTimestamp": "2022-05-04T07:00",
+        "datetimeLabel": "May 4 · 7AM‑10AM",
+        "riskPrecip": 16.256,
+        "riskPrecipInches": 0.64,
+        "riskProb": 0.037,
+        "riskLevel": 0,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2022-05-04T10:00:00.000-08:00",
+        "precip": 16.256,
+        "hour": "10AM",
+        "shortTimestamp": "2022-05-04T10:00",
+        "datetimeLabel": "May 4 · 10AM‑1PM",
+        "riskPrecip": 16.256,
+        "riskPrecipInches": 0.64,
+        "riskProb": 0.037,
+        "riskLevel": 0,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2022-05-04T13:00:00.000-08:00",
+        "precip": 28.448,
+        "hour": "1PM",
+        "shortTimestamp": "2022-05-04T13:00",
+        "datetimeLabel": "May 4 · 1PM‑4PM",
+        "riskPrecip": 28.448,
+        "riskPrecipInches": 1.12,
+        "riskProb": 0.4119,
+        "riskLevel": 1,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2022-05-04T16:00:00.000-08:00",
+        "precip": 16.256,
+        "hour": "4PM",
+        "shortTimestamp": "2022-05-04T16:00",
+        "datetimeLabel": "May 4 · 4PM‑7PM",
+        "riskPrecip": 28.448,
+        "riskPrecipInches": 1.12,
+        "riskProb": 0.4119,
+        "riskLevel": 1,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2022-05-04T19:00:00.000-08:00",
+        "precip": 8.128,
+        "hour": "7PM",
+        "shortTimestamp": "2022-05-04T19:00",
+        "datetimeLabel": "May 4 · 7PM‑10PM",
+        "riskPrecip": 28.448,
+        "riskPrecipInches": 1.12,
+        "riskProb": 0.4119,
+        "riskLevel": 1,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2022-05-04T22:00:00.000-08:00",
+        "precip": 4.064,
+        "hour": "10PM",
+        "shortTimestamp": "2022-05-04T22:00",
+        "datetimeLabel": "May 4 · 10PM‑1AM",
+        "riskPrecip": 16.256,
+        "riskPrecipInches": 0.64,
+        "riskProb": 0.037,
+        "riskLevel": 0,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2022-05-05T01:00:00.000-08:00",
+        "precip": 4.064,
+        "hour": "1AM",
+        "shortTimestamp": "2022-05-05T01:00",
+        "datetimeLabel": "May 5 · 1AM‑4AM",
+        "riskPrecip": 8.128,
+        "riskPrecipInches": 0.32,
+        "riskProb": 0.0011,
+        "riskLevel": 0,
+        "dayNumber": "4",
+        "dayName": "Thursday"
+      },
+      {
+        "timestamp": "2022-05-05T04:00:00.000-08:00",
+        "precip": 4.064,
+        "hour": "4AM",
+        "shortTimestamp": "2022-05-05T04:00",
+        "datetimeLabel": "May 5 · 4AM‑7AM",
+        "riskPrecip": 4.064,
+        "riskPrecipInches": 0.16,
+        "riskProb": 0.0002,
+        "riskLevel": 0,
+        "dayNumber": "4",
+        "dayName": "Thursday"
+      },
+      {
+        "timestamp": "2022-05-05T07:00:00.000-08:00",
+        "precip": 4.064,
+        "hour": "7AM",
+        "shortTimestamp": "2022-05-05T07:00",
+        "datetimeLabel": "May 5 · 7AM‑10AM",
+        "riskPrecip": 4.064,
+        "riskPrecipInches": 0.16,
+        "riskProb": 0.0002,
+        "riskLevel": 0,
+        "dayNumber": "4",
+        "dayName": "Thursday"
+      },
+      {
+        "timestamp": "2022-05-05T10:00:00.000-08:00",
+        "precip": 8.128,
+        "hour": "10AM",
+        "shortTimestamp": "2022-05-05T10:00",
+        "datetimeLabel": "May 5 · 10AM‑1PM",
+        "riskPrecip": 8.128,
+        "riskPrecipInches": 0.32,
+        "riskProb": 0.0011,
+        "riskLevel": 0,
+        "dayNumber": "4",
+        "dayName": "Thursday"
+      },
+      {
+        "timestamp": "2022-05-05T13:00:00.000-08:00",
+        "precip": 8.128,
+        "hour": "1PM",
+        "shortTimestamp": "2022-05-05T13:00",
+        "datetimeLabel": "May 5 · 1PM‑4PM",
+        "riskPrecip": 8.128,
+        "riskPrecipInches": 0.32,
+        "riskProb": 0.0011,
+        "riskLevel": 0,
+        "dayNumber": "4",
+        "dayName": "Thursday"
+      },
+      {
+        "timestamp": "2022-05-05T16:00:00.000-08:00",
+        "precip": 8.128,
+        "hour": "4PM",
+        "shortTimestamp": "2022-05-05T16:00",
+        "datetimeLabel": "May 5 · 4PM‑7PM",
+        "riskPrecip": 8.128,
+        "riskPrecipInches": 0.32,
+        "riskProb": 0.0011,
+        "riskLevel": 0,
+        "dayNumber": "4",
+        "dayName": "Thursday"
+      },
+      {
+        "timestamp": "2022-05-05T19:00:00.000-08:00",
+        "precip": 0,
+        "hour": "7PM",
+        "shortTimestamp": "2022-05-05T19:00",
+        "datetimeLabel": "May 5 · 7PM‑10PM",
+        "riskPrecip": 8.128,
+        "riskPrecipInches": 0.32,
+        "riskProb": 0.0011,
+        "riskLevel": 0,
+        "dayNumber": "4",
+        "dayName": "Thursday"
+      },
+      {
+        "timestamp": "2022-05-05T22:00:00.000-08:00",
+        "precip": 0,
+        "hour": "10PM",
+        "shortTimestamp": "2022-05-05T22:00",
+        "datetimeLabel": "May 5 · 10PM‑1AM",
+        "riskPrecip": 8.128,
+        "riskPrecipInches": 0.32,
+        "riskProb": 0.0011,
+        "riskLevel": 0,
+        "dayNumber": "4",
+        "dayName": "Thursday"
+      },
+      {
+        "timestamp": "2022-05-06T01:00:00.000-08:00",
+        "precip": 0,
+        "hour": "1AM",
+        "shortTimestamp": "2022-05-06T01:00",
+        "datetimeLabel": "May 6 · 1AM‑4AM",
+        "riskPrecip": 0,
+        "riskPrecipInches": 0,
+        "riskProb": 0,
+        "riskLevel": 0,
+        "dayNumber": "5",
+        "dayName": "Friday"
+      },
+      {
+        "timestamp": "2022-05-06T04:00:00.000-08:00",
+        "precip": 0,
+        "hour": "4AM",
+        "shortTimestamp": "2022-05-06T04:00",
+        "datetimeLabel": "May 6 · 4AM‑7AM",
+        "riskPrecip": 0,
+        "riskPrecipInches": 0,
+        "riskProb": 0,
+        "riskLevel": 0,
+        "dayNumber": "5",
+        "dayName": "Friday"
+      },
+      {
+        "timestamp": "2022-05-06T07:00:00.000-08:00",
+        "precip": 8.128,
+        "hour": "7AM",
+        "shortTimestamp": "2022-05-06T07:00",
+        "datetimeLabel": "May 6 · 7AM‑10AM",
+        "riskPrecip": 8.128,
+        "riskPrecipInches": 0.32,
+        "riskProb": 0.0011,
+        "riskLevel": 0,
+        "dayNumber": "5",
+        "dayName": "Friday"
+      },
+      {
+        "timestamp": "2022-05-06T10:00:00.000-08:00",
+        "precip": 8.128,
+        "hour": "10AM",
+        "shortTimestamp": "2022-05-06T10:00",
+        "datetimeLabel": "May 6 · 10AM‑1PM",
+        "riskPrecip": 8.128,
+        "riskPrecipInches": 0.32,
+        "riskProb": 0.0011,
+        "riskLevel": 0,
+        "dayNumber": "5",
+        "dayName": "Friday"
+      },
+      {
+        "timestamp": "2022-05-06T13:00:00.000-08:00",
+        "precip": 8.128,
+        "hour": "1PM",
+        "shortTimestamp": "2022-05-06T13:00",
+        "datetimeLabel": "May 6 · 1PM‑4PM",
+        "riskPrecip": 8.128,
+        "riskPrecipInches": 0.32,
+        "riskProb": 0.0011,
+        "riskLevel": 0,
+        "dayNumber": "5",
+        "dayName": "Friday"
+      },
+      {
+        "timestamp": "2022-05-06T16:00:00.000-08:00",
+        "precip": 0,
+        "hour": "4PM",
+        "shortTimestamp": "2022-05-06T16:00",
+        "datetimeLabel": "May 6 · 4PM‑7PM",
+        "riskPrecip": 8.128,
+        "riskPrecipInches": 0.32,
+        "riskProb": 0.0011,
+        "riskLevel": 0,
+        "dayNumber": "5",
+        "dayName": "Friday"
+      },
+      {
+        "timestamp": "2022-05-06T19:00:00.000-08:00",
+        "precip": 0,
+        "hour": "7PM",
+        "shortTimestamp": "2022-05-06T19:00",
+        "datetimeLabel": "May 6 · 7PM‑10PM",
+        "riskPrecip": 8.128,
+        "riskPrecipInches": 0.32,
+        "riskProb": 0.0011,
+        "riskLevel": 0,
+        "dayNumber": "5",
+        "dayName": "Friday"
+      },
+      {
+        "timestamp": "2022-05-06T22:00:00.000-08:00",
+        "precip": 0,
+        "hour": "10PM",
+        "shortTimestamp": "2022-05-06T22:00",
+        "datetimeLabel": "May 6 · 10PM‑1AM",
+        "riskPrecip": 0,
+        "riskPrecipInches": 0,
+        "riskProb": 0,
+        "riskLevel": 0,
+        "dayNumber": "5",
+        "dayName": "Friday"
+      }
+    ]
+  }
+}
