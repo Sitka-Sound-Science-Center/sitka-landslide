@@ -217,9 +217,8 @@ export default function Detail({ activeData }) {
             {activeData.riskPrecipInches} inches
           </div>
           <p>
-            Research in Sitka shows that rainfall measured over an 3-hour interval is the best way
-            to predict landslides. Use the following chart to compare this forecast to past
-            conditions.
+            Research in Sitka shows that rainfall measured over a 3-hour interval is the best way to
+            predict landslides. Use the following chart to compare this forecast to past conditions.
           </p>
           <div className={styles.chart}>
             <div
