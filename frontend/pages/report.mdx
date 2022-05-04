@@ -1,0 +1,28 @@
+import Page from "/components/Page";
+
+export const page = {
+	title: "Report a landslide",
+	description: "Share new observations of landslides to contribute to ongoing research",
+};
+
+### How do I report a landslide?
+
+Notice something is missing? Have a new observation? Report landslides to [landslides@sitkascience.org](landslides@sitkascience.org). If possible, include the following information:
+
+- Location (GPS coordinates or a description)
+- Photographs
+- Information about the time of the event if known (a window of time is also helpful)
+- Impacts (if any infrastructure was affected, anyone was hurt, streams were obstructed etc.)
+
+### Where can I see existing landslides?
+
+The US Forest Service upkeeps a landslide inventory of the Tongass National Forest. The [landslide inventory](https://data-usfs.hub.arcgis.com/datasets/usfs::tongass-landslide-areas-feature-layer/explore?location=57.142739%2C-135.267431%2C8.92) is updated annually. The inventory is produced using field observations and satellite imagery. It includes all mass wasting features (not just debris flows), including talus slopes, snow avalanche fields, and snow avalanche chutes.
+
+#### Instructions for viewing the landslide inventory on aerial imagery instead of greyscale
+
+- On the linked webpage, click on I want to use this in the bottom left corner
+- Click on Create a map, then Advanced Mapping
+- In the map page that opens, click on the Basemap icon in the upper left
+- Select a basemap such as Imagery
+
+export default ({ children }) => <Page title={page.title}>{children}</Page>;

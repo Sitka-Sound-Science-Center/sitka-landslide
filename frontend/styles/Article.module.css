@@ -2,6 +2,15 @@
 	padding: var(--space-700) var(--space-400);
 }
 
+.article strong {
+	font-weight: var(--weight-bold);
+}
+
+.article img {
+	margin: var(--space-400) 0;
+	display: block;
+}
+
 .article p {
 	margin-bottom: var(--space-300);
 }
@@ -13,36 +22,40 @@
 .article h2 {
 	font-weight: var(--weight-black);
 	font-size: var(--size-900);
-	margin: var(--space-400) 0;
+	margin: var(--space-500) 0 var(--space-300);
 }
 
 .article h3 {
 	font-weight: var(--weight-heavy);
 	font-size: var(--size-800);
-	margin: var(--space-400) 0;
+	margin: var(--space-500) 0 var(--space-300);
 }
 
 .article h4 {
 	font-weight: var(--weight-bold);
 	font-size: var(--size-700);
-	margin: var(--space-400) 0;
+	margin: var(--space-500) 0 var(--space-200);
 }
 
 .article h5 {
 	font-weight: var(--weight-bold);
 	font-size: var(--size-600);
-	margin: var(--space-400) 0;
+	margin: var(--space-500) 0 var(--space-200);
 }
 
 .article ul {
 	list-style: disc;
-	margin-left: 1.5em;
+	margin-left: 1em;
 	margin-bottom: var(--space-300);
 }
 
 .article ol {
 	list-style: number;
-	margin-left: 1.5em;
+	margin-left: 1em;
+	margin-bottom: var(--space-300);
+}
+
+.article li {
 	margin-bottom: var(--space-300);
 }
 

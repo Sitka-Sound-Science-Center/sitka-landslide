@@ -6,17 +6,17 @@ const data = [
   {
     riskLevel: 2,
     description:
-      "Multiple landslides are very likely to occur in the Sitka area. There have been three storms in the last 20 years with conditions like these, and all of them initiated multiple landslides.",
+      "Multiple landslides are very likely to occur in the Sitka area. There have been three storms in the last 20 years with similarly intense rainfall, and all three of them initiated multiple landslides.",
   },
   {
     riskLevel: 1,
     description:
-      "Landslides are possible but not certain. Isolated landslides have occurred in Sitka at this level in the past.Landslides are possible but not certain. Isolated landslides have occurred in Sitka at this level in the past.",
+      "Landslides are possible. Isolated landslides have occurred in Sitka with similarly intense rainfall in the past.",
   },
   {
     riskLevel: 0,
     description:
-      "Landslides are extremely unlikely based on the rainfall conditions. In the last 20 years, rainfall-induced landslides have never happened in these conditions before.",
+      "Landslides are unlikely based on rainfall and landslide observations in the last 20 years. Rainfall-induced landslides have not been documented for these rainfall conditions.",
   },
 ];
 

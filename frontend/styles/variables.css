@@ -16,10 +16,12 @@
   --page-header: var(--gray-300);
   --background-content: var(--background);
   --header-border: transparent;
-  --resource0: #e0ebfd;
-  --resource1: #f5f3f0;
-  --resource2: #deece5;
-  --resource3: #f3f3f3;
+  --resource0: #ccd8ef;
+  --resource1: #d6daf5;
+  --resource2: #dfe0f5;
+  --resource3: #e7edf9;
+  --resource4: #eaf8fd;
+  --resource5: #ecfefe;
 
   --gray-900: #ced1d5;
   --gray-800: #d3d6d9;
@@ -116,6 +118,8 @@
     --resource1: #404040;
     --resource2: #404040;
     --resource3: #404040;
+    --resource4: #404040;
+    --resource5: #404040;
 
     --gray-900: #161616;
     --gray-800: #1f1f1f;

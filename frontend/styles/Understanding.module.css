@@ -23,7 +23,7 @@
 .title {
   font-weight: var(--weight-bold);
   font-size: var(--size-700);
-  margin-bottom: var(--space-200);
+  margin-bottom: var(--space-100);
 }
 
 @media screen and (min-width: 600px) {

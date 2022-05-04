@@ -5,27 +5,38 @@ const data = [
   {
     id: 0,
     title: "How to prepare for a landslide",
-    description: "Learn what you and your community can do to be ready for a landslide",
+    description: "Learn what to do before a landslide occurs",
     permalink: "/prepare/",
   },
   {
     id: 1,
     title: "Areas at risk",
-    description: "View a map and read more about which parts of Sitka are most vulnerable",
+    description: "Identify where you live and work relative to landslides in Sitka",
     permalink: "/areas-at-risk/",
   },
   {
     id: 2,
     title: "Landslide 101",
-    description: "Learn what you and your community can do to be ready for a landslide",
-    permalink: "https://sitkascience.org/",
+    description: "Find out more about the science behind landslides",
+    permalink: "/landslide-101/",
   },
   {
     id: 3,
     title: "Oral histories",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit; sed ornare leo nulla, a mattis lacus blandit vitae",
-    permalink: "https://sitkascience.org/",
+    description: "Explore stories of landslides",
+    permalink: "/oral-histories/",
+  },
+  {
+    id: 4,
+    title: "Published work",
+    description: "Access articles published by our research team and related to this work",
+    permalink: "/published/",
+  },
+  {
+    id: 5,
+    title: "Report a landslide",
+    description: "Share new observations of landslides to contribute to ongoing research",
+    permalink: "/report/",
   },
 ];
 
