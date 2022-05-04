@@ -1,0 +1,38 @@
+.banner {
+	display: flex;
+	padding: var(--space-300);
+	font-size: var(--size-500);
+	width: 100%;
+	align-items: center;
+	background-color: var(--background-beta);
+}
+
+.banner strong {
+	font-weight: var(--weight-bold);
+}
+
+.title {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	color: #111;
+}
+
+.title svg {
+	margin-right: var(--space-300);
+	flex-shrink: 0;
+}
+
+.link {
+	text-transform: uppercase;
+	font-size: var(--size-500);
+	color: #111;
+	background: transparent;
+	border: none;
+	border-left: 1px solid rgb(0 0 0 / 15%);
+	height: 100%;
+	padding-left: 10px;
+	margin-left: var(--space-300);
+	text-transform: inherit;
+	cursor: pointer;
+}
