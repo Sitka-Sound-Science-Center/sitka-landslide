@@ -17,7 +17,8 @@ const BetaBanner = ({ permalink }) => {
         <span className={styles.title}>
           <Icon name="circle-exclamation" />
           <span>
-            <strong>Private beta:&nbsp;</strong>not for risk assessment use (live&nbsp;data)
+            <strong>Private beta:&nbsp;</strong>not for risk assessment use
+            (fake&nbsp;data,&nbsp;elevated&nbsp;risk)
           </span>
         </span>
         <button onClick={hideBanner} className={styles.link}>
