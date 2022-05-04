@@ -29,15 +29,14 @@ const data = [
   {
     id: 4,
     title: "Published work",
-    description: "Explore stories of landslides",
-    permalink: "https://sitkascience.org/",
+    description: "Access articles published by our research team and related to this work",
+    permalink: "/published/",
   },
   {
     id: 5,
     title: "Report a landslide",
-    description:
-      "Share new observations of landslides to contribute to ongoing research, Tongass National Forest Landslide Inventory",
-    permalink: "https://sitkascience.org/",
+    description: "Share new observations of landslides to contribute to ongoing research",
+    permalink: "/report/",
   },
 ];
 
