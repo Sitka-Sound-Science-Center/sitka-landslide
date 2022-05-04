@@ -2,19 +2,36 @@ import Page from "/components/Page";
 
 export const page = {
 	title: "About",
-	description: "Get more information about this project lorem ipsum tktktktktktk",
+	description: "Details regarding this project, funding, and partners",
 };
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac lacinia est, vitae ultrices eros. Nulla diam nisi, posuere in ultrices ac, hendrerit id leo. Sed velit justo, lacinia a fermentum vel, rhoncus in leo. Nulla facilisi. Cras dapibus neque eget nisi mattis, semper tempor neque venenatis. Vivamus quis sapien eget ex imperdiet convallis ut nec augue.
+### What is this?
 
-Praesent ultrices, elit eu semper mattis, arcu diam eleifend diam, ac pulvinar metus velit et nisl. Nam posuere viverra nibh sed iaculis. Donec at metus urna. Suspendisse laoreet rutrum justo, eu facilisis elit vehicula et.
+The Landslide Risk Dashboard is a tool to communicate the likelihood of a debris flow at any given time based on a model developed by a team of scientists studying landslides in Sitka, Alaska. The model compares conditions when landslides have occurred in the past in combination with weather forecasts and real-time precipitation measurements to determine the likelihood that a landslide will occur, which is posted as a low, medium, or high landslide risk level. Posted risk levels are combined with recommended actions to guide community members toward emergency preparedness and informed decision making during periods of elevated hazard, with the goal of protecting human life.
 
-Suspendisse non volutpat neque. Cras dignissim turpis id eros rhoncus finibus. Nulla nisi urna, ullamcorper at lacinia sed, feugiat maximus leo. Maecenas vitae diam quis libero laoreet auctor. Donec consequat turpis sem. Proin at metus vitae purus semper aliquam ac sit amet felis.
+### Funding
 
-Etiam vel consequat nunc. In nec luctus turpis. Donec in sapien nec sem tempus aliquet. Donec sed diam eget nunc gravida sagittis. Fusce scelerisque nisi non egestas vestibulum. Etiam consectetur malesuada lorem, non bibendum ipsum tempor a.
+This work was funded by the National Science Foundation (grant number 1831770). The project is also detailed on the [Sitka Sound Science Center website](https://sitkascience.org/research-projects/landslide-research/research/landslide-warning-system/).
 
-export default ({ children }) => (
-	<Page title={page.title} description={page.description}>
-		{children}
-	</Page>
-);
+### Partners
+
+This dashboard was created by the Landslide Research Team collaborators including:
+
+- Sitka Tribe of Alaska
+- University of Oregon Geoscience
+- the RAND Corporation
+- USC School of Engineering
+- Azavea
+- Sitka Sounds Science Center
+- National Weather Service
+- Alaska Division of Geological and Geophysical Surveys (DGGS)
+- US Forest Service (USFS)
+- City and Borough of Sitka
+- Sitka Fire Department
+- National Oceanic and Atmospheric Administration (NOAA)
+- US Geological Survey (USGS)
+- Sitka School District
+- Mt. Edgecumbe High School
+- Greater Sitka Chamber of Commerce
+
+export default ({ children }) => <Page title={page.title}>{children}</Page>;

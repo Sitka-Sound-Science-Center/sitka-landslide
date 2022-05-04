@@ -17,23 +17,19 @@ const Map = ({}) => {
         cooperativeGestures: true,
         container: "map",
         style: "mapbox://styles/lknarf/cl0pf3asg000114nt5jepzs6s",
-        minZoom: 8,
+        minZoom: 6,
         pitch: 60,
         bearing: 0,
         maxZoom: 13,
-        hash: true,
-        bounds: [
-          [-135.408, 57.032],
-          [-135.191, 57.123],
-        ],
+        bounds: [-135.401684, 57.030672, -135.214179, 57.12378],
       });
 
       map.on("load", function () {
         map.addSource("raster-risk", {
           type: "raster",
-          tiles: [window.location.origin + "/images/tiles/rose/{z}/{x}/{y}.png"],
-          minzoom: 8,
-          maxzoom: 15,
+          tiles: [window.location.origin + "/images/tiles/{z}/{x}/{y}.png"],
+          minzoom: 6,
+          maxzoom: 13,
           tileSize: 512,
         });
 
@@ -73,28 +69,12 @@ const Map = ({}) => {
 
   return (
     <>
-      <h4>Landslide probability</h4>
       <div className={legendStyles.legend} style={{ marginBottom: "var(--space-400)" }}>
-        <div className={legendStyles.legendItem}>
-          <div className={legendStyles.legendColor} style={{ backgroundColor: "#FFDDD8" }}></div>
-          <div className={legendStyles.legendText}>0–20%</div>
+        <div className={legendStyles.legendRange}>
+          <div className={legendStyles.legendText}>Low susceptibility</div>
+          <div className={legendStyles.legendText}>High susceptibility</div>
         </div>
-        <div className={legendStyles.legendItem}>
-          <div className={legendStyles.legendColor} style={{ backgroundColor: "#D255A6" }}></div>
-          <div className={legendStyles.legendText}>20–40%</div>
-        </div>
-        <div className={legendStyles.legendItem}>
-          <div className={legendStyles.legendColor} style={{ backgroundColor: "#952887" }}></div>
-          <div className={legendStyles.legendText}>40–60%</div>
-        </div>
-        <div className={legendStyles.legendItem}>
-          <div className={legendStyles.legendColor} style={{ backgroundColor: "#4C1873" }}></div>
-          <div className={legendStyles.legendText}>60–80%</div>
-        </div>
-        <div className={legendStyles.legendItem}>
-          <div className={legendStyles.legendColor} style={{ backgroundColor: "#2C146D" }}></div>
-          <div className={legendStyles.legendText}>80–100%</div>
-        </div>
+        <div className={legendStyles.legendRangeColor}></div>
       </div>
       <div id="map" className="map">
         <style global jsx>{`

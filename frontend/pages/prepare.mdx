@@ -6,23 +6,23 @@ import ForecastRisk2 from "/content/ForecastRisk2.mdx";
 import riskDefinitions from "/content/riskDefinitions";
 
 export const page = {
-  title: "How to prepare for a landslide",
+  title: "How to prepare",
   description: "Learn what you and your community can do to be ready for a landslide",
 };
 
 export const style = { display: "flex", gridGap: "6px", alignItems: "center" };
 
-### Landslide preparedness
+### How can I reduce my risk?
 
-Read the [USGS guide for landslide preparedness](https://www.usgs.gov/programs/landslide-hazards/landslide-preparedness) for more information.
+Debris flows cannot be prevented, but landslide disasters can. Risk is a combination of hazard, exposure, and vulnerability. When hazard is elevated, decreasing exposure (by moving out of areas where landslides are likely to happen) is the best way to decrease your risk.
 
-### Responding to risk levels
+### Recommended actions
 
 <h4 id={riskDefinitions[2].slug} style={style}>
   <span>
     <Risk riskLevel={2} hasText={false} />
   </span>
-  <span>High risk</span>
+  <span>Preparing for high risk</span>
 </h4>
 
 <ForecastRisk2 />
@@ -31,7 +31,7 @@ Read the [USGS guide for landslide preparedness](https://www.usgs.gov/programs/l
   <span>
     <Risk riskLevel={1} hasText={false} />
   </span>
-  <span>Medium risk</span>
+  <span>Preparing for medium risk</span>
 </h4>
 
 <ForecastRisk1 />
@@ -40,10 +40,14 @@ Read the [USGS guide for landslide preparedness](https://www.usgs.gov/programs/l
   <span>
     <Risk riskLevel={0} hasText={false} />
   </span>
-  <span>Low risk</span>
+  <span>Preparing for low risk</span>
 </h4>
 
 <ForecastRisk0 />
+
+### What else can I do to prepare?
+
+Read the [Landslide Preparedness](https://www.usgs.gov/programs/landslide-hazards/landslide-preparedness) guide to learn what you and your community can do to be ready for a landslide.
 
 export default ({ children }) => (
   <Page title={page.title} description={page.description}>

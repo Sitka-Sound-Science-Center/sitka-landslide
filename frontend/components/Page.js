@@ -17,7 +17,6 @@ const Page = ({ children, title, description, doNotApplyStyle }) => {
           <h2>
             <span className={styles.title}>{title}</span>
           </h2>
-          <p className={styles.description}>{description}</p>
         </div>
       </header>
       <article className={doNotApplyStyle ? "" : styles.article}>
