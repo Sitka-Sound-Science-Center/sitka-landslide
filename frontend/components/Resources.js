@@ -31,6 +31,8 @@ const data = [
     title: "Published work",
     description: "Access articles published by our research team and related to this work",
     permalink: "/published/",
+    description: "Explore stories of landslides",
+    permalink: "https://sitkascience.org/",
   },
   {
     id: 5,
