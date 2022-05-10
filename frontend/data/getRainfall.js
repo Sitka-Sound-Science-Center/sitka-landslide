@@ -1,4 +1,5 @@
 const axios = require("axios");
+const axiosRetry = require("axios-retry");
 const { DateTime } = require("luxon");
 const fs = require("fs");
 
@@ -10,8 +11,26 @@ const MESOWEST_API = "https://api.synopticdata.com/v2";
 const MESOWEST_TOKEN = process.env.MESOWEST_TOKEN || "78b6412c25ea43beb10aa5399dd6fdfa";
 
 const NWS_API = "https://api.weather.gov/gridpoints/AJK/188,113";
+const STATION_LAT = 57.053;
+const STATION_LON = -135.36;
+const NWS_ALERT_API = `https://api.weather.gov/alerts/active?status=actual&message_type=alert&point=${STATION_LAT},${STATION_LON}`;
 // NWS doesn't require authentication, but they ask for an identifiable user-agent
 const NWS_USERAGENT = "(Sitka Landslide Risk Forecasting, systems@azavea.com)";
+// The link to provide when there's an active alert (it's just the current forecast page)
+const NWS_ALERT_PERMALINK = `https://forecast.weather.gov/MapClick.php?lat=${STATION_LAT}&lon=${STATION_LON}`;
+
+// Configure retries for requests. 3 retries (4 tries). The default exponential delay intervals
+// are 100ms, 200ms, and 400ms, plus a random amount of padding from 0-20%.
+axiosRetry(axios, {
+  retries: 3,
+  retryDelay: axiosRetry.exponentialDelay,
+  // Condition for whether or not the error is one that should be retried. Modified to add logging.
+  retryCondition: (err) => {
+    const shouldRetry = axiosRetry.isSafeRequestError(err);
+    console.log(`Request error for ${err.config.url}.` + (shouldRetry ? " Retrying." : ""));
+    return shouldRetry;
+  },
+});
 
 // Converts any ISO timestamp (whether it's in UTC or local time) to a luxon DateTime
 // instance in Sitka local time
@@ -210,19 +229,14 @@ async function getForecastRainfall(observed) {
 // Note: We don't want an error here to block an update, so if the API call fails it just
 //       returns a valid object with {active: false}.
 async function getWeatherAdvisory() {
-  const lat = 57.053;
-  const lon = -135.36;
   const defaultResult = {
     active: false,
-    permalink: `https://forecast.weather.gov/MapClick.php?lat=${lat}&lon=${lon}`,
+    permalink: NWS_ALERT_PERMALINK,
   };
   return axios
-    .get(
-      `https://api.weather.gov/alerts/active?status=actual&message_type=alert&point=${lat},${lon}`,
-      {
-        headers: { "User-Agent": NWS_USERAGENT },
-      }
-    )
+    .get(NWS_ALERT_API, {
+      headers: { "User-Agent": NWS_USERAGENT },
+    })
     .then((nwsResponse) => {
       return {
         ...defaultResult,
