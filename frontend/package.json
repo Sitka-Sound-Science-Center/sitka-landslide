@@ -5,6 +5,7 @@
     "dev": "yarn get-data && next dev -p 3008",
     "analyze": "cross-env ANALYZE=true next build",
     "build": "yarn get-data && next build",
+    "export": "yarn build && next export",
     "start": "next start",
     "lint": "next lint",
     "check-format": "prettier --check '{pages,components}/*.{js,jsx,json,css}'",
