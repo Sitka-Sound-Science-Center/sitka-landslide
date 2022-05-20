@@ -14,5 +14,6 @@ module.exports = withMDX(
   withBundleAnalyzer({
     pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
     experimental: { optimizeCss: true },
+    trailingSlash: true,
   })
 );
