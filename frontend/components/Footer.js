@@ -19,19 +19,19 @@ const data = {
   ],
   logos: [
     {
-      permalink: "https://google.com",
+      permalink: "https://sitkascience.org/",
       text: "Sitka Sound Science Center",
       filename: "logo-sitkascience",
     },
     {
-      permalink: "https://google.com",
+      permalink: "https://www.sitkatribe.org/",
       text: "Sitka Tribe of Alaska",
       filename: "logo-sitkatribe",
     },
     {
-      permalink: "https://google.com",
-      text: "Sitka Fire Department",
-      filename: "logo-sitkafiredepartment",
+      permalink: "https://www.weather.gov/wrn/ambassadors",
+      text: "Weather-Ready Nation",
+      filename: "logo-wrn",
     },
   ],
 };

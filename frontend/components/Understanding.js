@@ -16,7 +16,7 @@ const data = [
   {
     riskLevel: 0,
     description:
-      "Landslides are unlikely based on rainfall and landslide observations in the last 20 years. Rainfall-induced landslides have not been documented for these rainfall conditions.",
+      "Landslides are unlikely based on historic observations in the last 20 years. Rainfall-induced landslides have not been documented for these rainfall conditions.",
   },
 ];
 
