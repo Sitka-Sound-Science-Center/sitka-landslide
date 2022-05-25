@@ -16,12 +16,12 @@
   --page-header: var(--gray-300);
   --background-content: var(--background);
   --header-border: transparent;
-  --resource0: #ccd8ef;
-  --resource1: #d6daf5;
-  --resource2: #dfe0f5;
-  --resource3: #e7edf9;
-  --resource4: #eaf8fd;
-  --resource5: #ecfefe;
+  --resource0: var(--gray-400);
+  --resource1: var(--gray-400);
+  --resource2: var(--gray-400);
+  --resource3: var(--gray-400);
+  --resource4: var(--gray-400);
+  --resource5: var(--gray-400);
 
   --gray-900: #ced1d5;
   --gray-800: #d3d6d9;
