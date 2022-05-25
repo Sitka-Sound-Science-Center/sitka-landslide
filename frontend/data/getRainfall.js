@@ -45,7 +45,7 @@ function toLocalTimestamp(isoTimestamp) {
   return toLocalDateTime(isoTimestamp).toString();
 }
 
-function toDatetime(isoTimestamp) {
+function toDateTimeDetails(isoTimestamp) {
   const dt = toLocalDateTime(isoTimestamp);
   const endDt = dt.plus({ hours: 3 });
   return {
@@ -172,7 +172,7 @@ async function getPastRainfall() {
 
   return {
     timestamp: toLocalTimestamp(threeHourObs.last_report),
-    datetime: { label: "Current risk" },
+    dateTimeDetails: { label: "Current risk" },
     precip: precip,
     precipInches: mmToInches(precip),
     riskPrecip: riskPrecip,
@@ -221,7 +221,7 @@ async function getForecastRainfall(observed) {
       ...forecast,
       hour: toLocalDateTime(forecast.timestamp).toFormat("ha"),
       shortTimestamp: toShortTimestamp(forecast.timestamp),
-      datetime: toDatetime(forecast.timestamp),
+      dateTimeDetails: toDateTimeDetails(forecast.timestamp),
       riskPrecip,
       riskPrecipInches: mmToInches(riskPrecip),
       riskProb: round(normalizedRiskNum(riskPrecip), 4),
