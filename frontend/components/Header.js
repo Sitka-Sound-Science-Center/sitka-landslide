@@ -19,6 +19,14 @@ const links = [
     text: "Areas at risk",
     permalink: "/areas-at-risk/",
   },
+  {
+    text: "Report landslide",
+    permalink: "/report/",
+  },
+  {
+    text: "Contact us",
+    permalink: "/contacgt/",
+  },
 ];
 
 const Header = () => {
