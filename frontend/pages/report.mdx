@@ -3,6 +3,7 @@ import Page from "/components/Page";
 export const page = {
 	title: "Report a landslide",
 	description: "Share new observations of landslides to contribute to ongoing research",
+	isResource: true,
 };
 
 ### How do I report a landslide?
@@ -25,4 +26,8 @@ The US Forest Service upkeeps a landslide inventory of the Tongass National Fore
 - In the map page that opens, click on the Basemap icon in the upper left
 - Select a basemap such as Imagery
 
-export default ({ children }) => <Page title={page.title}>{children}</Page>;
+export default ({ children }) => (
+	<Page title={page.title} isResource={page.isResource}>
+		{children}
+	</Page>
+);

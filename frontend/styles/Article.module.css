@@ -56,7 +56,7 @@
 }
 
 .article li {
-	margin-bottom: var(--space-300);
+	margin-bottom: var(--space-100);
 }
 
 @media screen and (min-width: 600px) {

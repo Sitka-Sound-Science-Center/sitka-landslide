@@ -40,19 +40,30 @@ const data = [
   },
 ];
 
-const resources = data.map((resource) => (
-  <Link key={resource.id} href={resource.permalink} prefetch={false}>
-    <a className={styles.resource} style={{ backgroundColor: `var(--resource${resource.id})` }}>
-      <h3 className={styles.title}>{resource.title}</h3>
-      <div className={styles.description}>{resource.description}</div>
-    </a>
-  </Link>
-));
+const Resources = ({ more }) => {
+  const resources = data.map((resource) => (
+    <Link key={resource.id} href={resource.permalink} prefetch={false}>
+      <a className={styles.resource} style={{ backgroundColor: `var(--resource${resource.id})` }}>
+        {more ? (
+          <h4 className={styles.title}>{resource.title}</h4>
+        ) : (
+          <h3 className={styles.title}>{resource.title}</h3>
+        )}
+        <div className={styles.description}>{resource.description}</div>
+      </a>
+    </Link>
+  ));
 
-const Resources = () => {
   return (
-    <div className={styles.section}>
-      <h2 className={styles.heading}>Resources</h2>
+    <div className={!more && styles.section}>
+      {more ? (
+        <div>
+          <hr style={{ margin: "var(--space-600) 0;" }} />
+          <h3 className={styles.heading}>More resources</h3>
+        </div>
+      ) : (
+        <h2 className={styles.heading}>Resources</h2>
+      )}
       {resources}
     </div>
   );
