@@ -182,11 +182,11 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
 
   return (
     <Page
-      title={activeData.datetime.label}
-      dateAbbr={activeData.datetime.dateAbbr}
-      dateFull={activeData.datetime.dateFull}
-      timeStart={activeData.datetime.timeStart}
-      timeEnd={activeData.datetime.timeEnd}
+      title={activeData.dateTimeDetails.label}
+      dateAbbr={activeData.dateTimeDetails.dateAbbr}
+      dateFull={activeData.dateTimeDetails.dateFull}
+      timeStart={activeData.dateTimeDetails.timeStart}
+      timeEnd={activeData.dateTimeDetails.timeEnd}
       next={nextSlug}
       previous={previousSlug}
       doNotApplyStyle
@@ -194,10 +194,10 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
     >
       <div>
         <Head>
-          <title>{activeData.datetime.label} | Sitka Landslide Risk</title>
+          <title>{activeData.dateTimeDetails.label} | Sitka Landslide Risk</title>
           <meta
             name="description"
-            content={`Detailed landslide risk for ${activeData.datetime.label}`}
+            content={`Detailed landslide risk for ${activeData.dateTimeDetails.label}`}
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
@@ -254,7 +254,7 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
                     : (activeData.riskPrecipInches / maxRiskPrecipInches) * 100 * 0.9 + "%",
               }}
             >
-              <span className={styles.forecastText}>{activeData.datetime.label}</span>
+              <span className={styles.forecastText}>{activeData.dateTimeDetails.label}</span>
               <svg
                 width="41"
                 height="35"
@@ -334,7 +334,7 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
                   className={legendStyles.legendColor}
                   style={{ backgroundColor: riskColor }}
                 ></div>
-                <div className={legendStyles.legendText}>{activeData.datetime.label}</div>
+                <div className={legendStyles.legendText}>{activeData.dateTimeDetails.label}</div>
               </div>
             )}
           </div>
