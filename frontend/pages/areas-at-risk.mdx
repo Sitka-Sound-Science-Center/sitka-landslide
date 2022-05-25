@@ -4,6 +4,7 @@ import Map from "/components/Map";
 export const page = {
   title: "Areas at risk",
   description: "Learn more about which parts of Sitka are most exposed to debris flows",
+  isResource: true,
 };
 
 ### Introduction
@@ -59,4 +60,8 @@ The map was made using Terrainworks NetMap [Slope Stability analysis](https://te
 
 Different groups have done work to understand where landslides start and where they could go in Sitka using various approaches. Efforts to model the initiation and runout of debris flows have significant agreement, telling similar stories about which areas have been and could be affected by landslides.
 
-export default ({ children }) => <Page title={page.title}>{children}</Page>;
+export default ({ children }) => (
+  <Page title={page.title} isResource={page.isResource}>
+    {children}
+  </Page>
+);

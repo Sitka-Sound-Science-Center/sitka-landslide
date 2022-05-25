@@ -3,6 +3,7 @@ import Page from "/components/Page";
 export const page = {
 	title: "Landslide 101",
 	description: "Find out more about the science behind landslides",
+	isResource: true,
 };
 
 ### Landslide Vocabulary
@@ -25,4 +26,8 @@ Learn more [about local geology](https://www.nps.gov/sitk/learn/nature/geologicf
 
 <img src="/images/landslide.webp" alt="Photo of a landslide" />
 
-export default ({ children }) => <Page title={page.title}>{children}</Page>;
+export default ({ children }) => (
+	<Page title={page.title} isResource={page.isResource}>
+		{children}
+	</Page>
+);

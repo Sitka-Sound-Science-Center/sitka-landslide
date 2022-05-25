@@ -3,6 +3,7 @@ import Page from "/components/Page";
 export const page = {
 	title: "About",
 	description: "Details regarding this project, funding, and partners",
+	isResource: true,
 };
 
 ### What is this?
@@ -34,4 +35,8 @@ This dashboard was created by the Landslide Research Team collaborators includin
 - Mt. Edgecumbe High School
 - Greater Sitka Chamber of Commerce
 
-export default ({ children }) => <Page title={page.title}>{children}</Page>;
+export default ({ children }) => (
+	<Page title={page.title} isResource={page.isResource}>
+		{children}
+	</Page>
+);

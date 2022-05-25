@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 
 import Icon from "./Icon";
+import Resources from "./Resources";
 import stylesPage from "../styles/Page.module.css";
 import stylesArticle from "/styles/Article.module.css";
 
@@ -19,6 +20,7 @@ const Page = ({
   description,
   doNotApplyStyle,
   isDetailView,
+  isResource,
 }) => {
   return (
     <>
@@ -78,7 +80,10 @@ const Page = ({
         </div>
       </header>
       <article className={doNotApplyStyle ? "" : styles.article}>
-        <div className="container">{children}</div>
+        <div className="container">
+          {children}
+          {isResource && <Resources more />}
+        </div>
       </article>
     </>
   );

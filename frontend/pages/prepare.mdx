@@ -8,6 +8,7 @@ import riskDefinitions from "/content/riskDefinitions";
 export const page = {
   title: "How to prepare",
   description: "Learn what you and your community can do to be ready for a landslide",
+  isResource: true,
 };
 
 export const style = { display: "flex", gridGap: "6px", alignItems: "center" };
@@ -50,7 +51,7 @@ Debris flows cannot be prevented, but landslide disasters can. Risk is a combina
 Read the [Landslide Preparedness](https://www.usgs.gov/programs/landslide-hazards/landslide-preparedness) guide to learn what you and your community can do to be ready for a landslide.
 
 export default ({ children }) => (
-  <Page title={page.title} description={page.description}>
+  <Page title={page.title} description={page.description} isResource={page.isResource}>
     {children}
   </Page>
 );

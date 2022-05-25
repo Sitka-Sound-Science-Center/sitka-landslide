@@ -3,6 +3,7 @@ import Page from "/components/Page";
 export const page = {
 	title: "Published work",
 	description: "Access articles published by our research team and related to this work",
+	isResource: true,
 };
 
 ### Peer-reviewed publications
@@ -49,4 +50,8 @@ Patton, A., Roering, J., Holocene debris flow frequency in Southeast Alaska, est
 
 Distributionally Robust Optimization with Decision-Dependent Information Discovery, Q. Jin, G. Hanasusanto, A. Georghiou, P. Vayanos, In preparation for Mathematical Programming.
 
-export default ({ children }) => <Page title={page.title}>{children}</Page>;
+export default ({ children }) => (
+	<Page title={page.title} isResource={page.isResource}>
+		{children}
+	</Page>
+);

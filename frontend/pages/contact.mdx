@@ -3,10 +3,15 @@ import Page from "/components/Page";
 export const page = {
 	title: "Contact",
 	description: "How to contact us with questions",
+	isResource: true,
 };
 
 ### Email
 
 If you have a question about the this website, please write to us at [landslides@sitkascience.org](mailto:landslides@sitkascience.org).
 
-export default ({ children }) => <Page title={page.title}>{children}</Page>;
+export default ({ children }) => (
+	<Page title={page.title} isResource={page.isResource}>
+		{children}
+	</Page>
+);
