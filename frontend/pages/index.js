@@ -30,11 +30,11 @@ export default function Home({
     <>
       <Head>
         <title>
-          Sitka Landslide Risk — Current and forecasted landslide risk for Sitka, Alaska.
+          Sitka Landslide Risk — Current and forecasted landslide risk for Sitka, Alaska
         </title>
         <meta
           name="description"
-          content="Current and forecasted landslide risk for Sitka, Alaska."
+          content="Get the latest landslide forecast, view a map of vulnerable areas, and learn how you can prepare."
         />
       </Head>
       <>
