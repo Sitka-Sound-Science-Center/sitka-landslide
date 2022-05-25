@@ -6,6 +6,8 @@
 	border-bottom: 1px solid var(--header-border);
 }
 
+.dateAbbr,
+.dateFull,
 .title {
 	display: block;
 	font-size: var(--size-900);
@@ -24,12 +26,67 @@
 	display: none;
 }
 
+.navheader {
+	display: flex;
+}
+
+.datetime {
+	flex: 1;
+}
+
+.time {
+	font-size: var(--size-800);
+}
+
+.arrowRight,
+.arrowLeft {
+	align-self: center;
+	padding: var(--space-300);
+	margin: calc(var(--space-300) * -1);
+	color: var(--text);
+	display: flex;
+}
+
+.arrowRight:hover,
+.arrowLeft:hover {
+	background: rgb(0 0 0 / 10%);
+}
+
+@media screen and (max-width: 599px) {
+	.dateFull {
+		display: none;
+	}
+}
 @media screen and (min-width: 600px) {
+	.dateAbbr {
+		display: none;
+	}
 	.description {
 		font-size: var(--size-700);
 	}
 
 	.header {
 		padding: var(--space-600) 0;
+	}
+
+	.arrowRight,
+	.arrowLeft {
+		height: 40px;
+		width: 40px;
+		margin: 0;
+		padding: var(--space-200);
+		text-align: center;
+		justify-content: center;
+		display: flex;
+		align-items: center;
+		border-radius: 2px;
+	}
+
+	.arrowLeft {
+		order: 1;
+	}
+
+	.arrowRight {
+		order: 2;
 	}
 }
