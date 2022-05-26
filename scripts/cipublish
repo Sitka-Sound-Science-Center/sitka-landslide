@@ -42,6 +42,7 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
         # Login to Amazon ECR with the local Docker client.
         amazon_ecr_login
 
+        docker tag "${ENVIRONMENT}:latest" "${ECR_REGISTRY}/${ENVIRONMENT}:latest"
         docker push "${ECR_REGISTRY}/$ENVIRONMENT:latest"
     fi
 fi
