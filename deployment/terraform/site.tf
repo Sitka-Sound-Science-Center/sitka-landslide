@@ -176,7 +176,11 @@ resource "aws_iam_role" "ecs_task_role" {
       }
     ]
   })
-  managed_policy_arns = ["arn:aws:iam::aws:policy/AmazonS3FullAccess", "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy", aws_iam_policy.eventbridge_invoke_ecs.arn]
+  managed_policy_arns = [
+    "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+    "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
+    aws_iam_policy.eventbridge_invoke_ecs.arn
+  ]
 }
 
 data "aws_iam_policy_document" "eventbridge_invoke_ecs" {
