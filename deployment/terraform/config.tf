@@ -1,5 +1,6 @@
 terraform {
   backend "s3" {
+    key = "terraform"
     region  = "us-west-2"
     encrypt = "false"
   }
