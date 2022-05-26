@@ -25,7 +25,7 @@ const links = [
   },
   {
     text: "Contact us",
-    permalink: "/contacgt/",
+    permalink: "/contact/",
   },
 ];
 
