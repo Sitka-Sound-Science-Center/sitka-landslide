@@ -252,16 +252,16 @@ resource "aws_cloudwatch_log_group" "app" {
   retention_in_days = 30
 }
 
-resource "aws_cloudwatch_event_rule" "run_every" {
-  name                = "run_every"
-  description         = "Run every 20"
-  schedule_expression = "rate(20 minutes)"
+resource "aws_cloudwatch_event_rule" "publish_site" {
+  name                = "publish_site"
+  description         = "Periodically build and publish the site"
+  schedule_expression = "cron(17,37,57 * * * ? *)"
 }
 
 resource "aws_cloudwatch_event_target" "ecs_scheduled_task" {
   target_id = "build"
   arn       = aws_ecs_cluster.default.arn
-  rule      = aws_cloudwatch_event_rule.run_every.name
+  rule      = aws_cloudwatch_event_rule.publish_site.name
   role_arn  = aws_iam_role.ecs_task_role.arn
 
   ecs_target {
