@@ -22,5 +22,5 @@ COPY next.config.js ./
 
 CMD yarn export && \
     echo "Uploading to S3..." && \
-    aws s3 sync --delete out/ s3://sitkaproduction/ && \
+    aws s3 sync --delete --only-show-errors out/ s3://sitkaproduction/ && \
     echo "Finished"
