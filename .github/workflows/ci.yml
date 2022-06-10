@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: "frontend"
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Confirm yarn commands work
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: yarn run next export
+      - run: yarn lint
+      - run: yarn run check-format
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontend/out
