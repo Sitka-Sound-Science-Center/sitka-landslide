@@ -61,6 +61,20 @@ resource "aws_s3_bucket_acl" "site_acl" {
   acl    = "public-read"
 }
 
+# Redirect from www
+resource "aws_s3_bucket" "www-redirect" {
+  bucket = "www.${var.domain_name}"
+}
+
+resource "aws_s3_bucket_website_configuration" "www-redirect" {
+  bucket = aws_s3_bucket.www-redirect.bucket
+
+  redirect_all_requests_to {
+    host_name = var.domain_name
+    protocol = "https"
+  }
+}
+
 #
 # Cloudfront
 #
@@ -314,12 +328,23 @@ resource "aws_route53_record" "site_ipv6" {
   }
 }
 
+resource "aws_route53_record" "www-redirect" {
+  zone_id = aws_route53_zone.external.id
+  name    = "www.${var.domain_name}"
+  type    = "A"
 
-#Certifcate
+  alias {
+    name                   = aws_s3_bucket_website_configuration.www-redirect.website_domain
+    zone_id                = aws_s3_bucket.www-redirect.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
 
+# Certificate
 resource "aws_acm_certificate" "site" {
   provider          = aws.us-east-1
   domain_name       = var.domain_name
+  subject_alternative_names = ["*.${var.domain_name}"]
   validation_method = "DNS"
 
   lifecycle {
