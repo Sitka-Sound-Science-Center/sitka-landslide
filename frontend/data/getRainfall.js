@@ -8,7 +8,7 @@ const fs = require("fs");
 const EXAGGERATION_FACTOR = process.env.EXAGGERATION_FACTOR || 1;
 
 const MESOWEST_API = "https://api.synopticdata.com/v2";
-const MESOWEST_TOKEN = process.env.MESOWEST_TOKEN || "78b6412c25ea43beb10aa5399dd6fdfa";
+const MESOWEST_TOKEN = process.env.MESOWEST_TOKEN || "55162f4800b34421b4a4d87491709620";
 
 const NWS_API = "https://api.weather.gov/gridpoints/AJK/188,113";
 const STATION_LAT = 57.053;
