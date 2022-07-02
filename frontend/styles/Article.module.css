@@ -59,6 +59,10 @@
 	margin-bottom: var(--space-100);
 }
 
+.article figcaption {
+	font-size: var(--size-500);
+}
+
 @media screen and (min-width: 600px) {
 	.article {
 		padding: var(--space-600) 0;
