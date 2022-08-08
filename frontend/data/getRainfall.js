@@ -145,37 +145,49 @@ function normalizedRiskNum(rainfall) {
 
 // Download observed 3hr rainfall total at the Sitka airport weather station over the past 6 hours
 async function getPastRainfall() {
-  const mesoResponse = await axios
-    .get(`${MESOWEST_API}/stations/precip`, {
-      params: {
-        token: MESOWEST_TOKEN,
-        stid: "PASI", // Sitka airport station ID
-        pmode: "last",
-        accum_hours: "3,6",
-        obtimezone: "local",
-      },
-    })
-    .catch(logRequestError);
+  const COMMON_MESOWEST_PARAMS = {
+    token: MESOWEST_TOKEN,
+    stid: "PASI", // Sitka airport station ID
+    obtimezone: "local",
+    precip: 1, // https://developers.synopticdata.com/mesonet/v2/stations/timeseries/
+  };
+  const [threeHourResponse, sixHourResponse] = await Promise.all([
+    axios
+      .get(`${MESOWEST_API}/stations/timeseries`, {
+        params: { ...COMMON_MESOWEST_PARAMS, recent: 60 * 3 },
+      })
+      .catch(logRequestError),
+    axios
+      .get(`${MESOWEST_API}/stations/timeseries`, {
+        params: { ...COMMON_MESOWEST_PARAMS, recent: 60 * 6 },
+      })
+      .catch(logRequestError),
+  ]);
 
-  if (!mesoResponse) {
+  if (!threeHourResponse || !sixHourResponse) {
     return null;
   }
 
   // Pull the observations out from the depths of the response
-  const data = mesoResponse.data.STATION[0].OBSERVATIONS.precipitation;
-  const threeHourObs = data.find((d) => d.accum_hours === 3);
-  const sixHourObs = data.find((d) => d.accum_hours === 6);
-  const precip = threeHourObs.total * EXAGGERATION_FACTOR;
+  const threeHourObs = threeHourResponse.data.STATION[0].OBSERVATIONS.precip_accumulated_set_1d;
+  const sixHourObs = sixHourResponse.data.STATION[0].OBSERVATIONS.precip_accumulated_set_1d;
+
+  // Each `precip_accumulated_set_1d` field is an array where the individual entries are running
+  // totals of precipitation over the lookback period up to that point, so to get the total for the
+  // entire period, we need to take the last element.
+  const threeHourTotal = threeHourObs[threeHourObs.length - 1] * EXAGGERATION_FACTOR;
+  const sixHourTotal = sixHourObs[sixHourObs.length - 1] * EXAGGERATION_FACTOR;
+  const precip = threeHourTotal;
   // Calculate risk based on the highest 3-hour precip within the past 6 hours
-  const riskPrecip =
-    Math.max(threeHourObs.total, sixHourObs.total - threeHourObs.total) * EXAGGERATION_FACTOR;
+  const riskPrecip = Math.max(threeHourTotal, sixHourTotal - threeHourTotal);
+  const threeHourTimestamps = threeHourResponse.data.STATION[0].OBSERVATIONS.date_time;
 
   return {
-    timestamp: toLocalTimestamp(threeHourObs.last_report),
+    timestamp: toLocalTimestamp(threeHourTimestamps[threeHourTimestamps.length - 1]),
     dateTimeDetails: { label: "Current risk" },
-    precip: precip,
+    precip: round(precip, 4),
     precipInches: mmToInches(precip),
-    riskPrecip: riskPrecip,
+    riskPrecip: round(riskPrecip, 4),
     riskPrecipInches: mmToInches(riskPrecip),
     riskProb: round(normalizedRiskNum(riskPrecip), 4),
     riskLevel: landslideRisk(riskPrecip),
