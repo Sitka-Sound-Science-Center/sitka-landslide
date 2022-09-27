@@ -40,9 +40,7 @@ const Header = () => {
     <div className={styles.header}>
       <div className={styles.left}>
         <Link prefetch={false} href={`/`}>
-          <a className={styles.brand}>
-            Sitka Landslide Risk<sup>BETA</sup>
-          </a>
+          <a className={styles.brand}>Sitka Landslide Risk</a>
         </Link>
       </div>
       <div className={styles.right}>
