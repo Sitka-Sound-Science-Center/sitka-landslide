@@ -182,6 +182,12 @@ async function getPastRainfall() {
   const riskPrecip = Math.max(threeHourTotal, sixHourTotal - threeHourTotal);
   const threeHourTimestamps = threeHourResponse.data.STATION[0].OBSERVATIONS.date_time;
 
+  // Also return an indicator of whether the calculated risk is based on the most recent
+  // observation or an earlier period of intense precipitation.
+  const bufferedRiskLevel = landslideRisk(riskPrecip);
+  const currentRiskLevel = landslideRisk(precip);
+  const riskIsElevatedFromPreviousPrecip = bufferedRiskLevel > currentRiskLevel;
+
   return {
     timestamp: toLocalTimestamp(threeHourTimestamps[threeHourTimestamps.length - 1]),
     dateTimeDetails: { label: "Current risk" },
@@ -191,6 +197,7 @@ async function getPastRainfall() {
     riskPrecipInches: mmToInches(riskPrecip),
     riskProb: round(normalizedRiskNum(riskPrecip), 4),
     riskLevel: landslideRisk(riskPrecip),
+    riskIsElevatedFromPreviousPrecip,
   };
 }
 
@@ -229,6 +236,13 @@ async function getForecastRainfall(observed) {
   const prevPrecip = observed.concat(futureForecasts.map((f) => f.precip));
   const riskForecasts = futureForecasts.map((forecast, i) => {
     const riskPrecip = Math.max(forecast.precip, prevPrecip[i], prevPrecip[i + 1]);
+
+    // Also return an indicator of whether the calculated risk is based on the current-period
+    // forecast or an earlier one.
+    const bufferedRiskLevel = landslideRisk(riskPrecip);
+    const currentRiskLevel = landslideRisk(forecast.precip);
+    const riskIsElevatedFromPreviousPrecip = bufferedRiskLevel > currentRiskLevel;
+
     return {
       ...forecast,
       precipInches: mmToInches(forecast.precip),
@@ -238,7 +252,8 @@ async function getForecastRainfall(observed) {
       riskPrecip,
       riskPrecipInches: mmToInches(riskPrecip),
       riskProb: round(normalizedRiskNum(riskPrecip), 4),
-      riskLevel: landslideRisk(riskPrecip),
+      riskLevel: bufferedRiskLevel,
+      riskIsElevatedFromPreviousPrecip,
     };
   });
   return riskForecasts;
