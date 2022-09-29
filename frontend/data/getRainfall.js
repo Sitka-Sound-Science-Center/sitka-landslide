@@ -231,6 +231,7 @@ async function getForecastRainfall(observed) {
     const riskPrecip = Math.max(forecast.precip, prevPrecip[i], prevPrecip[i + 1]);
     return {
       ...forecast,
+      precipInches: mmToInches(forecast.precip),
       hour: toLocalDateTime(forecast.timestamp).toFormat("ha"),
       shortTimestamp: toShortTimestamp(forecast.timestamp),
       dateTimeDetails: toDateTimeDetails(forecast.timestamp),
