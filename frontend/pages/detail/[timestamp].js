@@ -95,7 +95,7 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
   const riskColor =
     typeof document !== "undefined" &&
     getComputedStyle(document.documentElement).getPropertyValue(
-      `--${riskDefinitions[activeData.riskLevel].id}`
+      `--${riskDefinitions[activeData.bufferedRiskLevel].id}`
     );
 
   const colors = {
@@ -206,7 +206,7 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
             <h3 className={styles.figureHeading}>Risk level</h3>
             <div className={styles.risk}>
               <div className={styles.figureText}>
-                <Risk riskLevel={activeData.riskLevel} hasText={true} abbreviated />
+                <Risk riskLevel={activeData.bufferedRiskLevel} hasText={true} abbreviated />
               </div>
               <div className={styles.riskBar}>
                 <div
@@ -215,18 +215,18 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
                 >
                   <div
                     className={styles.riskBarCircle}
-                    style={{ backgroundColor: riskDefinitions[activeData.riskLevel].color }}
+                    style={{ backgroundColor: riskDefinitions[activeData.bufferedRiskLevel].color }}
                   ></div>
                 </div>
                 <div className={styles.riskBarLine}></div>
                 <div className={styles.riskBarLegend}>
-                  <div className={activeData.riskLevel === 0 ? styles.selected : styles.unselected}>
+                  <div className={activeData.bufferedRiskLevel === 0 ? styles.selected : styles.unselected}>
                     {riskDefinitions[0].abbreviated}
                   </div>
-                  <div className={activeData.riskLevel === 1 ? styles.selected : styles.unselected}>
+                  <div className={activeData.bufferedRiskLevel === 1 ? styles.selected : styles.unselected}>
                     {riskDefinitions[1].abbreviated}
                   </div>
-                  <div className={activeData.riskLevel === 2 ? styles.selected : styles.unselected}>
+                  <div className={activeData.bufferedRiskLevel === 2 ? styles.selected : styles.unselected}>
                     {riskDefinitions[2].abbreviated}
                   </div>
                 </div>

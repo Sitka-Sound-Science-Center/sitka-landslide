@@ -40,7 +40,7 @@ export default function Home({
       <>
         {weatherAdvisory.active && <WeatherAdvisory permalink={weatherAdvisory.permalink} />}
         <div className={styles.risk}>
-          <RiskCurrent riskLevel={current.riskLevel} date={current.timestamp} />
+          <RiskCurrent riskLevel={current.bufferedRiskLevel} date={current.timestamp} />
           <div className="container">
             <RiskHours riskLevel={twentyFourHours.riskLevel} hours={twentyFourHours.hours} />
             <RiskDays days={threeDays.days} hours={threeDays.hours} />

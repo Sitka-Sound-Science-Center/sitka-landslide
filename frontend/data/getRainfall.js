@@ -190,7 +190,8 @@ async function getPastRainfall() {
     riskPrecip: round(riskPrecip, 4),
     riskPrecipInches: mmToInches(riskPrecip),
     riskProb: round(normalizedRiskNum(riskPrecip), 4),
-    riskLevel: landslideRisk(riskPrecip),
+    bufferedRiskLevel: landslideRisk(riskPrecip),
+    currentRiskLevel: landslideRisk(precip),
   };
 }
 
@@ -238,7 +239,8 @@ async function getForecastRainfall(observed) {
       riskPrecip,
       riskPrecipInches: mmToInches(riskPrecip),
       riskProb: round(normalizedRiskNum(riskPrecip), 4),
-      riskLevel: landslideRisk(riskPrecip),
+      bufferedRiskLevel: landslideRisk(riskPrecip),
+      currentRiskLevel: landslideRisk(forecast.precip),
     };
   });
   return riskForecasts;
@@ -272,7 +274,7 @@ function composeTwentyFourHours(forecasts) {
   const hours = forecasts.filter(
     (f) => DateTime.fromISO(f.timestamp) <= DateTime.now().plus({ hours: 24 })
   );
-  const riskLevel = Math.max(...hours.map((h) => h.riskLevel));
+  const riskLevel = Math.max(...hours.map((h) => h.bufferedRiskLevel));
   return {
     riskLevel,
     hours,
@@ -296,7 +298,7 @@ function composeThreeDays(forecasts) {
     daysAcc[hour.dayNumber] = {
       dayNumber: hour.dayNumber,
       dayName: hour.dayName,
-      riskLevel: Math.max(hour.riskLevel, daysAcc[hour.dayNumber]?.riskLevel || 0),
+      riskLevel: Math.max(hour.bufferedRiskLevel, daysAcc[hour.dayNumber]?.bufferedRiskLevel || 0),
       lastTimestamp: hour.timestamp,
     };
     return daysAcc;

@@ -102,7 +102,7 @@ const AreaChart = ({ data }) => {
             <path
               key={i}
               className={styles.line}
-              stroke={getRiskColor(data[i].riskLevel)}
+              stroke={getRiskColor(data[i].bufferedRiskLevel)}
               d={segment}
             ></path>
           ))}
@@ -112,7 +112,7 @@ const AreaChart = ({ data }) => {
             <path
               key={i}
               className={styles.area}
-              fill={getRiskColor(data[i].riskLevel)}
+              fill={getRiskColor(data[i].bufferedRiskLevel)}
               d={segment}
             ></path>
           ))}
