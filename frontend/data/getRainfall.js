@@ -10,7 +10,7 @@ const EXAGGERATION_FACTOR = process.env.EXAGGERATION_FACTOR || 1;
 const MESOWEST_API = "https://api.synopticdata.com/v2";
 const MESOWEST_TOKEN = process.env.MESOWEST_TOKEN || "55162f4800b34421b4a4d87491709620";
 
-const NWS_API = "https://api.weather.gov/gridpoints/AJK/188,113";
+const NWS_API = "https://api.weather.gov/gridpoints/AJK/187,111";
 const STATION_LAT = 57.053;
 const STATION_LON = -135.36;
 const NWS_ALERT_API = `https://api.weather.gov/alerts/active?status=actual&message_type=alert&point=${STATION_LAT},${STATION_LON}`;
