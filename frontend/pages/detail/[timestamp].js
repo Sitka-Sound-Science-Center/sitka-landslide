@@ -75,7 +75,7 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
       data: [
         {
           x: lastHistoricalDate,
-          y: activeData.riskPrecipInches,
+          y: activeData.precipInches,
           event: 2,
         },
       ],
@@ -236,7 +236,7 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
           <hr />
           <h3 className={styles.figureHeading}>3 hour rainfall</h3>
           <div className={styles.figureText} style={{ marginBottom: "var(--space-100)" }}>
-            {activeData.riskPrecipInches} inches
+            {activeData.precipInches} inches
           </div>
           <p>
             Research in Sitka shows that rainfall measured over a 3-hour interval is the best way to
@@ -244,14 +244,14 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
           </p>
           <div className={styles.chart}>
             <div
-              className={`${styles.forecast} ${activeData.riskPrecipInches > 1 && styles.arrowUp}`}
+              className={`${styles.forecast} ${activeData.precipInches > 1 && styles.arrowUp}`}
               // Position the annotation arrow; set a fixed position for when the current value is
               // higher than all of the historical data
               style={{
                 bottom:
-                  activeData.riskPrecipInches > maxRiskPrecipInches
+                  activeData.precipInches > maxRiskPrecipInches
                     ? "90%"
-                    : (activeData.riskPrecipInches / maxRiskPrecipInches) * 100 * 0.9 + "%",
+                    : (activeData.precipInches / maxRiskPrecipInches) * 100 * 0.9 + "%",
               }}
             >
               <span className={styles.forecastText}>{activeData.dateTimeDetails.label}</span>

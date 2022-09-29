@@ -171,26 +171,28 @@ async function getPastRainfall() {
   // Pull the observations out from the depths of the response
   const threeHourObs = threeHourResponse.data.STATION[0].OBSERVATIONS.precip_accumulated_set_1d;
   const sixHourObs = sixHourResponse.data.STATION[0].OBSERVATIONS.precip_accumulated_set_1d;
+  const threeHourTimestamps = threeHourResponse.data.STATION[0].OBSERVATIONS.date_time;
 
   // Each `precip_accumulated_set_1d` field is an array where the individual entries are running
   // totals of precipitation over the lookback period up to that point, so to get the total for the
   // entire period, we need to take the last element.
-  const threeHourTotal = threeHourObs[threeHourObs.length - 1] * EXAGGERATION_FACTOR;
-  const sixHourTotal = sixHourObs[sixHourObs.length - 1] * EXAGGERATION_FACTOR;
-  const precip = threeHourTotal;
-  // Calculate risk based on the highest 3-hour precip within the past 6 hours
-  const riskPrecip = Math.max(threeHourTotal, sixHourTotal - threeHourTotal);
-  const threeHourTimestamps = threeHourResponse.data.STATION[0].OBSERVATIONS.date_time;
+  const precip = round(threeHourObs[threeHourObs.length - 1] * EXAGGERATION_FACTOR, 4);
+  const prevPrecip = round(sixHourObs[sixHourObs.length - 1] * EXAGGERATION_FACTOR - precip, 4);
+
+  // If the earlier precip was higher than the recent total, by enough to cause the risk level to
+  // be higher than it would for the recent amount, calculate risk based on that higher total.
+  const riskIsElevatedFromPreviousPrecip = landslideRisk(prevPrecip) > landslideRisk(precip);
+  const riskPrecip = riskIsElevatedFromPreviousPrecip ? prevPrecip : precip;
 
   return {
     timestamp: toLocalTimestamp(threeHourTimestamps[threeHourTimestamps.length - 1]),
     dateTimeDetails: { label: "Current risk" },
-    precip: round(precip, 4),
+    precip,
     precipInches: mmToInches(precip),
-    riskPrecip: round(riskPrecip, 4),
-    riskPrecipInches: mmToInches(riskPrecip),
+    prevPrecip, // Needed for the look-back window of the first forecast period
     riskProb: round(normalizedRiskNum(riskPrecip), 4),
     riskLevel: landslideRisk(riskPrecip),
+    riskIsElevatedFromPreviousPrecip,
   };
 }
 
@@ -228,16 +230,23 @@ async function getForecastRainfall(observed) {
   // question or the two previous 3-hour chunks.
   const prevPrecip = observed.concat(futureForecasts.map((f) => f.precip));
   const riskForecasts = futureForecasts.map((forecast, i) => {
-    const riskPrecip = Math.max(forecast.precip, prevPrecip[i], prevPrecip[i + 1]);
+    // If the forecast total for one of the previous periods is higher than the total for the
+    // period in question by enough to cause increased risk, calculate the risk based on the
+    // higher total.
+    const maxPrecip = Math.max(forecast.precip, prevPrecip[i], prevPrecip[i + 1]);
+    const riskIsElevatedFromPreviousPrecip =
+      landslideRisk(maxPrecip) > landslideRisk(forecast.precip);
+    const riskPrecip = riskIsElevatedFromPreviousPrecip ? maxPrecip : forecast.precip;
+
     return {
       ...forecast,
+      precipInches: mmToInches(forecast.precip),
       hour: toLocalDateTime(forecast.timestamp).toFormat("ha"),
       shortTimestamp: toShortTimestamp(forecast.timestamp),
       dateTimeDetails: toDateTimeDetails(forecast.timestamp),
-      riskPrecip,
-      riskPrecipInches: mmToInches(riskPrecip),
       riskProb: round(normalizedRiskNum(riskPrecip), 4),
       riskLevel: landslideRisk(riskPrecip),
+      riskIsElevatedFromPreviousPrecip,
     };
   });
   return riskForecasts;
@@ -314,10 +323,8 @@ async function rainfall() {
   const current = await getPastRainfall();
   if (current) {
     // Pass the observed amounts to the forecast function for use in the look-back of the first
-    // couple forecast periods. Note that 'riskPrecip' could be the earlier observation or it could
-    // be a copy of the most recent one, depending on which was higher, but since the calculations
-    // just want to know the max, it doesn't matter.
-    const forecasts = await getForecastRainfall([current.riskPrecip, current.precip]);
+    // couple forecast periods.
+    const forecasts = await getForecastRainfall([current.prevPrecip, current.precip]);
     if (forecasts) {
       const twentyFourHours = composeTwentyFourHours(forecasts);
       const threeDays = composeThreeDays(forecasts);
