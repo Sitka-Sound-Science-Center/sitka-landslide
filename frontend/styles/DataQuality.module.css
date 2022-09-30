@@ -1,0 +1,24 @@
+.banner {
+  display: flex;
+  padding: var(--space-300);
+  font-size: var(--size-500);
+  width: 100%;
+  align-items: center;
+  background-color: var(--background-data-quality);
+}
+
+.banner strong {
+  font-weight: var(--weight-bold);
+}
+
+.title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: #111;
+}
+
+.title svg {
+  margin-right: var(--space-300);
+  flex-shrink: 0;
+}
