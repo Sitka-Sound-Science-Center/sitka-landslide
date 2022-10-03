@@ -96,10 +96,13 @@ function logRequestError(error) {
   }
 }
 
-// Apparently rounding is a mess in Javascript and this mess is the preferred workaround
-// See https://www.jacklmoore.com/notes/rounding-in-javascript/
+// Apparently there's no builtin Javascript function that actually rounds decimals properly.
+// But there are workarounds. https://www.jacklmoore.com/notes/rounding-in-javascript/ has one,
+// but it breaks down (badly--it returns NaN) if the number is already in scientific notation.
+// https://sanori.github.io/2019/04/JavaScript-Pitfalls-Tips-toFixed/ has a more robust one.
 function round(value, decimals) {
-  return Number(Math.round(value + "e" + decimals) + "e-" + decimals);
+  const placeMultiplier = Math.pow(10, decimals);
+  return Number((Math.floor(value * placeMultiplier + 0.5) / placeMultiplier).toFixed(decimals));
 }
 
 function mmToInches(mm) {
@@ -178,8 +181,10 @@ async function getPastRainfall() {
   // Each `precip_accumulated_set_1d` field is an array where the individual entries are running
   // totals of precipitation over the lookback period up to that point, so to get the total for the
   // entire period, we need to take the last element.
-  const precip = round(threeHourObs[threeHourObs.length - 1] * EXAGGERATION_FACTOR, 4);
-  const prevPrecip = round(sixHourObs[sixHourObs.length - 1] * EXAGGERATION_FACTOR - precip, 4);
+  const threeHourTotal = threeHourObs[threeHourObs.length - 1] * EXAGGERATION_FACTOR;
+  const sixHourTotal = sixHourObs[sixHourObs.length - 1] * EXAGGERATION_FACTOR;
+  const precip = round(threeHourTotal, 4);
+  const prevPrecip = round(sixHourTotal - threeHourTotal, 4);
 
   // If the earlier precip was higher than the recent total, by enough to cause the risk level to
   // be higher than it would for the recent amount, calculate risk based on that higher total.
