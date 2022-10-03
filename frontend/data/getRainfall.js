@@ -123,8 +123,10 @@ function landslideRisk(rainfall) {
     return 0;
   } else if (prob <= 0.7) {
     return 1;
-  } else {
+  } else if (prob > 0.7) {
     return 2;
+  } else {
+    throw `Error processing rainfall data: rainfall ${rainfall}, landslide probability ${prob}`;
   }
 }
 
