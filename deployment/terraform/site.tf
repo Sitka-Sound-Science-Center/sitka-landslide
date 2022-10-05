@@ -100,6 +100,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   enabled             = true
   is_ipv6_enabled     = true
+  http_version        = "http2and3"
   comment             = local.short
   default_root_object = "index.html"
 
@@ -269,7 +270,7 @@ resource "aws_cloudwatch_log_group" "app" {
 resource "aws_cloudwatch_event_rule" "publish_site" {
   name                = "publish_site"
   description         = "Periodically build and publish the site"
-  schedule_expression = "cron(17,37,57 * * * ? *)"
+  schedule_expression = "cron(8,17,37,59 * * * ? *)"
 }
 
 resource "aws_cloudwatch_event_target" "ecs_scheduled_task" {
