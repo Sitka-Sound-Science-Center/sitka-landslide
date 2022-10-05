@@ -269,7 +269,7 @@ resource "aws_cloudwatch_log_group" "app" {
 resource "aws_cloudwatch_event_rule" "publish_site" {
   name                = "publish_site"
   description         = "Periodically build and publish the site"
-  schedule_expression = "cron(17,37,57 * * * ? *)"
+  schedule_expression = "cron(8,17,37,59 * * * ? *)"
 }
 
 resource "aws_cloudwatch_event_target" "ecs_scheduled_task" {
