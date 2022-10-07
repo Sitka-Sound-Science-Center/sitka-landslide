@@ -6,7 +6,8 @@ import "mapbox-gl/src/css/mapbox-gl.css";
 import legendStyles from "/styles/Legend.module.css";
 
 const Map = ({}) => {
-  mapboxgl.accessToken = "pk.eyJ1IjoibGtuYXJmIiwiYSI6IjhjbGg4RUkifQ.-lS6mAkmR3SVh-W4XwQElg";
+  mapboxgl.accessToken =
+    "pk.eyJ1Ijoic2l0a2FzY2llbmNlIiwiYSI6ImNsOHlsM3ZkYzBmcTEzb2s0MzdvM3NndG0ifQ.6v2_-rZ5P0K1F2B22p1G7w";
 
   const [mounted, setMounted] = useState(false);
 
@@ -16,7 +17,7 @@ const Map = ({}) => {
       const map = new mapboxgl.Map({
         cooperativeGestures: true,
         container: "map",
-        style: "mapbox://styles/lknarf/cl0pf3asg000114nt5jepzs6s",
+        style: "mapbox://styles/sitkascience/cl8ykz2x700bt15ql3qyenh0m",
         minZoom: 6,
         pitch: 60,
         bearing: 0,
