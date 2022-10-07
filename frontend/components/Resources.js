@@ -49,10 +49,10 @@ const Resources = ({ more }) => {
   ));
 
   return (
-    <div className={!more && styles.section}>
+    <div className={!more ? styles.section : ""}>
       {more ? (
         <div>
-          <hr style={{ margin: "var(--space-600) 0;" }} />
+          <hr style={{ margin: "var(--space-600) 0" }} />
           <h3 className={styles.heading}>More resources</h3>
         </div>
       ) : (
