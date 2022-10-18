@@ -8,7 +8,7 @@ const WeatherAdvisory = ({ permalink }) => {
     <a className={styles.banner} href={permalink}>
       <span className={styles.title}>
         <Icon name="circle-info" />
-        Weather alert from NWS
+        Weather advisory
       </span>
       <span className={styles.link}>Link</span>
     </a>
