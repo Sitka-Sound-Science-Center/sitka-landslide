@@ -61,6 +61,35 @@
   margin: var(--space-400) 0 var(--space-200);
 }
 
+.riskContainer {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.riskFromPreviousContainer {
+  background-color: var(--darkblue);
+  border-radius: 4px;
+  display: flex;
+  padding: var(--space-100);
+  margin-bottom: var(--space-400);
+}
+
+.riskFromPreviousText {
+  font-size: var(--size-400);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.riskFromPreviousIcon {
+  padding: 0 var(--space-200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: var(--space-200);
+}
+
 .risk {
   display: flex;
 }
@@ -184,5 +213,18 @@
   }
   .chart {
     height: 460px;
+  }
+  .riskContainer {
+    flex-direction: row;
+  }
+  .riskChartContainer {
+    width: 50%;
+  }
+  .riskFromPreviousContainer {
+    width: 50%;
+    margin-bottom: 0;
+  }
+  .riskFromPreviousText {
+    font-size: var(--size-500);
   }
 }
