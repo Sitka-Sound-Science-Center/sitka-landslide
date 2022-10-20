@@ -1,6 +1,6 @@
 .banner {
   display: flex;
-  background-color: var(--mediumblue);
+  background-color: var(--lightblue);
   padding: var(--space-300);
   width: 100%;
   align-items: center;
