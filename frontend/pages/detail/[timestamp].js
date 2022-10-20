@@ -251,7 +251,7 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
                   />
                 </div>
                 <div className={styles.riskFromPreviousText}>
-                  <span>High risk of landslide due to </span>
+                  <span>{riskDefinitions[activeData.riskLevel].text} risk of landslide due to </span>
                   <span>earlier period of heavy rainfall.</span>
                 </div>
               </div>
