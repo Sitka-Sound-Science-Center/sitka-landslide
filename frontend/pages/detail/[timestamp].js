@@ -10,6 +10,7 @@ import Risk from "../../components/Risk";
 import DetailContent from "../../content/DetailContent.mdx";
 import riskDefinitions from "/content/riskDefinitions";
 import Page from "/components/Page";
+import Icon from "/components/Icon";
 
 import historicalData from "/data/historical.json";
 import rainfallData from "/data/rainfall.json";
@@ -202,36 +203,59 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <div className={styles.content}>
-          <div>
-            <h3 className={styles.figureHeading}>Risk level</h3>
-            <div className={styles.risk}>
-              <div className={styles.figureText}>
-                <Risk riskLevel={activeData.riskLevel} hasText={true} abbreviated />
-              </div>
-              <div className={styles.riskBar}>
-                <div
-                  style={{ left: `${activeData.riskProb * 100}%` }}
-                  className={styles.riskBarIcon}
-                >
-                  <div
-                    className={styles.riskBarCircle}
-                    style={{ backgroundColor: riskDefinitions[activeData.riskLevel].color }}
-                  ></div>
+          <div className={styles.riskContainer}>
+            <div className={styles.riskChartContainer}>
+              <h3 className={styles.figureHeading}>Risk level</h3>
+              <div className={styles.risk}>
+                <div className={styles.figureText}>
+                  <Risk riskLevel={activeData.riskLevel} hasText={true} abbreviated />
                 </div>
-                <div className={styles.riskBarLine}></div>
-                <div className={styles.riskBarLegend}>
-                  <div className={activeData.riskLevel === 0 ? styles.selected : styles.unselected}>
-                    {riskDefinitions[0].abbreviated}
+                <div className={styles.riskBar}>
+                  <div
+                    style={{ left: `${activeData.riskProb * 100}%` }}
+                    className={styles.riskBarIcon}
+                  >
+                    <div
+                      className={styles.riskBarCircle}
+                      style={{ backgroundColor: riskDefinitions[activeData.riskLevel].color }}
+                    ></div>
                   </div>
-                  <div className={activeData.riskLevel === 1 ? styles.selected : styles.unselected}>
-                    {riskDefinitions[1].abbreviated}
-                  </div>
-                  <div className={activeData.riskLevel === 2 ? styles.selected : styles.unselected}>
-                    {riskDefinitions[2].abbreviated}
+                  <div className={styles.riskBarLine}></div>
+                  <div className={styles.riskBarLegend}>
+                    <div
+                      className={activeData.riskLevel === 0 ? styles.selected : styles.unselected}
+                    >
+                      {riskDefinitions[0].abbreviated}
+                    </div>
+                    <div
+                      className={activeData.riskLevel === 1 ? styles.selected : styles.unselected}
+                    >
+                      {riskDefinitions[1].abbreviated}
+                    </div>
+                    <div
+                      className={activeData.riskLevel === 2 ? styles.selected : styles.unselected}
+                    >
+                      {riskDefinitions[2].abbreviated}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            {activeData.riskIsElevatedFromPreviousPrecip && (
+              <div className={styles.riskFromPreviousContainer}>
+                <div className={styles.riskFromPreviousIcon}>
+                  <Icon
+                    name={`${riskDefinitions[activeData.riskLevel].id}Alt`}
+                    size={3.6}
+                    color={riskDefinitions[activeData.riskLevel].color}
+                  />
+                </div>
+                <div className={styles.riskFromPreviousText}>
+                  <span>{riskDefinitions[activeData.riskLevel].text} risk of landslide due to </span>
+                  <span>earlier period of heavy rainfall.</span>
+                </div>
+              </div>
+            )}
           </div>
           <hr />
           <h3 className={styles.figureHeading}>3 hour rainfall</h3>
