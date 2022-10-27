@@ -193,7 +193,7 @@ async function getPastRainfall() {
 
   return {
     timestamp: toLocalTimestamp(threeHourTimestamps[threeHourTimestamps.length - 1]),
-    dateTimeDetails: { label: "Current risk" },
+    dateTimeDetails: { label: "Past 3 hours" },
     precip,
     precipInches: mmToInches(precip),
     prevPrecip, // Needed for the look-back window of the first forecast period
