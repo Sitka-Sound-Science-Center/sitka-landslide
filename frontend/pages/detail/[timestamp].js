@@ -38,6 +38,8 @@ export async function getStaticProps({ params }) {
   const activeIndex = hours.findIndex((h) => params.timestamp === h.shortTimestamp);
   const activeData =
     params.timestamp === "current" ? current : hours[activeIndex] ? hours[activeIndex] : null;
+  const pageTitle =
+    params.timestamp === "current" ? "Current risk" : activeData.label ? activeData.label : null;
   const previousSlug =
     activeIndex === 0
       ? "current"
@@ -47,11 +49,11 @@ export async function getStaticProps({ params }) {
   const nextSlug = hours[activeIndex + 1] ? hours[activeIndex + 1].shortTimestamp : null;
 
   return {
-    props: { activeData, previousSlug, nextSlug },
+    props: { activeData, pageTitle, previousSlug, nextSlug },
   };
 }
 
-export default function Detail({ activeData, previousSlug, nextSlug }) {
+export default function Detail({ activeData, pageTitle, previousSlug, nextSlug }) {
   const historical = historicalData.map((d) => {
     return {
       x: d.day,
@@ -183,7 +185,7 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
 
   return (
     <Page
-      title={activeData.dateTimeDetails.label}
+      title={pageTitle}
       dateAbbr={activeData.dateTimeDetails.dateAbbr}
       dateFull={activeData.dateTimeDetails.dateFull}
       timeStart={activeData.dateTimeDetails.timeStart}
@@ -195,7 +197,7 @@ export default function Detail({ activeData, previousSlug, nextSlug }) {
     >
       <div>
         <Head>
-          <title>{activeData.dateTimeDetails.label} | Sitka Landslide Risk</title>
+          <title>{pageTitle} | Sitka Landslide Risk</title>
           <meta
             name="description"
             content={`Detailed landslide risk for ${activeData.dateTimeDetails.label}`}
