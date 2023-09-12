@@ -14,8 +14,16 @@ const LastUpdated = ({ update }) => {
   return (
     <div className={styles.lastupdated}>
       Last updated {time} with data from{" "}
-      <a href="https://forecast.weather.gov/MapClick.php?lat=57.0531&lon=-135.33">
+      <a
+        href="https://forecast.weather.gov/MapClick.php?lat=57.0531&lon=-135.33"
+        target="_blank"
+        rel="noreferrer"
+      >
         National Weather Service
+      </a>{" "}
+      and{" "}
+      <a href="https://synopticdata.com/" target="_blank" rel="noreferrer">
+        Synoptic Data
       </a>
     </div>
   );
