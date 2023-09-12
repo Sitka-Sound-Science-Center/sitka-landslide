@@ -7,6 +7,11 @@ Build docker image and put in AWS for running.
 "
 }
 
+export AWS_PROFILE="${AWS_PROFILE:-sitka}"
+ENVIRONMENT="sitkaproduction"
+AWS_REGION="us-west-2"
+
+
 function amazon_ecr_login() {
     # Retrieves a temporary authorization token that can be used to access
     # Amazon ECR, along with the registry URL.
@@ -28,9 +33,6 @@ function amazon_ecr_login() {
             --password-stdin "${ECR_REGISTRY}"
 }
 
-AWS_PROFILE="sitka"
-ENVIRONMENT="sitkaproduction"
-AWS_REGION="us-west-2"
 
 if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
     if [[ "${1:-}" == "--help" ]]; then
@@ -38,7 +40,7 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
     else
         echo "Building docker image"
         cd frontend; docker build -t $ENVIRONMENT:latest .
-   
+
         # Login to Amazon ECR with the local Docker client.
         amazon_ecr_login
 
