@@ -23,8 +23,7 @@ jobs:
         with:
           node-version: "16"
       - run: yarn install --frozen-lockfile
-      - run: yarn build
-      - run: yarn run next export
+      - run: yarn export
       - run: yarn lint
       - run: yarn run check-format
 
