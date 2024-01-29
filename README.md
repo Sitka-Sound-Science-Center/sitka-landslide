@@ -19,6 +19,12 @@ _Note:_ Some Mac users have gotten silent failures when the scripts try to activ
 
 Note that it is recommended to configure your editor to auto-format your code via Prettier on save.
 
+#### Emergency test version of rainfall.json
+
+The first thing that `scripts/server` does is get current data from the two weather APIs and write it to `frontend/data/rainfall.json` for the app to use.  If either of those APIs is down, that download will fail, and if you don't already have an old copy of `rainfall.json` locally, you won't be able to run the app.  To work around this infrequent but serious blocker without having to maintain a complete data fixture, we have the build include the `rainfall.json` file in the published assets.
+
+So when you the APIs are down, you should still be able to get the most recent successfully-retrieved data file at https://sitkalandslide.org/data/rainfall.json.
+
 ## Components
 
 - The front-end, a [Next.js](https://nextjs.org/docs) app. See [frontend](frontend).
