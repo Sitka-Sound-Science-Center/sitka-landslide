@@ -1,23 +1,23 @@
 {
-  "lastUpdated": "2024-01-29T10:43:00.632-09:00",
+  "lastUpdated": "2024-01-29T11:14:45.833-09:00",
   "weatherAdvisory": {
     "active": false,
     "permalink": "https://forecast.weather.gov/MapClick.php?lat=57.053&lon=-135.36"
   },
   "current": {
-    "timestamp": "2024-01-29T10:35:00.000-09:00",
+    "timestamp": "2024-01-29T11:05:00.000-09:00",
     "dateTimeDetails": {
       "label": "Past 3 hours"
     },
-    "precip": 19.05,
-    "precipInches": 0.75,
-    "prevPrecip": 6.858,
-    "riskProb": 0.1226,
-    "riskLevel": 0,
+    "precip": 32.258,
+    "precipInches": 1.27,
+    "prevPrecip": 9.652,
+    "riskProb": 0.5784,
+    "riskLevel": 1,
     "riskIsElevatedFromPreviousPrecip": false
   },
   "twentyFourHours": {
-    "riskLevel": 0,
+    "riskLevel": 1,
     "hours": [
       {
         "timestamp": "2024-01-29T09:00:00.000-09:00",
@@ -32,9 +32,9 @@
           "timeStart": "9AM",
           "timeEnd": "12PM"
         },
-        "riskProb": 0.0003,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false
+        "riskProb": 0.5784,
+        "riskLevel": 1,
+        "riskIsElevatedFromPreviousPrecip": true
       },
       {
         "timestamp": "2024-01-29T12:00:00.000-09:00",
@@ -49,9 +49,9 @@
           "timeStart": "12PM",
           "timeEnd": "3PM"
         },
-        "riskProb": 0.0002,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false
+        "riskProb": 0.5784,
+        "riskLevel": 1,
+        "riskIsElevatedFromPreviousPrecip": true
       },
       {
         "timestamp": "2024-01-29T15:00:00.000-09:00",
@@ -179,7 +179,7 @@
       {
         "dayNumber": "1",
         "dayName": "Monday",
-        "riskLevel": 0,
+        "riskLevel": 1,
         "lastTimestamp": "2024-01-29T21:00:00.000-09:00"
       },
       {
@@ -209,9 +209,9 @@
           "timeStart": "9AM",
           "timeEnd": "12PM"
         },
-        "riskProb": 0.0003,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
+        "riskProb": 0.5784,
+        "riskLevel": 1,
+        "riskIsElevatedFromPreviousPrecip": true,
         "dayNumber": "1",
         "dayName": "Monday"
       },
@@ -228,9 +228,9 @@
           "timeStart": "12PM",
           "timeEnd": "3PM"
         },
-        "riskProb": 0.0002,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
+        "riskProb": 0.5784,
+        "riskLevel": 1,
+        "riskIsElevatedFromPreviousPrecip": true,
         "dayNumber": "1",
         "dayName": "Monday"
       },
