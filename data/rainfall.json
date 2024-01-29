@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2024-01-29T11:14:45.833-09:00",
+  "lastUpdated": "2024-01-29T11:19:25.268-09:00",
   "weatherAdvisory": {
     "active": false,
     "permalink": "https://forecast.weather.gov/MapClick.php?lat=57.053&lon=-135.36"
   },
   "current": {
-    "timestamp": "2024-01-29T11:05:00.000-09:00",
+    "timestamp": "2024-01-29T11:10:00.000-09:00",
     "dateTimeDetails": {
       "label": "Past 3 hours"
     },
