@@ -20,7 +20,6 @@ COPY public public/
 COPY styles styles/
 COPY next.config.js ./
 
-CMD yarn export && \
-    echo "Uploading to S3..." && \
-    aws s3 sync --delete --only-show-errors out/ s3://sitkaproduction/ && \
-    echo "Finished"
+COPY scripts scripts/
+
+ENTRYPOINT [ "scripts/publish" ]
