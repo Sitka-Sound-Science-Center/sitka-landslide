@@ -8,8 +8,9 @@ Build docker image and put in AWS for running.
 }
 
 export AWS_PROFILE="${AWS_PROFILE:-sitka}"
-ENVIRONMENT="sitkaproduction"
-AWS_REGION="us-west-2"
+export ENVIRONMENT="${ENVIRONMENT:-sitkaproduction}"
+export AWS_REGION="${AWS_REGION:-us-west-2}"
+export GIT_COMMIT="${GIT_COMMIT:-$(git rev-parse --short HEAD)}"
 
 
 function amazon_ecr_login() {
@@ -44,6 +45,9 @@ if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
         # Login to Amazon ECR with the local Docker client.
         amazon_ecr_login
 
+        # Tag and push with both the commit and 'latest'
+        docker tag "${ENVIRONMENT}:latest" "${ECR_REGISTRY}/${ENVIRONMENT}:${GIT_COMMIT}"
+        docker push "${ECR_REGISTRY}/$ENVIRONMENT:${GIT_COMMIT}"
         docker tag "${ENVIRONMENT}:latest" "${ECR_REGISTRY}/${ENVIRONMENT}:latest"
         docker push "${ECR_REGISTRY}/$ENVIRONMENT:latest"
     fi

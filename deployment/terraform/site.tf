@@ -24,11 +24,6 @@ resource "aws_s3_bucket" "site" {
   bucket = local.short
 }
 
-resource "aws_s3_bucket_policy" "read_and_list_access" {
-  bucket = aws_s3_bucket.site.id
-  policy = data.aws_iam_policy_document.read_and_list_access.json
-}
-
 data "aws_iam_policy_document" "read_and_list_access" {
   statement {
     principals {
@@ -47,6 +42,10 @@ data "aws_iam_policy_document" "read_and_list_access" {
   }
 }
 
+resource "aws_s3_bucket_policy" "read_and_list_access" {
+  bucket = aws_s3_bucket.site.id
+  policy = data.aws_iam_policy_document.read_and_list_access.json
+}
 
 resource "aws_s3_bucket_website_configuration" "site" {
   bucket = aws_s3_bucket.site.bucket
@@ -81,7 +80,7 @@ resource "aws_s3_bucket_website_configuration" "www-redirect" {
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    domain_name = aws_s3_bucket.site.website_endpoint
+    domain_name = aws_s3_bucket_website_configuration.site.website_endpoint
     origin_id   = aws_s3_bucket.site.id
 
     custom_origin_config {
@@ -129,8 +128,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   restrictions {
     geo_restriction {
-      restriction_type = "whitelist"
-      locations        = ["US", "CA"]
+      restriction_type = "none"
+      locations        = []
     }
   }
 
