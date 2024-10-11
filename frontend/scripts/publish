@@ -4,6 +4,7 @@ set -e
 
 ENVIRONMENT="${ENVIRONMENT:-sitkaproduction}"
 TIMESTAMP=$(TZ="America/Sitka" date -Iminutes)
+YEAR=$(date "+%Y")
 
 echo "Building site."
 yarn export
@@ -12,6 +13,6 @@ echo "Uploading to S3."
 aws s3 sync --delete --only-show-errors out/ "s3://${ENVIRONMENT}/"
 
 echo "Copying rainfall.json to archive."
-aws s3 cp out/data/rainfall.json "s3://${ENVIRONMENT}-archive/rainfall/rainfall-${TIMESTAMP}.json"
+aws s3 cp out/data/rainfall.json "s3://${ENVIRONMENT}-archive/rainfall/${YEAR}/rainfall-${TIMESTAMP}.json"
 
 echo "Finished"
