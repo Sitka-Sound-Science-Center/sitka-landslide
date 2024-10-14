@@ -7,7 +7,7 @@ if [ "$(command -v nvm &>/dev/null)" ]; then
 fi
 nvm_script="$HOME/.nvm/nvm.sh"
 if [ -f "$nvm_script" ]; then
-    source "$nvm_script"
+    source "$nvm_script" --no-use
 fi
 if ! nvm use; then
     # If just running 'nvm use' didn't work, run 'nvm install' then try again
