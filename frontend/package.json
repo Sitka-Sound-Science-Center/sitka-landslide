@@ -2,7 +2,7 @@
   "name": "landslide-app",
   "private": true,
   "scripts": {
-    "dev": "yarn get-data && next dev -p 3008",
+    "dev": "yarn get-data && NEXT_PUBLIC_GA_MEASUREMENT_ID='NONE' next dev -p 3008",
     "analyze": "cross-env ANALYZE=true next build",
     "build": "yarn get-data && next build",
     "export": "yarn build && next export && mkdir -p out/data && cp data/rainfall.json out/data/rainfall.json",
@@ -23,6 +23,7 @@
     "luxon": "^2.3.1",
     "mapbox-gl": "^2.6.1",
     "next": "12.1",
+    "nextjs-google-analytics": "^2.3.7",
     "react": "17.0.2",
     "react-accessible-accordion": "^4.0.0",
     "react-accessible-dropdown-menu-hook": "^3.2.0",
