@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2024-10-17T11:49:39.947-08:00",
+  "lastUpdated": "2024-12-16T10:30:40.363-09:00",
   "weatherAdvisory": {
     "active": false,
     "permalink": "https://forecast.weather.gov/MapClick.php?lat=57.053&lon=-135.36"
   },
   "current": {
-    "timestamp": "2024-10-17T11:40:00.000-08:00",
+    "timestamp": "2024-12-16T10:20:00.000-09:00",
     "dateTimeDetails": {
       "label": "Past 3 hours"
     },
-    "precip": 1.554,
-    "precipInches": 0.06,
-    "prevPrecip": 1.04,
-    "riskProb": 0.0001,
+    "precip": 0,
+    "precipInches": 0,
+    "prevPrecip": 0,
+    "riskProb": 0,
     "riskLevel": 0,
     "riskIsElevatedFromPreviousPrecip": false
   },
@@ -20,155 +20,155 @@
     "riskLevel": 0,
     "hours": [
       {
-        "timestamp": "2024-10-17T10:00:00.000-08:00",
-        "precip": 2.286,
-        "precipInches": 0.09,
-        "hour": "10AM",
-        "shortTimestamp": "2024-10-17T10:00",
+        "timestamp": "2024-12-16T09:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "9AM",
+        "shortTimestamp": "2024-12-16T09:00",
         "dateTimeDetails": {
-          "label": "Oct 17 · 10AM to 1PM",
-          "dateAbbr": "Oct 17",
-          "dateFull": "October 17",
-          "timeStart": "10AM",
-          "timeEnd": "1PM"
+          "label": "Dec 16 · 9AM to 12PM",
+          "dateAbbr": "Dec 16",
+          "dateFull": "December 16",
+          "timeStart": "9AM",
+          "timeEnd": "12PM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false
       },
       {
-        "timestamp": "2024-10-17T13:00:00.000-08:00",
-        "precip": 2.286,
-        "precipInches": 0.09,
-        "hour": "1PM",
-        "shortTimestamp": "2024-10-17T13:00",
+        "timestamp": "2024-12-16T12:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "12PM",
+        "shortTimestamp": "2024-12-16T12:00",
         "dateTimeDetails": {
-          "label": "Oct 17 · 1PM to 4PM",
-          "dateAbbr": "Oct 17",
-          "dateFull": "October 17",
-          "timeStart": "1PM",
-          "timeEnd": "4PM"
+          "label": "Dec 16 · 12PM to 3PM",
+          "dateAbbr": "Dec 16",
+          "dateFull": "December 16",
+          "timeStart": "12PM",
+          "timeEnd": "3PM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false
       },
       {
-        "timestamp": "2024-10-17T16:00:00.000-08:00",
-        "precip": 3.302,
-        "precipInches": 0.13,
-        "hour": "4PM",
-        "shortTimestamp": "2024-10-17T16:00",
+        "timestamp": "2024-12-16T15:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "3PM",
+        "shortTimestamp": "2024-12-16T15:00",
         "dateTimeDetails": {
-          "label": "Oct 17 · 4PM to 7PM",
-          "dateAbbr": "Oct 17",
-          "dateFull": "October 17",
-          "timeStart": "4PM",
-          "timeEnd": "7PM"
+          "label": "Dec 16 · 3PM to 6PM",
+          "dateAbbr": "Dec 16",
+          "dateFull": "December 16",
+          "timeStart": "3PM",
+          "timeEnd": "6PM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false
       },
       {
-        "timestamp": "2024-10-17T19:00:00.000-08:00",
-        "precip": 3.048,
-        "precipInches": 0.12,
-        "hour": "7PM",
-        "shortTimestamp": "2024-10-17T19:00",
+        "timestamp": "2024-12-16T18:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "6PM",
+        "shortTimestamp": "2024-12-16T18:00",
         "dateTimeDetails": {
-          "label": "Oct 17 · 7PM to 10PM",
-          "dateAbbr": "Oct 17",
-          "dateFull": "October 17",
-          "timeStart": "7PM",
-          "timeEnd": "10PM"
+          "label": "Dec 16 · 6PM to 9PM",
+          "dateAbbr": "Dec 16",
+          "dateFull": "December 16",
+          "timeStart": "6PM",
+          "timeEnd": "9PM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false
       },
       {
-        "timestamp": "2024-10-17T22:00:00.000-08:00",
-        "precip": 4.064,
-        "precipInches": 0.16,
-        "hour": "10PM",
-        "shortTimestamp": "2024-10-17T22:00",
+        "timestamp": "2024-12-16T21:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "9PM",
+        "shortTimestamp": "2024-12-16T21:00",
         "dateTimeDetails": {
-          "label": "Oct 17 · 10PM to 1AM",
-          "dateAbbr": "Oct 17",
-          "dateFull": "October 17",
-          "timeStart": "10PM",
-          "timeEnd": "1AM"
+          "label": "Dec 16 · 9PM to 12AM",
+          "dateAbbr": "Dec 16",
+          "dateFull": "December 16",
+          "timeStart": "9PM",
+          "timeEnd": "12AM"
         },
-        "riskProb": 0.0002,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false
       },
       {
-        "timestamp": "2024-10-18T01:00:00.000-08:00",
-        "precip": 2.794,
-        "precipInches": 0.11,
-        "hour": "1AM",
-        "shortTimestamp": "2024-10-18T01:00",
+        "timestamp": "2024-12-17T00:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "12AM",
+        "shortTimestamp": "2024-12-17T00:00",
         "dateTimeDetails": {
-          "label": "Oct 18 · 1AM to 4AM",
-          "dateAbbr": "Oct 18",
-          "dateFull": "October 18",
-          "timeStart": "1AM",
-          "timeEnd": "4AM"
+          "label": "Dec 17 · 12AM to 3AM",
+          "dateAbbr": "Dec 17",
+          "dateFull": "December 17",
+          "timeStart": "12AM",
+          "timeEnd": "3AM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false
       },
       {
-        "timestamp": "2024-10-18T04:00:00.000-08:00",
-        "precip": 1.778,
-        "precipInches": 0.07,
-        "hour": "4AM",
-        "shortTimestamp": "2024-10-18T04:00",
+        "timestamp": "2024-12-17T03:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "3AM",
+        "shortTimestamp": "2024-12-17T03:00",
         "dateTimeDetails": {
-          "label": "Oct 18 · 4AM to 7AM",
-          "dateAbbr": "Oct 18",
-          "dateFull": "October 18",
-          "timeStart": "4AM",
-          "timeEnd": "7AM"
+          "label": "Dec 17 · 3AM to 6AM",
+          "dateAbbr": "Dec 17",
+          "dateFull": "December 17",
+          "timeStart": "3AM",
+          "timeEnd": "6AM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false
       },
       {
-        "timestamp": "2024-10-18T07:00:00.000-08:00",
-        "precip": 2.032,
-        "precipInches": 0.08,
-        "hour": "7AM",
-        "shortTimestamp": "2024-10-18T07:00",
+        "timestamp": "2024-12-17T06:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "6AM",
+        "shortTimestamp": "2024-12-17T06:00",
         "dateTimeDetails": {
-          "label": "Oct 18 · 7AM to 10AM",
-          "dateAbbr": "Oct 18",
-          "dateFull": "October 18",
-          "timeStart": "7AM",
-          "timeEnd": "10AM"
+          "label": "Dec 17 · 6AM to 9AM",
+          "dateAbbr": "Dec 17",
+          "dateFull": "December 17",
+          "timeStart": "6AM",
+          "timeEnd": "9AM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false
       },
       {
-        "timestamp": "2024-10-18T10:00:00.000-08:00",
-        "precip": 3.302,
-        "precipInches": 0.13,
-        "hour": "10AM",
-        "shortTimestamp": "2024-10-18T10:00",
+        "timestamp": "2024-12-17T09:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "9AM",
+        "shortTimestamp": "2024-12-17T09:00",
         "dateTimeDetails": {
-          "label": "Oct 18 · 10AM to 1PM",
-          "dateAbbr": "Oct 18",
-          "dateFull": "October 18",
-          "timeStart": "10AM",
-          "timeEnd": "1PM"
+          "label": "Dec 17 · 9AM to 12PM",
+          "dateAbbr": "Dec 17",
+          "dateFull": "December 17",
+          "timeStart": "9AM",
+          "timeEnd": "12PM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false
       }
@@ -177,423 +177,423 @@
   "threeDays": {
     "days": [
       {
-        "dayNumber": "4",
-        "dayName": "Thursday",
+        "dayNumber": "1",
+        "dayName": "Monday",
         "riskLevel": 0,
-        "lastTimestamp": "2024-10-17T22:00:00.000-08:00"
+        "lastTimestamp": "2024-12-16T21:00:00.000-09:00"
       },
       {
-        "dayNumber": "5",
-        "dayName": "Friday",
+        "dayNumber": "2",
+        "dayName": "Tuesday",
         "riskLevel": 0,
-        "lastTimestamp": "2024-10-18T22:00:00.000-08:00"
+        "lastTimestamp": "2024-12-17T21:00:00.000-09:00"
       },
       {
-        "dayNumber": "6",
-        "dayName": "Saturday",
+        "dayNumber": "3",
+        "dayName": "Wednesday",
         "riskLevel": 0,
-        "lastTimestamp": "2024-10-19T22:00:00.000-08:00"
+        "lastTimestamp": "2024-12-18T21:00:00.000-09:00"
       }
     ],
     "hours": [
       {
-        "timestamp": "2024-10-17T10:00:00.000-08:00",
-        "precip": 2.286,
-        "precipInches": 0.09,
-        "hour": "10AM",
-        "shortTimestamp": "2024-10-17T10:00",
+        "timestamp": "2024-12-16T09:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "9AM",
+        "shortTimestamp": "2024-12-16T09:00",
         "dateTimeDetails": {
-          "label": "Oct 17 · 10AM to 1PM",
-          "dateAbbr": "Oct 17",
-          "dateFull": "October 17",
-          "timeStart": "10AM",
-          "timeEnd": "1PM"
+          "label": "Dec 16 · 9AM to 12PM",
+          "dateAbbr": "Dec 16",
+          "dateFull": "December 16",
+          "timeStart": "9AM",
+          "timeEnd": "12PM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "4",
-        "dayName": "Thursday"
+        "dayNumber": "1",
+        "dayName": "Monday"
       },
       {
-        "timestamp": "2024-10-17T13:00:00.000-08:00",
-        "precip": 2.286,
-        "precipInches": 0.09,
-        "hour": "1PM",
-        "shortTimestamp": "2024-10-17T13:00",
+        "timestamp": "2024-12-16T12:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "12PM",
+        "shortTimestamp": "2024-12-16T12:00",
         "dateTimeDetails": {
-          "label": "Oct 17 · 1PM to 4PM",
-          "dateAbbr": "Oct 17",
-          "dateFull": "October 17",
-          "timeStart": "1PM",
-          "timeEnd": "4PM"
+          "label": "Dec 16 · 12PM to 3PM",
+          "dateAbbr": "Dec 16",
+          "dateFull": "December 16",
+          "timeStart": "12PM",
+          "timeEnd": "3PM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "4",
-        "dayName": "Thursday"
+        "dayNumber": "1",
+        "dayName": "Monday"
       },
       {
-        "timestamp": "2024-10-17T16:00:00.000-08:00",
-        "precip": 3.302,
-        "precipInches": 0.13,
-        "hour": "4PM",
-        "shortTimestamp": "2024-10-17T16:00",
+        "timestamp": "2024-12-16T15:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "3PM",
+        "shortTimestamp": "2024-12-16T15:00",
         "dateTimeDetails": {
-          "label": "Oct 17 · 4PM to 7PM",
-          "dateAbbr": "Oct 17",
-          "dateFull": "October 17",
-          "timeStart": "4PM",
-          "timeEnd": "7PM"
+          "label": "Dec 16 · 3PM to 6PM",
+          "dateAbbr": "Dec 16",
+          "dateFull": "December 16",
+          "timeStart": "3PM",
+          "timeEnd": "6PM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "4",
-        "dayName": "Thursday"
+        "dayNumber": "1",
+        "dayName": "Monday"
       },
       {
-        "timestamp": "2024-10-17T19:00:00.000-08:00",
-        "precip": 3.048,
-        "precipInches": 0.12,
-        "hour": "7PM",
-        "shortTimestamp": "2024-10-17T19:00",
+        "timestamp": "2024-12-16T18:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "6PM",
+        "shortTimestamp": "2024-12-16T18:00",
         "dateTimeDetails": {
-          "label": "Oct 17 · 7PM to 10PM",
-          "dateAbbr": "Oct 17",
-          "dateFull": "October 17",
-          "timeStart": "7PM",
-          "timeEnd": "10PM"
+          "label": "Dec 16 · 6PM to 9PM",
+          "dateAbbr": "Dec 16",
+          "dateFull": "December 16",
+          "timeStart": "6PM",
+          "timeEnd": "9PM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "4",
-        "dayName": "Thursday"
+        "dayNumber": "1",
+        "dayName": "Monday"
       },
       {
-        "timestamp": "2024-10-17T22:00:00.000-08:00",
-        "precip": 4.064,
-        "precipInches": 0.16,
-        "hour": "10PM",
-        "shortTimestamp": "2024-10-17T22:00",
+        "timestamp": "2024-12-16T21:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "9PM",
+        "shortTimestamp": "2024-12-16T21:00",
         "dateTimeDetails": {
-          "label": "Oct 17 · 10PM to 1AM",
-          "dateAbbr": "Oct 17",
-          "dateFull": "October 17",
-          "timeStart": "10PM",
-          "timeEnd": "1AM"
+          "label": "Dec 16 · 9PM to 12AM",
+          "dateAbbr": "Dec 16",
+          "dateFull": "December 16",
+          "timeStart": "9PM",
+          "timeEnd": "12AM"
         },
-        "riskProb": 0.0002,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "4",
-        "dayName": "Thursday"
+        "dayNumber": "1",
+        "dayName": "Monday"
       },
       {
-        "timestamp": "2024-10-18T01:00:00.000-08:00",
-        "precip": 2.794,
-        "precipInches": 0.11,
-        "hour": "1AM",
-        "shortTimestamp": "2024-10-18T01:00",
+        "timestamp": "2024-12-17T00:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "12AM",
+        "shortTimestamp": "2024-12-17T00:00",
         "dateTimeDetails": {
-          "label": "Oct 18 · 1AM to 4AM",
-          "dateAbbr": "Oct 18",
-          "dateFull": "October 18",
-          "timeStart": "1AM",
-          "timeEnd": "4AM"
+          "label": "Dec 17 · 12AM to 3AM",
+          "dateAbbr": "Dec 17",
+          "dateFull": "December 17",
+          "timeStart": "12AM",
+          "timeEnd": "3AM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
+        "dayNumber": "2",
+        "dayName": "Tuesday"
       },
       {
-        "timestamp": "2024-10-18T04:00:00.000-08:00",
-        "precip": 1.778,
-        "precipInches": 0.07,
-        "hour": "4AM",
-        "shortTimestamp": "2024-10-18T04:00",
+        "timestamp": "2024-12-17T03:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "3AM",
+        "shortTimestamp": "2024-12-17T03:00",
         "dateTimeDetails": {
-          "label": "Oct 18 · 4AM to 7AM",
-          "dateAbbr": "Oct 18",
-          "dateFull": "October 18",
-          "timeStart": "4AM",
-          "timeEnd": "7AM"
+          "label": "Dec 17 · 3AM to 6AM",
+          "dateAbbr": "Dec 17",
+          "dateFull": "December 17",
+          "timeStart": "3AM",
+          "timeEnd": "6AM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
+        "dayNumber": "2",
+        "dayName": "Tuesday"
       },
       {
-        "timestamp": "2024-10-18T07:00:00.000-08:00",
-        "precip": 2.032,
-        "precipInches": 0.08,
-        "hour": "7AM",
-        "shortTimestamp": "2024-10-18T07:00",
+        "timestamp": "2024-12-17T06:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "6AM",
+        "shortTimestamp": "2024-12-17T06:00",
         "dateTimeDetails": {
-          "label": "Oct 18 · 7AM to 10AM",
-          "dateAbbr": "Oct 18",
-          "dateFull": "October 18",
-          "timeStart": "7AM",
-          "timeEnd": "10AM"
+          "label": "Dec 17 · 6AM to 9AM",
+          "dateAbbr": "Dec 17",
+          "dateFull": "December 17",
+          "timeStart": "6AM",
+          "timeEnd": "9AM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
+        "dayNumber": "2",
+        "dayName": "Tuesday"
       },
       {
-        "timestamp": "2024-10-18T10:00:00.000-08:00",
-        "precip": 3.302,
-        "precipInches": 0.13,
-        "hour": "10AM",
-        "shortTimestamp": "2024-10-18T10:00",
+        "timestamp": "2024-12-17T09:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "9AM",
+        "shortTimestamp": "2024-12-17T09:00",
         "dateTimeDetails": {
-          "label": "Oct 18 · 10AM to 1PM",
-          "dateAbbr": "Oct 18",
-          "dateFull": "October 18",
-          "timeStart": "10AM",
-          "timeEnd": "1PM"
+          "label": "Dec 17 · 9AM to 12PM",
+          "dateAbbr": "Dec 17",
+          "dateFull": "December 17",
+          "timeStart": "9AM",
+          "timeEnd": "12PM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
+        "dayNumber": "2",
+        "dayName": "Tuesday"
       },
       {
-        "timestamp": "2024-10-18T13:00:00.000-08:00",
-        "precip": 4.318,
-        "precipInches": 0.17,
-        "hour": "1PM",
-        "shortTimestamp": "2024-10-18T13:00",
+        "timestamp": "2024-12-17T12:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "12PM",
+        "shortTimestamp": "2024-12-17T12:00",
         "dateTimeDetails": {
-          "label": "Oct 18 · 1PM to 4PM",
-          "dateAbbr": "Oct 18",
-          "dateFull": "October 18",
-          "timeStart": "1PM",
-          "timeEnd": "4PM"
+          "label": "Dec 17 · 12PM to 3PM",
+          "dateAbbr": "Dec 17",
+          "dateFull": "December 17",
+          "timeStart": "12PM",
+          "timeEnd": "3PM"
         },
-        "riskProb": 0.0002,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
+        "dayNumber": "2",
+        "dayName": "Tuesday"
       },
       {
-        "timestamp": "2024-10-18T16:00:00.000-08:00",
-        "precip": 3.302,
-        "precipInches": 0.13,
-        "hour": "4PM",
-        "shortTimestamp": "2024-10-18T16:00",
+        "timestamp": "2024-12-17T15:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "3PM",
+        "shortTimestamp": "2024-12-17T15:00",
         "dateTimeDetails": {
-          "label": "Oct 18 · 4PM to 7PM",
-          "dateAbbr": "Oct 18",
-          "dateFull": "October 18",
-          "timeStart": "4PM",
-          "timeEnd": "7PM"
+          "label": "Dec 17 · 3PM to 6PM",
+          "dateAbbr": "Dec 17",
+          "dateFull": "December 17",
+          "timeStart": "3PM",
+          "timeEnd": "6PM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
+        "dayNumber": "2",
+        "dayName": "Tuesday"
       },
       {
-        "timestamp": "2024-10-18T19:00:00.000-08:00",
-        "precip": 3.302,
-        "precipInches": 0.13,
-        "hour": "7PM",
-        "shortTimestamp": "2024-10-18T19:00",
+        "timestamp": "2024-12-17T18:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "6PM",
+        "shortTimestamp": "2024-12-17T18:00",
         "dateTimeDetails": {
-          "label": "Oct 18 · 7PM to 10PM",
-          "dateAbbr": "Oct 18",
-          "dateFull": "October 18",
-          "timeStart": "7PM",
-          "timeEnd": "10PM"
+          "label": "Dec 17 · 6PM to 9PM",
+          "dateAbbr": "Dec 17",
+          "dateFull": "December 17",
+          "timeStart": "6PM",
+          "timeEnd": "9PM"
         },
-        "riskProb": 0.0001,
+        "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
+        "dayNumber": "2",
+        "dayName": "Tuesday"
       },
       {
-        "timestamp": "2024-10-18T22:00:00.000-08:00",
-        "precip": 3.302,
-        "precipInches": 0.13,
-        "hour": "10PM",
-        "shortTimestamp": "2024-10-18T22:00",
-        "dateTimeDetails": {
-          "label": "Oct 18 · 10PM to 1AM",
-          "dateAbbr": "Oct 18",
-          "dateFull": "October 18",
-          "timeStart": "10PM",
-          "timeEnd": "1AM"
-        },
-        "riskProb": 0.0001,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
-      },
-      {
-        "timestamp": "2024-10-19T01:00:00.000-08:00",
-        "precip": 1.524,
-        "precipInches": 0.06,
-        "hour": "1AM",
-        "shortTimestamp": "2024-10-19T01:00",
-        "dateTimeDetails": {
-          "label": "Oct 19 · 1AM to 4AM",
-          "dateAbbr": "Oct 19",
-          "dateFull": "October 19",
-          "timeStart": "1AM",
-          "timeEnd": "4AM"
-        },
-        "riskProb": 0.0001,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "6",
-        "dayName": "Saturday"
-      },
-      {
-        "timestamp": "2024-10-19T04:00:00.000-08:00",
-        "precip": 1.016,
+        "timestamp": "2024-12-17T21:00:00.000-09:00",
+        "precip": 1.015999977290622,
         "precipInches": 0.04,
-        "hour": "4AM",
-        "shortTimestamp": "2024-10-19T04:00",
+        "hour": "9PM",
+        "shortTimestamp": "2024-12-17T21:00",
         "dateTimeDetails": {
-          "label": "Oct 19 · 4AM to 7AM",
-          "dateAbbr": "Oct 19",
-          "dateFull": "October 19",
-          "timeStart": "4AM",
-          "timeEnd": "7AM"
+          "label": "Dec 17 · 9PM to 12AM",
+          "dateAbbr": "Dec 17",
+          "dateFull": "December 17",
+          "timeStart": "9PM",
+          "timeEnd": "12AM"
         },
         "riskProb": 0.0001,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "6",
-        "dayName": "Saturday"
+        "dayNumber": "2",
+        "dayName": "Tuesday"
       },
       {
-        "timestamp": "2024-10-19T07:00:00.000-08:00",
-        "precip": 0.762,
-        "precipInches": 0.03,
-        "hour": "7AM",
-        "shortTimestamp": "2024-10-19T07:00",
+        "timestamp": "2024-12-18T00:00:00.000-09:00",
+        "precip": 1.015999977290622,
+        "precipInches": 0.04,
+        "hour": "12AM",
+        "shortTimestamp": "2024-12-18T00:00",
         "dateTimeDetails": {
-          "label": "Oct 19 · 7AM to 10AM",
-          "dateAbbr": "Oct 19",
-          "dateFull": "October 19",
-          "timeStart": "7AM",
-          "timeEnd": "10AM"
+          "label": "Dec 18 · 12AM to 3AM",
+          "dateAbbr": "Dec 18",
+          "dateFull": "December 18",
+          "timeStart": "12AM",
+          "timeEnd": "3AM"
         },
-        "riskProb": 0,
+        "riskProb": 0.0001,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "6",
-        "dayName": "Saturday"
+        "dayNumber": "3",
+        "dayName": "Wednesday"
       },
       {
-        "timestamp": "2024-10-19T10:00:00.000-08:00",
-        "precip": 0.762,
-        "precipInches": 0.03,
-        "hour": "10AM",
-        "shortTimestamp": "2024-10-19T10:00",
-        "dateTimeDetails": {
-          "label": "Oct 19 · 10AM to 1PM",
-          "dateAbbr": "Oct 19",
-          "dateFull": "October 19",
-          "timeStart": "10AM",
-          "timeEnd": "1PM"
-        },
-        "riskProb": 0,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "6",
-        "dayName": "Saturday"
-      },
-      {
-        "timestamp": "2024-10-19T13:00:00.000-08:00",
-        "precip": 0.508,
+        "timestamp": "2024-12-18T03:00:00.000-09:00",
+        "precip": 0.507999988645311,
         "precipInches": 0.02,
-        "hour": "1PM",
-        "shortTimestamp": "2024-10-19T13:00",
+        "hour": "3AM",
+        "shortTimestamp": "2024-12-18T03:00",
         "dateTimeDetails": {
-          "label": "Oct 19 · 1PM to 4PM",
-          "dateAbbr": "Oct 19",
-          "dateFull": "October 19",
-          "timeStart": "1PM",
-          "timeEnd": "4PM"
+          "label": "Dec 18 · 3AM to 6AM",
+          "dateAbbr": "Dec 18",
+          "dateFull": "December 18",
+          "timeStart": "3AM",
+          "timeEnd": "6AM"
         },
         "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "6",
-        "dayName": "Saturday"
+        "dayNumber": "3",
+        "dayName": "Wednesday"
       },
       {
-        "timestamp": "2024-10-19T16:00:00.000-08:00",
-        "precip": 0.508,
-        "precipInches": 0.02,
-        "hour": "4PM",
-        "shortTimestamp": "2024-10-19T16:00",
+        "timestamp": "2024-12-18T06:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "6AM",
+        "shortTimestamp": "2024-12-18T06:00",
         "dateTimeDetails": {
-          "label": "Oct 19 · 4PM to 7PM",
-          "dateAbbr": "Oct 19",
-          "dateFull": "October 19",
-          "timeStart": "4PM",
-          "timeEnd": "7PM"
+          "label": "Dec 18 · 6AM to 9AM",
+          "dateAbbr": "Dec 18",
+          "dateFull": "December 18",
+          "timeStart": "6AM",
+          "timeEnd": "9AM"
         },
         "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "6",
-        "dayName": "Saturday"
+        "dayNumber": "3",
+        "dayName": "Wednesday"
       },
       {
-        "timestamp": "2024-10-19T19:00:00.000-08:00",
-        "precip": 0.508,
-        "precipInches": 0.02,
-        "hour": "7PM",
-        "shortTimestamp": "2024-10-19T19:00",
+        "timestamp": "2024-12-18T09:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "9AM",
+        "shortTimestamp": "2024-12-18T09:00",
         "dateTimeDetails": {
-          "label": "Oct 19 · 7PM to 10PM",
-          "dateAbbr": "Oct 19",
-          "dateFull": "October 19",
-          "timeStart": "7PM",
-          "timeEnd": "10PM"
+          "label": "Dec 18 · 9AM to 12PM",
+          "dateAbbr": "Dec 18",
+          "dateFull": "December 18",
+          "timeStart": "9AM",
+          "timeEnd": "12PM"
         },
         "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "6",
-        "dayName": "Saturday"
+        "dayNumber": "3",
+        "dayName": "Wednesday"
       },
       {
-        "timestamp": "2024-10-19T22:00:00.000-08:00",
-        "precip": 0.508,
-        "precipInches": 0.02,
-        "hour": "10PM",
-        "shortTimestamp": "2024-10-19T22:00",
+        "timestamp": "2024-12-18T12:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "12PM",
+        "shortTimestamp": "2024-12-18T12:00",
         "dateTimeDetails": {
-          "label": "Oct 19 · 10PM to 1AM",
-          "dateAbbr": "Oct 19",
-          "dateFull": "October 19",
-          "timeStart": "10PM",
-          "timeEnd": "1AM"
+          "label": "Dec 18 · 12PM to 3PM",
+          "dateAbbr": "Dec 18",
+          "dateFull": "December 18",
+          "timeStart": "12PM",
+          "timeEnd": "3PM"
         },
         "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "6",
-        "dayName": "Saturday"
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2024-12-18T15:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "3PM",
+        "shortTimestamp": "2024-12-18T15:00",
+        "dateTimeDetails": {
+          "label": "Dec 18 · 3PM to 6PM",
+          "dateAbbr": "Dec 18",
+          "dateFull": "December 18",
+          "timeStart": "3PM",
+          "timeEnd": "6PM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2024-12-18T18:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "6PM",
+        "shortTimestamp": "2024-12-18T18:00",
+        "dateTimeDetails": {
+          "label": "Dec 18 · 6PM to 9PM",
+          "dateAbbr": "Dec 18",
+          "dateFull": "December 18",
+          "timeStart": "6PM",
+          "timeEnd": "9PM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2024-12-18T21:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "9PM",
+        "shortTimestamp": "2024-12-18T21:00",
+        "dateTimeDetails": {
+          "label": "Dec 18 · 9PM to 12AM",
+          "dateAbbr": "Dec 18",
+          "dateFull": "December 18",
+          "timeStart": "9PM",
+          "timeEnd": "12AM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
       }
     ]
   }
