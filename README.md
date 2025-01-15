@@ -91,3 +91,8 @@ To build and publish the code, make sure your local checkout is in the state you
 ```
 
 The newly published code will be used the next time the automatic site rebuild is triggered. To update the static site immediately, you can trigger a build by going to [the ECS console](https://us-west-2.console.aws.amazon.com/ecs/home?region=us-west-2#/clusters/sitkaproduction/tasks) and clicking "Run new Task". You can use the parameters in the "Targets" tab of the scheduling rule on [EventBridge](https://us-west-2.console.aws.amazon.com/events/home?region=us-west-2#/rules) as a reference for setting the runtime parameters.
+
+
+## Viewing and querying past rainfall/risk data
+
+Starting in [September 2024](https://github.com/azavea/sitka-landslide/pull/90), the site update process saves the `rainfall.json` file, whihc provides the time-specific rainfall and risk data for the site, to an archive bucket on S3.  See [Viewing and Querying Archived Data]() for information on how to access, view, and query that data.
