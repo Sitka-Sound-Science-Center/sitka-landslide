@@ -1,41 +1,24 @@
 {
-  "lastUpdated": "2025-01-15T11:55:14.722-09:00",
+  "lastUpdated": "2025-01-15T12:36:21.242-09:00",
   "weatherAdvisory": {
     "active": false,
     "permalink": "https://forecast.weather.gov/MapClick.php?lat=57.053&lon=-135.36"
   },
   "current": {
-    "timestamp": "2025-01-15T11:45:00.000-09:00",
+    "timestamp": "2025-01-15T12:25:00.000-09:00",
     "dateTimeDetails": {
       "label": "Past 3 hours"
     },
-    "precip": 1.778,
-    "precipInches": 0.07,
+    "precip": 5.08,
+    "precipInches": 0.2,
     "prevPrecip": 0.025,
-    "riskProb": 0.0001,
+    "riskProb": 0.0003,
     "riskLevel": 0,
     "riskIsElevatedFromPreviousPrecip": false
   },
   "twentyFourHours": {
     "riskLevel": 0,
     "hours": [
-      {
-        "timestamp": "2025-01-15T09:00:00.000-09:00",
-        "precip": 2.2860000908374865,
-        "precipInches": 0.09,
-        "hour": "9AM",
-        "shortTimestamp": "2025-01-15T09:00",
-        "dateTimeDetails": {
-          "label": "Jan 15 · 9AM to 12PM",
-          "dateAbbr": "Jan 15",
-          "dateFull": "January 15",
-          "timeStart": "9AM",
-          "timeEnd": "12PM"
-        },
-        "riskProb": 0.0001,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false
-      },
       {
         "timestamp": "2025-01-15T12:00:00.000-09:00",
         "precip": 2.2860000908374865,
@@ -171,6 +154,23 @@
         "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false
+      },
+      {
+        "timestamp": "2025-01-16T12:00:00.000-09:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "12PM",
+        "shortTimestamp": "2025-01-16T12:00",
+        "dateTimeDetails": {
+          "label": "Jan 16 · 12PM to 3PM",
+          "dateAbbr": "Jan 16",
+          "dateFull": "January 16",
+          "timeStart": "12PM",
+          "timeEnd": "3PM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false
       }
     ]
   },
@@ -196,25 +196,6 @@
       }
     ],
     "hours": [
-      {
-        "timestamp": "2025-01-15T09:00:00.000-09:00",
-        "precip": 2.2860000908374865,
-        "precipInches": 0.09,
-        "hour": "9AM",
-        "shortTimestamp": "2025-01-15T09:00",
-        "dateTimeDetails": {
-          "label": "Jan 15 · 9AM to 12PM",
-          "dateAbbr": "Jan 15",
-          "dateFull": "January 15",
-          "timeStart": "9AM",
-          "timeEnd": "12PM"
-        },
-        "riskProb": 0.0001,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "3",
-        "dayName": "Wednesday"
-      },
       {
         "timestamp": "2025-01-15T12:00:00.000-09:00",
         "precip": 2.2860000908374865,
