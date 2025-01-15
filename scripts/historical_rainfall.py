@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import itertools
 import os
 import shutil
 import subprocess
@@ -30,8 +31,10 @@ def load_file(path):
 def build_files_dict(archive_dir):
     """Return a {year: [timestamps]} dictionary by listing and parsing an archive directory"""
     return {
-        year: sorted(filename_to_ts(f) for f in os.listdir(os.path.join(archive_dir, year)))
-        for year in sorted(os.listdir(archive_dir))
+        year: sorted(itertools.chain.from_iterable([
+            filename_to_ts(f) for f in os.listdir(os.path.join(archive_dir, year, month))]
+            for month in sorted(os.listdir(os.path.join(archive_dir, year)))
+        )) for year in sorted(os.listdir(archive_dir))
         # filter out any directory that doesn't look like a year
         if year.startswith("20")
     }
@@ -48,7 +51,7 @@ def timestamp_to_index(files, ts):
 
 def sync_from_s3(dir):
     print(f"Syncing archive from S3 to {dir}...")
-    command = ["aws", "s3", "sync", "--dryrun", S3_ARCHIVE_FOLDER_URI, dir]
+    command = ["aws", "s3", "sync", S3_ARCHIVE_FOLDER_URI, dir]
     try:
         output = subprocess.check_output(command, stderr=subprocess.STDOUT, universal_newlines=True)
     except subprocess.CalledProcessError as e:
@@ -98,8 +101,9 @@ def main():
     # A helper function using the local 'args.dir' and 'files'
     def load_index(yr, idx):
         ts = files[yr][idx]
-        print(f"Loading {ts} (index {idx}/{len(files[year]) - 1} in {year})")
-        load_file(os.path.join(args.dir, year, ts_to_filename(ts)))
+        month = ts[5:7]
+        print(f"Loading {ts} (index {idx}/{len(files[yr]) - 1} in {yr})")
+        load_file(os.path.join(args.dir, yr, month, ts_to_filename(ts)))
 
     if args.timestamp:
         try:
@@ -116,13 +120,15 @@ def main():
 
     def cmd_reference():
         print(" Command options:")
-        print("   n        load the next file")
-        print("   p        load the previous file")
-        print("   j <num>  jump <num> steps (positive for later, negative for earlier)")
-        print("   i <idx>  go to the given index within the current year's files")
-        print("   l <ts>   load a specific timestamp <ts>")
-        print("   x or q   exit")
+        print("   n         load the next file")
+        print("   p         load the previous file")
+        print("   j <num>   jump <num> steps (positive for later, negative for earlier)")
+        print("   i <idx>   go to the given index within the current year's files")
+        print("   t <ts>    load a specific timestamp <ts>")
+        print("   y <year>  switch to the given year")
+        print("   x or q    exit")
 
+    cmd_reference()
     while True:
         cmd = input("What next? ")
         try:
@@ -142,10 +148,13 @@ def main():
                 target_idx = int(cmd.split(" ")[1])
                 load_index(year, target_idx)
                 index = target_idx
-            elif cmd.startswith("l "):
+            elif cmd.startswith("t "):
                 ts = cmd.split(" ")[1]
                 (year, index) = timestamp_to_index(files, ts)
                 load_index(year, index)
+            elif cmd.startswith("y "):
+                year = cmd.split(" ")[1]
+                load_index(year, 0)
             else:
                 cmd_reference()
         except (ValueError, IndexError, LookupError) as e:
