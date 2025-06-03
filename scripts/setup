@@ -13,7 +13,12 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     if [ "${1:-}" = "--help" ]; then
         usage
     else
+        # Download .env file if missing
+        if [ ! -f "./frontend/.env" ]; then
+            aws --profile sitka s3 cp s3://sitka-production-config-us-west-2/.env frontend/.env
+        fi
+
+        # Install dependencies and prepare project
         ./scripts/update
     fi
 fi
-

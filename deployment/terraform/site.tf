@@ -166,7 +166,12 @@ resource "aws_ecs_task_definition" "build" {
     "image": "${aws_ecr_repository.default.repository_url}:latest",
     "essential": true,
     "portMappings": [],
-    "environment": [],
+    "environment": [
+      {
+        "name": "MESOWEST_TOKEN",
+        "value": "${var.MESOWEST_TOKEN}"
+      }
+    ],
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {
@@ -286,8 +291,8 @@ resource "aws_cloudwatch_event_target" "ecs_scheduled_task" {
     enable_ecs_managed_tags = true
 
     network_configuration {
-      subnets          = ["subnet-0c809320a8958a62e"] #Manually got ID
-      security_groups  = ["sg-09f6958f76126065e"]     #Manually got ID
+      subnets          = ["subnet-0c809320a8958a62e"] # Manually got ID
+      security_groups  = ["sg-09f6958f76126065e"]     # Manually got ID
       assign_public_ip = true
     }
   }
@@ -295,7 +300,7 @@ resource "aws_cloudwatch_event_target" "ecs_scheduled_task" {
 
 # Add S3 Endpoint
 resource "aws_vpc_endpoint" "s3" {
-  vpc_id       = "vpc-0782aa50f85e73afd" #Manually got existing VPC ID
+  vpc_id       = "vpc-0782aa50f85e73afd" # Manually got existing VPC ID
   service_name = "com.amazonaws.us-west-2.s3"
 }
 

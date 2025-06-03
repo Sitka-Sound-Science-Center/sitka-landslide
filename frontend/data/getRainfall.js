@@ -3,12 +3,17 @@ const axiosRetry = require("axios-retry");
 const { DateTime } = require("luxon");
 const fs = require("fs");
 
+// Load development environment variables
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 // For debugging: a multiplier applied to rainfall amounts to get the results up into an
 // interesting range. Something in the 8-15 range will usually do the trick.
 const EXAGGERATION_FACTOR = process.env.EXAGGERATION_FACTOR || 1;
 
 const MESOWEST_API = "https://api.synopticdata.com/v2";
-const MESOWEST_TOKEN = process.env.MESOWEST_TOKEN || "7af7d140d72d47a1991ded80a346234d";
+const MESOWEST_TOKEN = process.env.MESOWEST_TOKEN;
 
 const NWS_API = "https://api.weather.gov/gridpoints/AJK/187,111";
 const STATION_LAT = 57.053;
