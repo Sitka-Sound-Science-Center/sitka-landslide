@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2025-01-15T12:36:21.242-09:00",
+  "lastUpdated": "2025-06-03T12:14:02.978-08:00",
   "weatherAdvisory": {
     "active": false,
     "permalink": "https://forecast.weather.gov/MapClick.php?lat=57.053&lon=-135.36"
   },
   "current": {
-    "timestamp": "2025-01-15T12:25:00.000-09:00",
+    "timestamp": "2025-06-03T12:05:00.000-08:00",
     "dateTimeDetails": {
       "label": "Past 3 hours"
     },
-    "precip": 5.08,
-    "precipInches": 0.2,
-    "prevPrecip": 0.025,
-    "riskProb": 0.0003,
+    "precip": 0,
+    "precipInches": 0,
+    "prevPrecip": 0,
+    "riskProb": 0,
     "riskLevel": 0,
     "riskIsElevatedFromPreviousPrecip": false
   },
@@ -20,153 +20,153 @@
     "riskLevel": 0,
     "hours": [
       {
-        "timestamp": "2025-01-15T12:00:00.000-09:00",
-        "precip": 2.2860000908374865,
-        "precipInches": 0.09,
-        "hour": "12PM",
-        "shortTimestamp": "2025-01-15T12:00",
-        "dateTimeDetails": {
-          "label": "Jan 15 · 12PM to 3PM",
-          "dateAbbr": "Jan 15",
-          "dateFull": "January 15",
-          "timeStart": "12PM",
-          "timeEnd": "3PM"
-        },
-        "riskProb": 0.0001,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false
-      },
-      {
-        "timestamp": "2025-01-15T15:00:00.000-09:00",
-        "precip": 3.047999931871866,
-        "precipInches": 0.12,
-        "hour": "3PM",
-        "shortTimestamp": "2025-01-15T15:00",
-        "dateTimeDetails": {
-          "label": "Jan 15 · 3PM to 6PM",
-          "dateAbbr": "Jan 15",
-          "dateFull": "January 15",
-          "timeStart": "3PM",
-          "timeEnd": "6PM"
-        },
-        "riskProb": 0.0001,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false
-      },
-      {
-        "timestamp": "2025-01-15T18:00:00.000-09:00",
-        "precip": 1.2700000189244731,
-        "precipInches": 0.05,
-        "hour": "6PM",
-        "shortTimestamp": "2025-01-15T18:00",
-        "dateTimeDetails": {
-          "label": "Jan 15 · 6PM to 9PM",
-          "dateAbbr": "Jan 15",
-          "dateFull": "January 15",
-          "timeStart": "6PM",
-          "timeEnd": "9PM"
-        },
-        "riskProb": 0.0001,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false
-      },
-      {
-        "timestamp": "2025-01-15T21:00:00.000-09:00",
-        "precip": 1.015999977290622,
-        "precipInches": 0.04,
-        "hour": "9PM",
-        "shortTimestamp": "2025-01-15T21:00",
-        "dateTimeDetails": {
-          "label": "Jan 15 · 9PM to 12AM",
-          "dateAbbr": "Jan 15",
-          "dateFull": "January 15",
-          "timeStart": "9PM",
-          "timeEnd": "12AM"
-        },
-        "riskProb": 0.0001,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false
-      },
-      {
-        "timestamp": "2025-01-16T00:00:00.000-09:00",
-        "precip": 1.015999977290622,
-        "precipInches": 0.04,
-        "hour": "12AM",
-        "shortTimestamp": "2025-01-16T00:00",
-        "dateTimeDetails": {
-          "label": "Jan 16 · 12AM to 3AM",
-          "dateAbbr": "Jan 16",
-          "dateFull": "January 16",
-          "timeStart": "12AM",
-          "timeEnd": "3AM"
-        },
-        "riskProb": 0.0001,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false
-      },
-      {
-        "timestamp": "2025-01-16T03:00:00.000-09:00",
+        "timestamp": "2025-06-03T10:00:00.000-08:00",
         "precip": 0,
         "precipInches": 0,
-        "hour": "3AM",
-        "shortTimestamp": "2025-01-16T03:00",
+        "hour": "10AM",
+        "shortTimestamp": "2025-06-03T10:00",
         "dateTimeDetails": {
-          "label": "Jan 16 · 3AM to 6AM",
-          "dateAbbr": "Jan 16",
-          "dateFull": "January 16",
-          "timeStart": "3AM",
-          "timeEnd": "6AM"
+          "label": "Jun 3 · 10AM to 1PM",
+          "dateAbbr": "Jun 3",
+          "dateFull": "June 3",
+          "timeStart": "10AM",
+          "timeEnd": "1PM"
         },
         "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false
       },
       {
-        "timestamp": "2025-01-16T06:00:00.000-09:00",
+        "timestamp": "2025-06-03T13:00:00.000-08:00",
         "precip": 0,
         "precipInches": 0,
-        "hour": "6AM",
-        "shortTimestamp": "2025-01-16T06:00",
+        "hour": "1PM",
+        "shortTimestamp": "2025-06-03T13:00",
         "dateTimeDetails": {
-          "label": "Jan 16 · 6AM to 9AM",
-          "dateAbbr": "Jan 16",
-          "dateFull": "January 16",
-          "timeStart": "6AM",
-          "timeEnd": "9AM"
+          "label": "Jun 3 · 1PM to 4PM",
+          "dateAbbr": "Jun 3",
+          "dateFull": "June 3",
+          "timeStart": "1PM",
+          "timeEnd": "4PM"
         },
         "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false
       },
       {
-        "timestamp": "2025-01-16T09:00:00.000-09:00",
+        "timestamp": "2025-06-03T16:00:00.000-08:00",
         "precip": 0,
         "precipInches": 0,
-        "hour": "9AM",
-        "shortTimestamp": "2025-01-16T09:00",
+        "hour": "4PM",
+        "shortTimestamp": "2025-06-03T16:00",
         "dateTimeDetails": {
-          "label": "Jan 16 · 9AM to 12PM",
-          "dateAbbr": "Jan 16",
-          "dateFull": "January 16",
-          "timeStart": "9AM",
-          "timeEnd": "12PM"
+          "label": "Jun 3 · 4PM to 7PM",
+          "dateAbbr": "Jun 3",
+          "dateFull": "June 3",
+          "timeStart": "4PM",
+          "timeEnd": "7PM"
         },
         "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false
       },
       {
-        "timestamp": "2025-01-16T12:00:00.000-09:00",
+        "timestamp": "2025-06-03T19:00:00.000-08:00",
         "precip": 0,
         "precipInches": 0,
-        "hour": "12PM",
-        "shortTimestamp": "2025-01-16T12:00",
+        "hour": "7PM",
+        "shortTimestamp": "2025-06-03T19:00",
         "dateTimeDetails": {
-          "label": "Jan 16 · 12PM to 3PM",
-          "dateAbbr": "Jan 16",
-          "dateFull": "January 16",
-          "timeStart": "12PM",
-          "timeEnd": "3PM"
+          "label": "Jun 3 · 7PM to 10PM",
+          "dateAbbr": "Jun 3",
+          "dateFull": "June 3",
+          "timeStart": "7PM",
+          "timeEnd": "10PM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false
+      },
+      {
+        "timestamp": "2025-06-03T22:00:00.000-08:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "10PM",
+        "shortTimestamp": "2025-06-03T22:00",
+        "dateTimeDetails": {
+          "label": "Jun 3 · 10PM to 1AM",
+          "dateAbbr": "Jun 3",
+          "dateFull": "June 3",
+          "timeStart": "10PM",
+          "timeEnd": "1AM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false
+      },
+      {
+        "timestamp": "2025-06-04T01:00:00.000-08:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "1AM",
+        "shortTimestamp": "2025-06-04T01:00",
+        "dateTimeDetails": {
+          "label": "Jun 4 · 1AM to 4AM",
+          "dateAbbr": "Jun 4",
+          "dateFull": "June 4",
+          "timeStart": "1AM",
+          "timeEnd": "4AM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false
+      },
+      {
+        "timestamp": "2025-06-04T04:00:00.000-08:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "4AM",
+        "shortTimestamp": "2025-06-04T04:00",
+        "dateTimeDetails": {
+          "label": "Jun 4 · 4AM to 7AM",
+          "dateAbbr": "Jun 4",
+          "dateFull": "June 4",
+          "timeStart": "4AM",
+          "timeEnd": "7AM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false
+      },
+      {
+        "timestamp": "2025-06-04T07:00:00.000-08:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "7AM",
+        "shortTimestamp": "2025-06-04T07:00",
+        "dateTimeDetails": {
+          "label": "Jun 4 · 7AM to 10AM",
+          "dateAbbr": "Jun 4",
+          "dateFull": "June 4",
+          "timeStart": "7AM",
+          "timeEnd": "10AM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false
+      },
+      {
+        "timestamp": "2025-06-04T10:00:00.000-08:00",
+        "precip": 0.507999988645311,
+        "precipInches": 0.02,
+        "hour": "10AM",
+        "shortTimestamp": "2025-06-04T10:00",
+        "dateTimeDetails": {
+          "label": "Jun 4 · 10AM to 1PM",
+          "dateAbbr": "Jun 4",
+          "dateFull": "June 4",
+          "timeStart": "10AM",
+          "timeEnd": "1PM"
         },
         "riskProb": 0,
         "riskLevel": 0,
@@ -177,37 +177,265 @@
   "threeDays": {
     "days": [
       {
+        "dayNumber": "2",
+        "dayName": "Tuesday",
+        "riskLevel": 0,
+        "lastTimestamp": "2025-06-03T22:00:00.000-08:00"
+      },
+      {
         "dayNumber": "3",
         "dayName": "Wednesday",
         "riskLevel": 0,
-        "lastTimestamp": "2025-01-15T21:00:00.000-09:00"
+        "lastTimestamp": "2025-06-04T22:00:00.000-08:00"
       },
       {
         "dayNumber": "4",
         "dayName": "Thursday",
         "riskLevel": 0,
-        "lastTimestamp": "2025-01-16T21:00:00.000-09:00"
-      },
-      {
-        "dayNumber": "5",
-        "dayName": "Friday",
-        "riskLevel": 0,
-        "lastTimestamp": "2025-01-17T21:00:00.000-09:00"
+        "lastTimestamp": "2025-06-05T22:00:00.000-08:00"
       }
     ],
     "hours": [
       {
-        "timestamp": "2025-01-15T12:00:00.000-09:00",
+        "timestamp": "2025-06-03T10:00:00.000-08:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "10AM",
+        "shortTimestamp": "2025-06-03T10:00",
+        "dateTimeDetails": {
+          "label": "Jun 3 · 10AM to 1PM",
+          "dateAbbr": "Jun 3",
+          "dateFull": "June 3",
+          "timeStart": "10AM",
+          "timeEnd": "1PM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "2",
+        "dayName": "Tuesday"
+      },
+      {
+        "timestamp": "2025-06-03T13:00:00.000-08:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "1PM",
+        "shortTimestamp": "2025-06-03T13:00",
+        "dateTimeDetails": {
+          "label": "Jun 3 · 1PM to 4PM",
+          "dateAbbr": "Jun 3",
+          "dateFull": "June 3",
+          "timeStart": "1PM",
+          "timeEnd": "4PM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "2",
+        "dayName": "Tuesday"
+      },
+      {
+        "timestamp": "2025-06-03T16:00:00.000-08:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "4PM",
+        "shortTimestamp": "2025-06-03T16:00",
+        "dateTimeDetails": {
+          "label": "Jun 3 · 4PM to 7PM",
+          "dateAbbr": "Jun 3",
+          "dateFull": "June 3",
+          "timeStart": "4PM",
+          "timeEnd": "7PM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "2",
+        "dayName": "Tuesday"
+      },
+      {
+        "timestamp": "2025-06-03T19:00:00.000-08:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "7PM",
+        "shortTimestamp": "2025-06-03T19:00",
+        "dateTimeDetails": {
+          "label": "Jun 3 · 7PM to 10PM",
+          "dateAbbr": "Jun 3",
+          "dateFull": "June 3",
+          "timeStart": "7PM",
+          "timeEnd": "10PM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "2",
+        "dayName": "Tuesday"
+      },
+      {
+        "timestamp": "2025-06-03T22:00:00.000-08:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "10PM",
+        "shortTimestamp": "2025-06-03T22:00",
+        "dateTimeDetails": {
+          "label": "Jun 3 · 10PM to 1AM",
+          "dateAbbr": "Jun 3",
+          "dateFull": "June 3",
+          "timeStart": "10PM",
+          "timeEnd": "1AM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "2",
+        "dayName": "Tuesday"
+      },
+      {
+        "timestamp": "2025-06-04T01:00:00.000-08:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "1AM",
+        "shortTimestamp": "2025-06-04T01:00",
+        "dateTimeDetails": {
+          "label": "Jun 4 · 1AM to 4AM",
+          "dateAbbr": "Jun 4",
+          "dateFull": "June 4",
+          "timeStart": "1AM",
+          "timeEnd": "4AM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2025-06-04T04:00:00.000-08:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "4AM",
+        "shortTimestamp": "2025-06-04T04:00",
+        "dateTimeDetails": {
+          "label": "Jun 4 · 4AM to 7AM",
+          "dateAbbr": "Jun 4",
+          "dateFull": "June 4",
+          "timeStart": "4AM",
+          "timeEnd": "7AM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2025-06-04T07:00:00.000-08:00",
+        "precip": 0,
+        "precipInches": 0,
+        "hour": "7AM",
+        "shortTimestamp": "2025-06-04T07:00",
+        "dateTimeDetails": {
+          "label": "Jun 4 · 7AM to 10AM",
+          "dateAbbr": "Jun 4",
+          "dateFull": "June 4",
+          "timeStart": "7AM",
+          "timeEnd": "10AM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2025-06-04T10:00:00.000-08:00",
+        "precip": 0.507999988645311,
+        "precipInches": 0.02,
+        "hour": "10AM",
+        "shortTimestamp": "2025-06-04T10:00",
+        "dateTimeDetails": {
+          "label": "Jun 4 · 10AM to 1PM",
+          "dateAbbr": "Jun 4",
+          "dateFull": "June 4",
+          "timeStart": "10AM",
+          "timeEnd": "1PM"
+        },
+        "riskProb": 0,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2025-06-04T13:00:00.000-08:00",
+        "precip": 1.523999965935933,
+        "precipInches": 0.06,
+        "hour": "1PM",
+        "shortTimestamp": "2025-06-04T13:00",
+        "dateTimeDetails": {
+          "label": "Jun 4 · 1PM to 4PM",
+          "dateAbbr": "Jun 4",
+          "dateFull": "June 4",
+          "timeStart": "1PM",
+          "timeEnd": "4PM"
+        },
+        "riskProb": 0.0001,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2025-06-04T16:00:00.000-08:00",
+        "precip": 1.7780000075697842,
+        "precipInches": 0.07,
+        "hour": "4PM",
+        "shortTimestamp": "2025-06-04T16:00",
+        "dateTimeDetails": {
+          "label": "Jun 4 · 4PM to 7PM",
+          "dateAbbr": "Jun 4",
+          "dateFull": "June 4",
+          "timeStart": "4PM",
+          "timeEnd": "7PM"
+        },
+        "riskProb": 0.0001,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2025-06-04T19:00:00.000-08:00",
+        "precip": 1.7780000075697842,
+        "precipInches": 0.07,
+        "hour": "7PM",
+        "shortTimestamp": "2025-06-04T19:00",
+        "dateTimeDetails": {
+          "label": "Jun 4 · 7PM to 10PM",
+          "dateAbbr": "Jun 4",
+          "dateFull": "June 4",
+          "timeStart": "7PM",
+          "timeEnd": "10PM"
+        },
+        "riskProb": 0.0001,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "3",
+        "dayName": "Wednesday"
+      },
+      {
+        "timestamp": "2025-06-04T22:00:00.000-08:00",
         "precip": 2.2860000908374865,
         "precipInches": 0.09,
-        "hour": "12PM",
-        "shortTimestamp": "2025-01-15T12:00",
+        "hour": "10PM",
+        "shortTimestamp": "2025-06-04T22:00",
         "dateTimeDetails": {
-          "label": "Jan 15 · 12PM to 3PM",
-          "dateAbbr": "Jan 15",
-          "dateFull": "January 15",
-          "timeStart": "12PM",
-          "timeEnd": "3PM"
+          "label": "Jun 4 · 10PM to 1AM",
+          "dateAbbr": "Jun 4",
+          "dateFull": "June 4",
+          "timeStart": "10PM",
+          "timeEnd": "1AM"
         },
         "riskProb": 0.0001,
         "riskLevel": 0,
@@ -216,74 +444,93 @@
         "dayName": "Wednesday"
       },
       {
-        "timestamp": "2025-01-15T15:00:00.000-09:00",
-        "precip": 3.047999931871866,
-        "precipInches": 0.12,
-        "hour": "3PM",
-        "shortTimestamp": "2025-01-15T15:00",
+        "timestamp": "2025-06-05T01:00:00.000-08:00",
+        "precip": 2.2860000908374865,
+        "precipInches": 0.09,
+        "hour": "1AM",
+        "shortTimestamp": "2025-06-05T01:00",
         "dateTimeDetails": {
-          "label": "Jan 15 · 3PM to 6PM",
-          "dateAbbr": "Jan 15",
-          "dateFull": "January 15",
-          "timeStart": "3PM",
-          "timeEnd": "6PM"
+          "label": "Jun 5 · 1AM to 4AM",
+          "dateAbbr": "Jun 5",
+          "dateFull": "June 5",
+          "timeStart": "1AM",
+          "timeEnd": "4AM"
         },
         "riskProb": 0.0001,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "3",
-        "dayName": "Wednesday"
+        "dayNumber": "4",
+        "dayName": "Thursday"
       },
       {
-        "timestamp": "2025-01-15T18:00:00.000-09:00",
-        "precip": 1.2700000189244731,
-        "precipInches": 0.05,
-        "hour": "6PM",
-        "shortTimestamp": "2025-01-15T18:00",
+        "timestamp": "2025-06-05T04:00:00.000-08:00",
+        "precip": 1.7780000075697842,
+        "precipInches": 0.07,
+        "hour": "4AM",
+        "shortTimestamp": "2025-06-05T04:00",
         "dateTimeDetails": {
-          "label": "Jan 15 · 6PM to 9PM",
-          "dateAbbr": "Jan 15",
-          "dateFull": "January 15",
-          "timeStart": "6PM",
-          "timeEnd": "9PM"
+          "label": "Jun 5 · 4AM to 7AM",
+          "dateAbbr": "Jun 5",
+          "dateFull": "June 5",
+          "timeStart": "4AM",
+          "timeEnd": "7AM"
         },
         "riskProb": 0.0001,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "3",
-        "dayName": "Wednesday"
+        "dayNumber": "4",
+        "dayName": "Thursday"
       },
       {
-        "timestamp": "2025-01-15T21:00:00.000-09:00",
+        "timestamp": "2025-06-05T07:00:00.000-08:00",
+        "precip": 1.7780000075697842,
+        "precipInches": 0.07,
+        "hour": "7AM",
+        "shortTimestamp": "2025-06-05T07:00",
+        "dateTimeDetails": {
+          "label": "Jun 5 · 7AM to 10AM",
+          "dateAbbr": "Jun 5",
+          "dateFull": "June 5",
+          "timeStart": "7AM",
+          "timeEnd": "10AM"
+        },
+        "riskProb": 0.0001,
+        "riskLevel": 0,
+        "riskIsElevatedFromPreviousPrecip": false,
+        "dayNumber": "4",
+        "dayName": "Thursday"
+      },
+      {
+        "timestamp": "2025-06-05T10:00:00.000-08:00",
         "precip": 1.015999977290622,
         "precipInches": 0.04,
-        "hour": "9PM",
-        "shortTimestamp": "2025-01-15T21:00",
+        "hour": "10AM",
+        "shortTimestamp": "2025-06-05T10:00",
         "dateTimeDetails": {
-          "label": "Jan 15 · 9PM to 12AM",
-          "dateAbbr": "Jan 15",
-          "dateFull": "January 15",
-          "timeStart": "9PM",
-          "timeEnd": "12AM"
+          "label": "Jun 5 · 10AM to 1PM",
+          "dateAbbr": "Jun 5",
+          "dateFull": "June 5",
+          "timeStart": "10AM",
+          "timeEnd": "1PM"
         },
         "riskProb": 0.0001,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "3",
-        "dayName": "Wednesday"
+        "dayNumber": "4",
+        "dayName": "Thursday"
       },
       {
-        "timestamp": "2025-01-16T00:00:00.000-09:00",
+        "timestamp": "2025-06-05T13:00:00.000-08:00",
         "precip": 1.015999977290622,
         "precipInches": 0.04,
-        "hour": "12AM",
-        "shortTimestamp": "2025-01-16T00:00",
+        "hour": "1PM",
+        "shortTimestamp": "2025-06-05T13:00",
         "dateTimeDetails": {
-          "label": "Jan 16 · 12AM to 3AM",
-          "dateAbbr": "Jan 16",
-          "dateFull": "January 16",
-          "timeStart": "12AM",
-          "timeEnd": "3AM"
+          "label": "Jun 5 · 1PM to 4PM",
+          "dateAbbr": "Jun 5",
+          "dateFull": "June 5",
+          "timeStart": "1PM",
+          "timeEnd": "4PM"
         },
         "riskProb": 0.0001,
         "riskLevel": 0,
@@ -292,17 +539,17 @@
         "dayName": "Thursday"
       },
       {
-        "timestamp": "2025-01-16T03:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "3AM",
-        "shortTimestamp": "2025-01-16T03:00",
+        "timestamp": "2025-06-05T16:00:00.000-08:00",
+        "precip": 0.253999994322658,
+        "precipInches": 0.01,
+        "hour": "4PM",
+        "shortTimestamp": "2025-06-05T16:00",
         "dateTimeDetails": {
-          "label": "Jan 16 · 3AM to 6AM",
-          "dateAbbr": "Jan 16",
-          "dateFull": "January 16",
-          "timeStart": "3AM",
-          "timeEnd": "6AM"
+          "label": "Jun 5 · 4PM to 7PM",
+          "dateAbbr": "Jun 5",
+          "dateFull": "June 5",
+          "timeStart": "4PM",
+          "timeEnd": "7PM"
         },
         "riskProb": 0,
         "riskLevel": 0,
@@ -311,17 +558,17 @@
         "dayName": "Thursday"
       },
       {
-        "timestamp": "2025-01-16T06:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "6AM",
-        "shortTimestamp": "2025-01-16T06:00",
+        "timestamp": "2025-06-05T19:00:00.000-08:00",
+        "precip": 0.253999994322658,
+        "precipInches": 0.01,
+        "hour": "7PM",
+        "shortTimestamp": "2025-06-05T19:00",
         "dateTimeDetails": {
-          "label": "Jan 16 · 6AM to 9AM",
-          "dateAbbr": "Jan 16",
-          "dateFull": "January 16",
-          "timeStart": "6AM",
-          "timeEnd": "9AM"
+          "label": "Jun 5 · 7PM to 10PM",
+          "dateAbbr": "Jun 5",
+          "dateFull": "June 5",
+          "timeStart": "7PM",
+          "timeEnd": "10PM"
         },
         "riskProb": 0,
         "riskLevel": 0,
@@ -330,251 +577,23 @@
         "dayName": "Thursday"
       },
       {
-        "timestamp": "2025-01-16T09:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "9AM",
-        "shortTimestamp": "2025-01-16T09:00",
+        "timestamp": "2025-06-05T22:00:00.000-08:00",
+        "precip": 0.253999994322658,
+        "precipInches": 0.01,
+        "hour": "10PM",
+        "shortTimestamp": "2025-06-05T22:00",
         "dateTimeDetails": {
-          "label": "Jan 16 · 9AM to 12PM",
-          "dateAbbr": "Jan 16",
-          "dateFull": "January 16",
-          "timeStart": "9AM",
-          "timeEnd": "12PM"
+          "label": "Jun 5 · 10PM to 1AM",
+          "dateAbbr": "Jun 5",
+          "dateFull": "June 5",
+          "timeStart": "10PM",
+          "timeEnd": "1AM"
         },
         "riskProb": 0,
         "riskLevel": 0,
         "riskIsElevatedFromPreviousPrecip": false,
         "dayNumber": "4",
         "dayName": "Thursday"
-      },
-      {
-        "timestamp": "2025-01-16T12:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "12PM",
-        "shortTimestamp": "2025-01-16T12:00",
-        "dateTimeDetails": {
-          "label": "Jan 16 · 12PM to 3PM",
-          "dateAbbr": "Jan 16",
-          "dateFull": "January 16",
-          "timeStart": "12PM",
-          "timeEnd": "3PM"
-        },
-        "riskProb": 0,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "4",
-        "dayName": "Thursday"
-      },
-      {
-        "timestamp": "2025-01-16T15:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "3PM",
-        "shortTimestamp": "2025-01-16T15:00",
-        "dateTimeDetails": {
-          "label": "Jan 16 · 3PM to 6PM",
-          "dateAbbr": "Jan 16",
-          "dateFull": "January 16",
-          "timeStart": "3PM",
-          "timeEnd": "6PM"
-        },
-        "riskProb": 0,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "4",
-        "dayName": "Thursday"
-      },
-      {
-        "timestamp": "2025-01-16T18:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "6PM",
-        "shortTimestamp": "2025-01-16T18:00",
-        "dateTimeDetails": {
-          "label": "Jan 16 · 6PM to 9PM",
-          "dateAbbr": "Jan 16",
-          "dateFull": "January 16",
-          "timeStart": "6PM",
-          "timeEnd": "9PM"
-        },
-        "riskProb": 0,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "4",
-        "dayName": "Thursday"
-      },
-      {
-        "timestamp": "2025-01-16T21:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "9PM",
-        "shortTimestamp": "2025-01-16T21:00",
-        "dateTimeDetails": {
-          "label": "Jan 16 · 9PM to 12AM",
-          "dateAbbr": "Jan 16",
-          "dateFull": "January 16",
-          "timeStart": "9PM",
-          "timeEnd": "12AM"
-        },
-        "riskProb": 0,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "4",
-        "dayName": "Thursday"
-      },
-      {
-        "timestamp": "2025-01-17T00:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "12AM",
-        "shortTimestamp": "2025-01-17T00:00",
-        "dateTimeDetails": {
-          "label": "Jan 17 · 12AM to 3AM",
-          "dateAbbr": "Jan 17",
-          "dateFull": "January 17",
-          "timeStart": "12AM",
-          "timeEnd": "3AM"
-        },
-        "riskProb": 0,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
-      },
-      {
-        "timestamp": "2025-01-17T03:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "3AM",
-        "shortTimestamp": "2025-01-17T03:00",
-        "dateTimeDetails": {
-          "label": "Jan 17 · 3AM to 6AM",
-          "dateAbbr": "Jan 17",
-          "dateFull": "January 17",
-          "timeStart": "3AM",
-          "timeEnd": "6AM"
-        },
-        "riskProb": 0,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
-      },
-      {
-        "timestamp": "2025-01-17T06:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "6AM",
-        "shortTimestamp": "2025-01-17T06:00",
-        "dateTimeDetails": {
-          "label": "Jan 17 · 6AM to 9AM",
-          "dateAbbr": "Jan 17",
-          "dateFull": "January 17",
-          "timeStart": "6AM",
-          "timeEnd": "9AM"
-        },
-        "riskProb": 0,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
-      },
-      {
-        "timestamp": "2025-01-17T09:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "9AM",
-        "shortTimestamp": "2025-01-17T09:00",
-        "dateTimeDetails": {
-          "label": "Jan 17 · 9AM to 12PM",
-          "dateAbbr": "Jan 17",
-          "dateFull": "January 17",
-          "timeStart": "9AM",
-          "timeEnd": "12PM"
-        },
-        "riskProb": 0,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
-      },
-      {
-        "timestamp": "2025-01-17T12:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "12PM",
-        "shortTimestamp": "2025-01-17T12:00",
-        "dateTimeDetails": {
-          "label": "Jan 17 · 12PM to 3PM",
-          "dateAbbr": "Jan 17",
-          "dateFull": "January 17",
-          "timeStart": "12PM",
-          "timeEnd": "3PM"
-        },
-        "riskProb": 0,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
-      },
-      {
-        "timestamp": "2025-01-17T15:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "3PM",
-        "shortTimestamp": "2025-01-17T15:00",
-        "dateTimeDetails": {
-          "label": "Jan 17 · 3PM to 6PM",
-          "dateAbbr": "Jan 17",
-          "dateFull": "January 17",
-          "timeStart": "3PM",
-          "timeEnd": "6PM"
-        },
-        "riskProb": 0,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
-      },
-      {
-        "timestamp": "2025-01-17T18:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "6PM",
-        "shortTimestamp": "2025-01-17T18:00",
-        "dateTimeDetails": {
-          "label": "Jan 17 · 6PM to 9PM",
-          "dateAbbr": "Jan 17",
-          "dateFull": "January 17",
-          "timeStart": "6PM",
-          "timeEnd": "9PM"
-        },
-        "riskProb": 0,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
-      },
-      {
-        "timestamp": "2025-01-17T21:00:00.000-09:00",
-        "precip": 0,
-        "precipInches": 0,
-        "hour": "9PM",
-        "shortTimestamp": "2025-01-17T21:00",
-        "dateTimeDetails": {
-          "label": "Jan 17 · 9PM to 12AM",
-          "dateAbbr": "Jan 17",
-          "dateFull": "January 17",
-          "timeStart": "9PM",
-          "timeEnd": "12AM"
-        },
-        "riskProb": 0,
-        "riskLevel": 0,
-        "riskIsElevatedFromPreviousPrecip": false,
-        "dayNumber": "5",
-        "dayName": "Friday"
       }
     ]
   }
