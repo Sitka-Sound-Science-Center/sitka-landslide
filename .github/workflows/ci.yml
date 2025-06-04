@@ -24,6 +24,8 @@ jobs:
           node-version: "16"
       - run: yarn install --frozen-lockfile
       - run: yarn export
+        env:
+          MESOWEST_TOKEN: ${{ secrets.MESOWEST_TOKEN }}
       - run: yarn lint
       - run: yarn run check-format
 

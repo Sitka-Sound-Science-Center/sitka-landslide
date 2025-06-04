@@ -21,3 +21,7 @@ variable "domain_name" {
   default = "sitkalandslide.org"
   type    = string
 }
+
+variable "MESOWEST_TOKEN" {
+  type    = string
+}

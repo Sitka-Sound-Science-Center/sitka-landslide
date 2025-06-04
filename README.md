@@ -12,6 +12,10 @@ Currently this project consists only of a Next.js front-end. For local developme
 
 _Note:_ Some Mac users have gotten silent failures when the scripts try to activate nvm. If the scripts just exit without doing their job, it might help to upgrade or downgrade nvm to a version that's working for someone else.
 
+## Development
+
+To work on this application, you'll need an AWS access key pair for the Sitka AWS account. It should be configured as a profile named `sitka`.
+
 ### Getting started
 
 You will need to have `nvm` and `yvm` installed (see links in [Requirements](#requirements)) but the scripts take care of installing and activating the right versions.
@@ -61,21 +65,22 @@ Changes to any of the AWS components deployment via Terraform (see [Infrastructu
 
 ### Infrastructure
 
-You'll need the [Terraform CLI](https://learn.hashicorp.com/tutorials/terraform/install-cli) installed, with a version that satisfies the required version in [`versions.tf`](https://github.com/azavea/sitka-landslide/blob/develop/deployment/terraform/versions.tf).
-Since we currently have no tfvars file, there's nothing to download.
+You'll need the [Terraform CLI](https://learn.hashicorp.com/tutorials/terraform/install-cli) installed, with a version that satisfies the required version in [`versions.tf`](./deployment/terraform/versions.tf).
 
 From the `deployment/terraform` directory, first initialize and plan:
 
 ```
+rm *.tfplan
 export AWS_PROFILE=sitka
+aws s3 cp s3://sitka-production-config-us-west-2/sitka.tfvars sitka.tfvars
 terraform init -backend-config="bucket=sitka-production-config-us-west-2"
-terraform plan
+terraform plan -var-file="sitka.tfvars" -out="sitka.tfplan"
 ```
 
 Check the output to make sure it's going to do what you think it should, and no more. Then apply:
 
 ```
-terraform apply
+terraform apply sitka.tfplan
 ```
 
 Check the output of that command to make sure it did what you expected.

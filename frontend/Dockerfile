@@ -7,7 +7,7 @@ RUN apt-get update && \
 WORKDIR /app
 
 # Install packages
-COPY package.json yarn.lock ./
+COPY package.json yarn.lock .env ./
 RUN yarn install --frozen-lockfile && yarn cache clean
 
 # Copy code. Annoyingly, you can't copy specific directories all at once. Directory args are
