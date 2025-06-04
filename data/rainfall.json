@@ -1,11 +1,11 @@
 {
-  "lastUpdated": "2025-06-04T09:08:55.351-08:00",
+  "lastUpdated": "2025-06-04T09:25:32.966-08:00",
   "weatherAdvisory": {
     "active": false,
     "permalink": "https://forecast.weather.gov/MapClick.php?lat=57.053&lon=-135.36"
   },
   "current": {
-    "timestamp": "2025-06-04T09:00:00.000-08:00",
+    "timestamp": "2025-06-04T09:15:00.000-08:00",
     "dateTimeDetails": {
       "label": "Past 3 hours"
     },
