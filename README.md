@@ -1,5 +1,15 @@
 # Sitka Landslide Risk Forecasting
 
+## Resources
+- **Publication describing the model:**  
+  [https://nhess.copernicus.org/articles/23/3261/2023/](https://nhess.copernicus.org/articles/23/3261/2023/)
+
+- **Frequently Asked Questions:**  
+  [https://sitkascience.org/research-projects/landslide-warning-system/](https://sitkascience.org/research-projects/landslide-warning-system/)
+
+- **Website:**  
+  [sitkalandslide.org](https://sitkalandslide.org)
+
 
 ## Development
 
